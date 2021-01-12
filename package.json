@@ -1,0 +1,14 @@
+{
+  "name": "ci",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-scss": "^3.18.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint": "^13.8.0"
+  },
+  "devDependencies": {},
+  "author": "",
+  "license": "ISC"
+}

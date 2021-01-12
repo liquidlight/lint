@@ -1,0 +1,7 @@
+.cache/.*_*
+
+node_modules
+vendor
+
+.DS_Store
+._*
