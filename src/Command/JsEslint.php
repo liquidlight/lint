@@ -9,8 +9,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Console\Input\InputOption;
 
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class JsEslint extends Base
 {
@@ -49,9 +47,7 @@ class JsEslint extends Base
 			$command[] = '--fix';
 		}
 
-		$process = new Process($command);
-		$process->setTty(true);
-		$process->run();
+		$process = $this->run($command);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}

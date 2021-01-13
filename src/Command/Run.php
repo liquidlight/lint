@@ -111,9 +111,7 @@ class Run extends Base
 		foreach ($scripts as $script) {
 			$script = trim($script);
 			$this->output->writeln('script: ' . $script);
-			$process = new Process(explode(' ', $script));
-			$process->setTty(true);
-			$process->run();
+			$process = $this->run($command);
 		}
 	}
 }
