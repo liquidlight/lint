@@ -21,6 +21,7 @@ class JsEslint extends Base
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Run ESLint')
+			->setAliases(['js:lint'])
 			->addOption(
 				'fix',
 				true,

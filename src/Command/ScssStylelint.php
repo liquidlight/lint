@@ -12,15 +12,16 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-class CssStylelint extends Base
+class ScssStylelint extends Base
 {
-	protected static $defaultName = 'css:stylelint';
+	protected static $defaultName = 'scss:stylelint';
 
 	protected function configure()
 	{
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Run Stylelint')
+			->setAliases(['scss:lint', 'css:lint'])
 			->addOption(
 				'fix',
 				true,

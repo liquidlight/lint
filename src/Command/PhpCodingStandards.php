@@ -19,6 +19,7 @@ class PhpCodingStandards extends Base
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Run PHP Code Standards')
+			->setAliases(['php:cs'])
 			->addOption(
 				'fix',
 				true,
@@ -45,8 +46,6 @@ class PhpCodingStandards extends Base
 		$process = new Process($command);
 		$process->setTty(true);
 		$process->run();
-
-		// echo $process->getOutput();
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}
