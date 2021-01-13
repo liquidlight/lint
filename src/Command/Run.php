@@ -15,10 +15,10 @@ use Symfony\Component\Process\Exception\ProcessFailedException;
 
 use Symfony\Component\Yaml\Yaml;
 
-class Lint extends Base
+class Run extends Base
 {
 	// the name of the command (the part after "bin/console")
-	protected static $defaultName = 'lint';
+	protected static $defaultName = 'run';
 
 	// ...
 	protected function configure()
