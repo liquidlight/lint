@@ -2,7 +2,7 @@
 
 // The directory the script is being run from
 $dir = $GLOBALS['_SERVER']['PWD'];
-$cwd = str_replace('/ci.php', '', $GLOBALS['_SERVER']["_"]);
+$cwd = __DIR__ . '/../../';
 
 $finder = PhpCsFixer\Finder::create()
 	// Projects
