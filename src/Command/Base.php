@@ -17,10 +17,10 @@ class Base extends Command
 		$this->path = $dir;
 	}
 
-	protected function run($command) 
+	protected function cmd($command) 
 	{
 		$process = new Process($command);
-		$process->setTty(Process::isTtySupported();
+		$process->setTty(Process::isTtySupported());
 		$process->run();
 
 		return $process;

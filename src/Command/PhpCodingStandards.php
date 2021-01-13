@@ -43,7 +43,7 @@ class PhpCodingStandards extends Base
 			$command[] = '--dry-run';
 		}
 
-		$process = $this->run($command);
+		$process = $this->cmd($command);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}

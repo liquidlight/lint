@@ -47,7 +47,7 @@ class JsEslint extends Base
 			$command[] = '--fix';
 		}
 
-		$process = $this->run($command);
+		$process = $this->cmd($command);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}
