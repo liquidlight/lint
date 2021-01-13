@@ -34,7 +34,6 @@ class JsEslint extends Base
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-
 		$command = [
 			$this->path . '/node_modules/.bin/eslint',
 			getcwd(),
@@ -46,7 +45,7 @@ class JsEslint extends Base
 			'--cache-location', $this->path . '/.cache/',
 		];
 
-		if($input->getOption('fix') !== false) {
+		if ($input->getOption('fix') !== false) {
 			$command[] = '--fix';
 		}
 
@@ -56,5 +55,4 @@ class JsEslint extends Base
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}
-
 }

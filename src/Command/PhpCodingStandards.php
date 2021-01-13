@@ -39,7 +39,7 @@ class PhpCodingStandards extends Base
 			'--verbose'
 		];
 
-		if($input->getOption('fix') === false) {
+		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
 		}
 
@@ -49,5 +49,4 @@ class PhpCodingStandards extends Base
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}
-
 }

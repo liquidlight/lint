@@ -45,49 +45,48 @@ class Run extends Base
 		$this->output = $output;
 		$yaml = getcwd() . '/.gitlab-ci.yml';
 
-		if(!file_exists($yaml)) {
+		if (!file_exists($yaml)) {
 			$output->writeln('There is no gitlab.ci.yml');
 			return Command::FAILURE;
 		}
 
 		$ci = Yaml::parseFile($yaml);
 
-		if(!isset($ci['stages'])) {
+		if (!isset($ci['stages'])) {
 			$output->writeln('Your gitlab-ci.yaml does not define any stages');
 			return Command::FAILURE;
 		}
 
 		$jobs = [];
-		foreach($ci as $title => $item) {
-			if(isset($item['stage'])) {
+		foreach ($ci as $title => $item) {
+			if (isset($item['stage'])) {
 				$jobs[$item['stage']][$title] = $item;
 			}
 		}
 
-		if(!count($jobs)) {
+		if (!count($jobs)) {
 			$output->writeln('There are no jobs with stages');
 			return Command::FAILURE;
 		}
 
-		if(isset($ci['before_script'])) {
+		if (isset($ci['before_script'])) {
 			$output->writeln('Stage: before_script');
-			foreach($ci['before_script'] as $script) {
+			foreach ($ci['before_script'] as $script) {
 				$this->run_script($script);
 			}
 		}
 
 		$fix = false;
-		if($input->getOption('fix') !== false) {
+		if ($input->getOption('fix') !== false) {
 			$fix = ' --fix';
 		}
 
-		foreach($ci['stages'] as $stage) {
+		foreach ($ci['stages'] as $stage) {
 			$output->writeln('Stage: ' . $stage);
-			foreach($jobs[$stage] as $title => $job) {
-
+			foreach ($jobs[$stage] as $title => $job) {
 				$output->writeln('Job: ' . $title);
-				foreach($job['script'] as $script) {
-					if($fix) {
+				foreach ($job['script'] as $script) {
+					if ($fix) {
 						$script = $script . $fix;
 					}
 
@@ -98,7 +97,7 @@ class Run extends Base
 		}
 
 		// clean up the old CI
-		if(is_link(getcwd() . '/ci')) {
+		if (is_link(getcwd() . '/ci')) {
 			$process = new Process(['rm', getcwd() . '/ci']);
 			$process->run();
 		}
@@ -106,9 +105,10 @@ class Run extends Base
 		return Command::SUCCESS;
 	}
 
-	private function run_script($script) {
+	private function run_script($script)
+	{
 		$scripts = explode('&&', $script);
-		foreach($scripts as $script) {
+		foreach ($scripts as $script) {
 			$script = trim($script);
 			$this->output->writeln('script: ' . $script);
 			$process = new Process(explode(' ', $script));
