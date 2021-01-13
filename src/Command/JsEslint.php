@@ -12,15 +12,15 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 
-class CssStylelint extends Base
+class JsEslint extends Base
 {
-	protected static $defaultName = 'css:stylelint';
+	protected static $defaultName = 'js:eslint';
 
 	protected function configure()
 	{
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('Run Stylelint')
+			->setDescription('Run ESLint')
 			->addOption(
 				'fix',
 				true,
@@ -35,13 +35,13 @@ class CssStylelint extends Base
 	{
 
 		$command = [
-			$this->path . '/node_modules/.bin/stylelint',
-			getcwd() . '/build/*/css/**/*.scss',
+			$this->path . '/node_modules/.bin/eslint',
+			getcwd(),
 			'--color',
 			'--cache',
-			'--config', $this->path . '/resources/config/Stylelint.json',
-			'--config-basedir', $this->path . '/node_modules/',
-			'--ignore-path', $this->path . '/resources/config/Stylelint-Ignore',
+			'--ext', '.js',
+			'--config', $this->path . '/resources/config/Eslint.js',
+			'--ignore-path', $this->path . '/resources/config/Eslint-Ignore',
 			'--cache-location', $this->path . '/.cache/',
 		];
 

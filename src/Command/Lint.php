@@ -7,7 +7,9 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Lint extends Command
+use Symfony\Component\Yaml\Yaml;
+
+class Lint extends Base
 {
 	// the name of the command (the part after "bin/console")
 	protected static $defaultName = 'lint';
@@ -27,12 +29,39 @@ class Lint extends Command
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		if(!file_exists('.gitlab.ci.yaml')) {
-			$output->writeln('There is no gitlab.ci.yaml');
+
+		$yaml = getcwd() . '/.gitlab-ci.yml';
+
+		if(!file_exists($yaml)) {
+			$output->writeln('There is no gitlab.ci.yml');
 			return Command::FAILURE;
 		}
 
+		$ci = Yaml::parseFile($yaml);
 
+		if(!isset($ci['stages'])) {
+			$output->writeln('Your gitlab-ci.yaml does not define any stages');
+			return Command::FAILURE;
+		}
+
+		$jobs = [];
+		foreach($ci as $title => $item) {
+			if(isset($item['stage'])) {
+				$jobs[$item['stage']][$title] = $item;
+			}
+		}
+
+		if(!count($jobs)) {
+			$output->writeln('There are no jobs with stages');
+			return Command::FAILURE;
+		}
+
+		foreach($ci['stages'] as $stage) {
+			$output->writeln($stage);
+			foreach($jobs[$stage] as $title => $job) {
+				$output->writeln($title);
+			}
+		}
 		// this method must return an integer number with the "exit status code"
 		// of the command. You can also use these constants to make code more readable
 

@@ -2,6 +2,7 @@
 
 // The directory the script is being run from
 $dir = $GLOBALS['_SERVER']['PWD'];
+$cwd = str_replace('/ci.php', '', $GLOBALS['_SERVER']["_"]);
 
 $finder = PhpCsFixer\Finder::create()
 	// Projects
@@ -48,6 +49,6 @@ return $config->setRules([
 		'indentation_type' => false
 	])
 	->setIndent('	')
-	->setCacheFile('/Users/mike/Sites/ci/.cache/.phpcscache_' . md5($dir))
+	->setCacheFile($cwd . '/.cache/.phpcscache_' . md5($dir))
 	->setFinder($finder)
 	;

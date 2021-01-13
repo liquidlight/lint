@@ -1,0 +1,7 @@
+*lib*
+*html*
+*backup*
+*ci/*
+
+*build/dashboard*
+*snapshots*
