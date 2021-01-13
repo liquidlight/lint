@@ -42,7 +42,7 @@ class Lint extends Base
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-
+		$this->output = $output;
 		$yaml = getcwd() . '/.gitlab-ci.yml';
 
 		if(!file_exists($yaml)) {
@@ -70,9 +70,10 @@ class Lint extends Base
 		}
 
 		if(isset($ci['before_script'])) {
-			$process = new Process($command);
-			$process->setTty(true);
-			$process->run();
+			$output->writeln('Stage: before_script');
+			foreach($ci['before_script'] as $script) {
+				$this->run_script($script);
+			}
 		}
 
 		$fix = false;
@@ -90,15 +91,29 @@ class Lint extends Base
 						$script = $script . $fix;
 					}
 
-					$output->writeln('script: ' . $script);
-					$process = new Process(explode(' ', $script));
-					$process->setTty(true);
-					$process->run();
+					$this->run_script($script);
 					$output->writeln('---');
 				}
 			}
 		}
 
+		// clean up the old CI
+		if(is_link(getcwd() . '/ci')) {
+			$process = new Process(['rm', getcwd() . '/ci']);
+			$process->run();
+		}
+
 		return Command::SUCCESS;
+	}
+
+	private function run_script($script) {
+		$scripts = explode('&&', $script);
+		foreach($scripts as $script) {
+			$script = trim($script);
+			$this->output->writeln('script: ' . $script);
+			$process = new Process(explode(' ', $script));
+			$process->setTty(true);
+			$process->run();
+		}
 	}
 }
