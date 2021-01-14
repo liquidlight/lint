@@ -44,6 +44,7 @@ class Run extends Base
 	{
 		$this->output = $output;
 		$yaml = getcwd() . '/.gitlab-ci.yml';
+		$nodemodules = readlink('node_modules');
 
 		if (!file_exists($yaml)) {
 			$output->writeln('There is no gitlab.ci.yml');
@@ -101,6 +102,12 @@ class Run extends Base
 		if (is_link(getcwd() . '/ci')) {
 			$process = new Process(['rm', getcwd() . '/ci']);
 			$process->run();
+
+			// Reset node modules
+			if($nodemodules) {
+				unlink('node_modules');
+				symlink($nodemodules, 'node_modules');
+			}
 		}
 
 		return Command::SUCCESS;
