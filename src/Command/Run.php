@@ -70,9 +70,10 @@ class Run extends Base
 		}
 
 		if (isset($ci['before_script'])) {
-			$output->writeln('Stage: before_script');
+			$output->writeln('Stage: before_script | ');
 			foreach ($ci['before_script'] as $script) {
 				$this->run_script($script);
+				$output->writeln('---');
 			}
 		}
 
@@ -82,9 +83,9 @@ class Run extends Base
 		}
 
 		foreach ($ci['stages'] as $stage) {
-			$output->writeln('Stage: ' . $stage);
+			$output->write('Stage: ' . $stage . ' | ');
 			foreach ($jobs[$stage] as $title => $job) {
-				$output->writeln('Job: ' . $title);
+				$output->write('Job: ' . $title . ' | ');
 				foreach ($job['script'] as $script) {
 					if ($fix) {
 						$script = $script . $fix;

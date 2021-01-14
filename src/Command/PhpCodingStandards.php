@@ -22,9 +22,16 @@ class PhpCodingStandards extends Base
 			->setAliases(['php:cs'])
 			->addOption(
 				'fix',
-				true,
+				'',
 				InputOption::VALUE_OPTIONAL,
 				'Should the linter fix the code?',
+				false
+			)
+			->addOption(
+				'detailed',
+				'',
+				InputOption::VALUE_OPTIONAL,
+				'A more verbose output?',
 				false
 			)
 		;
@@ -35,10 +42,12 @@ class PhpCodingStandards extends Base
 		$command = [
 			$this->path . '/vendor/bin/php-cs-fixer',
 			'fix',
-			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php',
-			'--verbose'
+			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php'
 		];
 
+		if ($input->getOption('detailed') !== false) {
+			$command[] = '--verbose';
+		}
 		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
 		}

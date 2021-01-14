@@ -49,6 +49,6 @@ return $config->setRules([
 		'indentation_type' => false
 	])
 	->setIndent('	')
-	->setCacheFile($cwd . '/.cache/.phpcscache_' . md5($dir))
+	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))
 	->setFinder($finder)
 	;
