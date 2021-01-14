@@ -19,7 +19,7 @@ class PhpCodingStandards extends Base
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Run PHP Code Standards')
-			->setAliases(['php:cs'])
+			->setAliases(['php:cs', 'php:lint'])
 			->addOption(
 				'fix',
 				'',
