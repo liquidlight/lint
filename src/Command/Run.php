@@ -70,7 +70,7 @@ class Run extends Base
 		}
 
 		if (isset($ci['before_script'])) {
-			if($nodemodules) {
+			if ($nodemodules) {
 				$output->writeln('Stage: before_script | script: creating CI symlink');
 				symlink('/usr/local/share/ci', 'ci');
 			} else {
@@ -106,7 +106,7 @@ class Run extends Base
 		if (is_link(getcwd() . '/ci')) {
 			$output->writeln('Stage: after_script | script: removing CI symlink');
 			$cmd = ['rm', getcwd() . '/ci'];
-			if(!$nodemodules) {
+			if (!$nodemodules) {
 				$cmd[] = 'node_modules';
 			}
 

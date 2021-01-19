@@ -41,7 +41,7 @@ $finder = PhpCsFixer\Finder::create()
 	->in($dir)
 	;
 
-if(is_file($dir . '/.gitignore')) {
+if (is_file($dir . '/.gitignore')) {
 	$finder = $finder->ignoreVCSIgnored(true);
 }
 
@@ -62,8 +62,8 @@ return $config->setRules([
 			'elements' => [
 				'method' => 'one',
 				'property' => 'one',
-				'const' => 'one'
-			]
+				'const' => 'one',
+			],
 		],
 		'function_typehint_space' => true,
 		'include' => true,
@@ -76,7 +76,7 @@ return $config->setRules([
 		'unary_operator_spaces' => true,
 
 		'multiline_whitespace_before_semicolons' => [
-			'strategy' => 'new_line_for_chained_calls'
+			'strategy' => 'new_line_for_chained_calls',
 		],
 		'trailing_comma_in_multiline_array' => true,
 	])

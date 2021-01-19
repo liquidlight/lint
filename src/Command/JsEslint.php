@@ -9,7 +9,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Console\Input\InputOption;
 
-
 class JsEslint extends Base
 {
 	protected static $defaultName = 'js:eslint';

@@ -17,7 +17,7 @@ class Base extends Command
 		$this->path = $dir;
 	}
 
-	protected function cmd($command) 
+	protected function cmd($command)
 	{
 		$process = new Process($command);
 		$process->setTty(Process::isTtySupported());

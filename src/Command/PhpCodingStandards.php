@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
@@ -34,7 +35,7 @@ class PhpCodingStandards extends Base
 		$command = [
 			$this->path . '/vendor/bin/php-cs-fixer',
 			'fix',
-			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php'
+			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php',
 		];
 
 		if ($output->isVerbose()) {
