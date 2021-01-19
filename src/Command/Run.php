@@ -33,18 +33,17 @@ class Run extends Base
 			->addOption(
 				'fix',
 				true,
-				InputOption::VALUE_OPTIONAL,
-				'Should the linter fix the code?',
-				false
+				InputOption::VALUE_NONE,
+				'Should the linter fix the code?'
 			)
-		;
+			;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$this->output = $output;
 		$yaml = getcwd() . '/.gitlab-ci.yml';
-		$nodemodules = readlink('node_modules');
+		$nodemodules = is_link('node_modules');
 
 		if (!file_exists($yaml)) {
 			$output->writeln('There is no gitlab.ci.yml');
@@ -71,10 +70,15 @@ class Run extends Base
 		}
 
 		if (isset($ci['before_script'])) {
-			$output->writeln('Stage: before_script | ');
-			foreach ($ci['before_script'] as $script) {
-				$this->run_script($script);
-				$output->writeln('---');
+			if($nodemodules) {
+				$output->writeln('Stage: before_script | script: creating CI symlink');
+				symlink('/usr/local/share/ci', 'ci');
+			} else {
+				$output->writeln('Stage: before_script | ');
+				foreach ($ci['before_script'] as $script) {
+					$this->run_script($script);
+					$output->writeln('---');
+				}
 			}
 		}
 
@@ -100,14 +104,15 @@ class Run extends Base
 
 		// clean up the old CI
 		if (is_link(getcwd() . '/ci')) {
-			$process = new Process(['rm', getcwd() . '/ci']);
-			$process->run();
-
-			// Reset node modules
-			if($nodemodules) {
-				unlink('node_modules');
-				symlink($nodemodules, 'node_modules');
+			$output->writeln('Stage: after_script | script: removing CI symlink');
+			$cmd = ['rm', getcwd() . '/ci'];
+			if(!$nodemodules) {
+				$cmd[] = 'node_modules';
 			}
+
+			$process = new Process($cmd);
+			$process->run();
+			$output->writeln('---');
 		}
 
 		return Command::SUCCESS;

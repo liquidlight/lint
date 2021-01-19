@@ -25,11 +25,10 @@ class ScssStylelint extends Base
 			->addOption(
 				'fix',
 				true,
-				InputOption::VALUE_OPTIONAL,
-				'Should the linter fix the code?',
-				false
+				InputOption::VALUE_NONE,
+				'Should the linter fix the code?'
 			)
-		;
+			;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)

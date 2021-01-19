@@ -23,18 +23,10 @@ class PhpCodingStandards extends Base
 			->addOption(
 				'fix',
 				'',
-				InputOption::VALUE_OPTIONAL,
-				'Should the linter fix the code?',
-				false
+				InputOption::VALUE_NONE,
+				'Should the linter fix the code?'
 			)
-			->addOption(
-				'detailed',
-				'',
-				InputOption::VALUE_OPTIONAL,
-				'A more verbose output?',
-				false
-			)
-		;
+			;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
@@ -45,9 +37,14 @@ class PhpCodingStandards extends Base
 			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php'
 		];
 
-		if ($input->getOption('detailed') !== false) {
+		if ($output->isVerbose()) {
 			$command[] = '--verbose';
 		}
+
+		if ($output->isVeryVerbose()) {
+			$command[] = '--diff';
+		}
+
 		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
 		}
