@@ -20,7 +20,7 @@ class ScssStylelint extends Base
 	{
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('Run Stylelint')
+			->setDescription('Stylelint')
 			->setAliases(['scss:lint', 'css:lint'])
 			->addOption(
 				'fix',
@@ -49,6 +49,7 @@ class ScssStylelint extends Base
 		}
 
 		$process = $this->cmd($command);
+		$this->outputResult($input, $output, $process);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}

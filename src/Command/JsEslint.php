@@ -17,7 +17,7 @@ class JsEslint extends Base
 	{
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('Run ESLint')
+			->setDescription('ESLint')
 			->setAliases(['js:lint'])
 			->addOption(
 				'fix',
@@ -46,6 +46,7 @@ class JsEslint extends Base
 		}
 
 		$process = $this->cmd($command);
+		$this->outputResult($input, $output, $process);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}

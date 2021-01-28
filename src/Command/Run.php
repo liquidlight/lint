@@ -6,6 +6,7 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputOption;
@@ -19,6 +20,9 @@ class Run extends Base
 {
 	// the name of the command (the part after "bin/console")
 	protected static $defaultName = 'run';
+
+	// Is the fix flag on it?
+	protected $fix = false;
 
 	// ...
 	protected function configure()
@@ -42,8 +46,12 @@ class Run extends Base
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		$this->output = $output;
+		$io = new SymfonyStyle($input, $output);
+
 		$yaml = getcwd() . '/.gitlab-ci.yml';
 		$nodemodules = is_link('node_modules');
+
+		$return = [];
 
 		if (!file_exists($yaml)) {
 			$output->writeln('There is no gitlab.ci.yml');
@@ -76,27 +84,29 @@ class Run extends Base
 			} else {
 				$output->writeln('Stage: before_script | ');
 				foreach ($ci['before_script'] as $script) {
-					$this->run_script($script);
+					$returnCode = $this->run_script($script);
+					if($returnCode > 0) {
+						$return[] = $script;
+					}
 					$output->writeln('---');
 				}
 			}
 		}
 
-		$fix = false;
 		if ($input->getOption('fix') !== false) {
-			$fix = ' --fix';
+			$this->fix = true;
 		}
 
 		foreach ($ci['stages'] as $stage) {
 			$output->write('Stage: ' . $stage . ' | ');
+
 			foreach ($jobs[$stage] as $title => $job) {
 				$output->write('Job: ' . $title . ' | ');
 				foreach ($job['script'] as $script) {
-					if ($fix) {
-						$script = $script . $fix;
+					$returnCode = $this->run_script($script);
+					if($returnCode > 0) {
+						$return[] = $script;
 					}
-
-					$this->run_script($script);
 					$output->writeln('---');
 				}
 			}
@@ -115,7 +125,16 @@ class Run extends Base
 			$output->writeln('---');
 		}
 
-		return Command::SUCCESS;
+		if(count($return) > 0) {
+			$io->warning(array_merge(
+				[count($return) . ' lint task(s) failed:'],
+				$return
+			));
+		} else {
+			$io->success('Linting passed');
+		}
+
+		return $returnCode > 0 ? Command::FAILURE : Command::SUCCESS;
 	}
 
 	private function run_script($script)
@@ -124,7 +143,24 @@ class Run extends Base
 		foreach ($scripts as $script) {
 			$script = trim($script);
 			$this->output->writeln('script: ' . $script);
-			$process = $this->cmd(explode(' ', $script));
+			if(substr($script, 0, 4) === 'lint') {
+				$script = str_replace('lint', '', $script);
+				$command = $this->getApplication()->find(trim($script));
+				$args = [];
+				if($this->fix) {
+					$args['--fix'] = true;
+				}
+
+				$returnCode = $command->run(new ArrayInput($args), new \Symfony\Component\Console\Output\NullOutput);
+			} else {
+				if ($this->fix) {
+					$script = $script . ($this->fix ? ' --fix' : '');
+				}
+				$process = $this->cmd(explode(' ', $script));
+				$returnCode = $process->isSuccessful();
+			}
 		}
+
+		return $returnCode;
 	}
 }
