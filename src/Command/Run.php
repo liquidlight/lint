@@ -153,11 +153,12 @@ class Run extends Base
 
 				$returnCode = $command->run(new ArrayInput($args), new \Symfony\Component\Console\Output\NullOutput);
 			} else {
+				// This is the old CI
 				if ($this->fix) {
 					$script = $script . ($this->fix ? ' --fix' : '');
 				}
 				$process = $this->cmd(explode(' ', $script));
-				$returnCode = $process->isSuccessful();
+				$returnCode = $process->getExitCode();
 			}
 		}
 
