@@ -85,7 +85,7 @@ class Run extends Base
 				$output->writeln('Stage: before_script | ');
 				foreach ($ci['before_script'] as $script) {
 					$returnCode = $this->run_script($script);
-					if($returnCode > 0) {
+					if ($returnCode > 0) {
 						$return[] = $script;
 					}
 					$output->writeln('---');
@@ -104,7 +104,7 @@ class Run extends Base
 				$output->write('Job: ' . $title . ' | ');
 				foreach ($job['script'] as $script) {
 					$returnCode = $this->run_script($script);
-					if($returnCode > 0) {
+					if ($returnCode > 0) {
 						$return[] = $script;
 					}
 					$output->writeln('---');
@@ -125,7 +125,7 @@ class Run extends Base
 			$output->writeln('---');
 		}
 
-		if(count($return) > 0) {
+		if (count($return) > 0) {
 			$io->warning(array_merge(
 				[count($return) . ' lint task(s) failed:'],
 				$return
@@ -133,7 +133,7 @@ class Run extends Base
 		} else {
 			$io->success('Linting passed');
 		}
-		
+
 		return count($return) > 0 ? Command::FAILURE : Command::SUCCESS;
 	}
 
@@ -143,11 +143,11 @@ class Run extends Base
 		foreach ($scripts as $script) {
 			$script = trim($script);
 			$this->output->writeln('script: ' . $script);
-			if(substr($script, 0, 4) === 'lint') {
+			if (substr($script, 0, 4) === 'lint') {
 				$script = str_replace('lint', '', $script);
 				$command = $this->getApplication()->find(trim($script));
 				$args = [];
-				if($this->fix) {
+				if ($this->fix) {
 					$args['--fix'] = true;
 				}
 

@@ -31,7 +31,7 @@ class Base extends Command
 	{
 		$io = new SymfonyStyle($input, $output);
 
-		if(!$process->isSuccessful()) {
+		if (!$process->isSuccessful()) {
 			$io->warning($this->getDescription() . ' was not successful');
 		} else {
 			$io->success($this->getDescription() . ' passed');
