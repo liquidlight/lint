@@ -133,8 +133,8 @@ class Run extends Base
 		} else {
 			$io->success('Linting passed');
 		}
-
-		return $returnCode > 0 ? Command::FAILURE : Command::SUCCESS;
+		
+		return count($return) > 0 ? Command::FAILURE : Command::SUCCESS;
 	}
 
 	private function run_script($script)
