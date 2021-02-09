@@ -134,6 +134,10 @@ class Run extends Base
 			$io->success('Linting passed');
 		}
 
+		if ($this->fix) {
+			$this->cmd(['/usr/bin/git', 'status']);
+		}
+
 		return count($return) > 0 ? Command::FAILURE : Command::SUCCESS;
 	}
 
