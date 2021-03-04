@@ -9,3 +9,5 @@ build/*/css/partials/_variables.scss
 build/*/css/partials/components/_print.scss
 
 build/dashboard/css/*
+
+build/global-new/css/*
