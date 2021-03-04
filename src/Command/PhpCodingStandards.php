@@ -41,7 +41,7 @@ class PhpCodingStandards extends Base
 			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php',
 		];
 
-		if ($output->isVerbose() || $input->getOption('fix')) {
+		if ($output->isVerbose() || $input->getOption('fix') || !Process::isTtySupported()) {
 			$command[] = '--verbose';
 		}
 
