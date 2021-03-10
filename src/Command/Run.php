@@ -130,6 +130,7 @@ class Run extends Base
 				[count($return) . ' lint task(s) failed:'],
 				$return
 			));
+			$io->info(['This can be resolved with', 'lint run --fix']);
 		} else {
 			$io->success('Linting passed');
 		}
