@@ -47,7 +47,7 @@ if (is_file($dir . '/.gitignore')) {
 
 $config = new PhpCsFixer\Config();
 return $config->setRules([
-		'@PSR2' => true,
+		'@PSR12' => true,
 
 		'indentation_type' => false,
 
