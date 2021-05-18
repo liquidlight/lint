@@ -1,0 +1,19 @@
+filePatterns:
+  - "*.ts"
+  - "*.typoscript"
+  - "setup.txt"
+  - "constants.txt"
+
+paths:
+  - "./build"
+  - "./html/typo3conf/ext"
+
+sniffs:
+  - class: Indentation
+    parameters:
+      useSpaces: false
+      indentPerLevel: 1
+      indentConditions: true
+
+  - class: RepeatingRValue
+    disabled: true

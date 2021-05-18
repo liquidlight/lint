@@ -7,44 +7,35 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 
 use Symfony\Component\Console\Input\InputOption;
 
-class JsEslint extends Base
+use Symfony\Component\Process\Process;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+
+class TsLint extends Base
 {
-	protected static $defaultName = 'js:eslint';
+	protected static $defaultName = 'ts:lint';
 
 	protected function configure()
 	{
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('ESLint')
-			->setAliases(['js:lint'])
-			->addOption(
-				'fix',
-				true,
-				InputOption::VALUE_NONE,
-				'Should the linter fix the code?'
-			)
+			->setDescription('Typoscript Lint')
+			->setAliases(['typoscript:lint'])
 			;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$command = [
-			$this->path . '/node_modules/.bin/eslint',
-			getcwd(),
-			'--color',
-			'--cache',
-			'--ext', '.js',
-			'--config', $this->path . '/resources/config/Eslint.js',
-			'--ignore-path', $this->path . '/resources/config/Eslint-Ignore',
-			'--cache-location', $this->path . '/.cache/',
-		];
+		$io = new SymfonyStyle($input, $output);
 
-		if ($input->getOption('fix') !== false) {
-			$command[] = '--fix';
-		}
+		$command = [
+			$this->path . '/vendor/bin/typoscript-lint',
+			'--config=' . $this->path . '/resources/config/TSLint.yaml',
+			'--fail-on-warnings',
+		];
 
 		$process = $this->cmd($command);
 		$this->outputResult($input, $output, $process);

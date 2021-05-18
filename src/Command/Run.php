@@ -1,6 +1,7 @@
 <?php
 
 // src/Command/CreateUserCommand.php
+
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
@@ -156,7 +157,7 @@ class Run extends Base
 					$args['--fix'] = true;
 				}
 
-				$returnCode = $command->run(new ArrayInput($args), new \Symfony\Component\Console\Output\NullOutput);
+				$returnCode = $command->run(new ArrayInput($args), new \Symfony\Component\Console\Output\NullOutput());
 			} else {
 				// This is the old CI
 				if ($this->fix) {

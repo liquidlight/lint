@@ -9,6 +9,7 @@ use Symfony\Component\Console\Application;
 use App\Command\PhpCodingStandards;
 use App\Command\ScssStylelint;
 use App\Command\JsEslint;
+use App\Command\TSLint;
 use App\Command\Run;
 
 ini_set('display_errors', 1);
@@ -21,6 +22,7 @@ $application = new Application();
 $application->add(new PhpCodingStandards(__DIR__));
 $application->add(new ScssStylelint(__DIR__));
 $application->add(new JsEslint(__DIR__));
+$application->add(new TSLint(__DIR__));
 $application->add(new Run(__DIR__));
 
 $application->run();
