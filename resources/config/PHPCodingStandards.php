@@ -78,7 +78,7 @@ return $config->setRules([
 		'multiline_whitespace_before_semicolons' => [
 			'strategy' => 'new_line_for_chained_calls',
 		],
-		'trailing_comma_in_multiline_array' => true,
+		'trailing_comma_in_multiline' => true,
 	])
 	->setIndent('	')
 	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))

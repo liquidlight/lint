@@ -66,9 +66,14 @@ class Run extends Base
 			return Command::FAILURE;
 		}
 
+		// Stages to ignore when linting
+		$ignored_stages = ['Deploy', 'Release'];
+		$ci['stages'] = array_diff($ci['stages'], $ignored_stages);
+
+
 		$jobs = [];
 		foreach ($ci as $title => $item) {
-			if (isset($item['stage'])) {
+			if (isset($item['stage']) && !in_array($item['stage'], $ignored_stages)) {
 				$jobs[$item['stage']][$title] = $item;
 			}
 		}
