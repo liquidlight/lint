@@ -11,3 +11,10 @@ A new updated CI which uses symphony console
 
 - `cd` to the directory you wish to lint/fix
 - `/path/to/directory/ci.php`
+
+## How to use with Gitlab
+
+- Update, commit and push your changes
+- `ssh gitlab-ci`
+- `cd docker`
+- `sudo ./build.sh`
