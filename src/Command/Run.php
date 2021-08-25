@@ -109,7 +109,7 @@ class Run extends Base
 
 		foreach ($ci['stages'] as $stage) {
 			$stage_parts = explode(' ', $stage);
-			if(in_array(ucfirst(ltrim($stage_parts[0], '.')), $ignored_stages)) {
+			if (in_array(ucfirst(ltrim($stage_parts[0], '.')), $ignored_stages)) {
 				continue;
 			}
 
@@ -117,7 +117,7 @@ class Run extends Base
 
 			foreach ($jobs[$stage] as $title => $job) {
 				$output->write('Job: ' . $title . ' | ');
-				if(!isset($job['script']) || !$job['script']) {
+				if (!isset($job['script']) || !$job['script']) {
 					continue;
 				}
 				foreach ($job['script'] as $script) {
