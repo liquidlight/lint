@@ -11,3 +11,19 @@ build/*/css/partials/components/_print.scss
 build/dashboard/css/*
 
 build/global-new/css/*
+
+build/blp-ireland/css/*
+build/blp-new/css/*
+build/bm/css/*
+build/global/css/*
+build/global-new/css/*
+build/hellenic/css/*
+build/pamia/css/*
+build/simia/css/*
+build/tmcm/css/*
+build/tmi-2017/css/*
+build/tml/css/*
+build/tms/css/*
+build/tt-club-forwarders/css/*
+build/uk-defence/css/*
+build/uk-war/css/*
