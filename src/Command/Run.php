@@ -70,10 +70,14 @@ class Run extends Base
 		$ignored_stages = ['Deploy', 'Release'];
 		$ci['stages'] = array_diff($ci['stages'], $ignored_stages);
 
-
 		$jobs = [];
 		foreach ($ci as $title => $item) {
-			if (isset($item['stage']) && !in_array($item['stage'], $ignored_stages)) {
+			$job_parts = explode(':', $title);
+			if (
+				isset($item['stage']) &&
+				!in_array($item['stage'], $ignored_stages) &&
+				!in_array(ucfirst(ltrim($job_parts[0], '.')), $ignored_stages)
+			) {
 				$jobs[$item['stage']][$title] = $item;
 			}
 		}
@@ -104,10 +108,18 @@ class Run extends Base
 		}
 
 		foreach ($ci['stages'] as $stage) {
+			$stage_parts = explode(' ', $stage);
+			if(in_array(ucfirst(ltrim($stage_parts[0], '.')), $ignored_stages)) {
+				continue;
+			}
+
 			$output->write('Stage: ' . $stage . ' | ');
 
 			foreach ($jobs[$stage] as $title => $job) {
 				$output->write('Job: ' . $title . ' | ');
+				if(!isset($job['script']) || !$job['script']) {
+					continue;
+				}
 				foreach ($job['script'] as $script) {
 					$returnCode = $this->run_script($script);
 					if ($returnCode > 0) {
