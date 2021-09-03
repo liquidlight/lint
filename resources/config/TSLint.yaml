@@ -5,8 +5,7 @@ filePatterns:
   - "constants.txt"
 
 paths:
-  - "./build"
-  - "./html/typo3conf/ext"
+  - "./"
 
 sniffs:
   - class: Indentation
