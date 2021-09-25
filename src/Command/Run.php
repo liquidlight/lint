@@ -67,7 +67,7 @@ class Run extends Base
 		}
 
 		// Stages to ignore when linting
-		$ignored_stages = ['Deploy', 'Release'];
+		$ignored_stages = ['Deploy', 'Release', 'test'];
 		$ci['stages'] = array_diff($ci['stages'], $ignored_stages);
 
 		$jobs = [];
