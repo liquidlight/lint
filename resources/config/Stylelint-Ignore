@@ -1,12 +1,17 @@
-build/*/css/partials/libs
-build/*/css/libs
-build/*/css/print.scss
-build/*/css/*/_print.scss
-build/*/css/screen.rte.scss
-build/*/css/src/_sprite.scss
-build/*/css/partials/variables
-build/*/css/partials/_variables.scss
-build/*/css/partials/components/_print.scss
+libs/
+print.scss
+_print.scss
+screen.rte.scss
+_sprite.scss
+variables
+_variables.scss
+
+.git/
+backup/
+html/
+vendor/
+node_modules/
+var/
 
 build/dashboard/css/*
 

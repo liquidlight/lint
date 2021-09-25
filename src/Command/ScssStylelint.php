@@ -36,7 +36,7 @@ class ScssStylelint extends Base
 	{
 		$command = [
 			$this->path . '/node_modules/.bin/stylelint',
-			getcwd() . '/build/*/css/**/*.scss',
+			'**/*.scss',
 			'--color',
 			'--cache',
 			'--config', $this->path . '/resources/config/Stylelint.json',
