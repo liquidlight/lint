@@ -1,4 +1,7 @@
 libs/
+Library/
+Libraries/
+
 print.scss
 _print.scss
 screen.rte.scss

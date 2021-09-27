@@ -20,7 +20,7 @@ class PhpCodingStandards extends Base
 	{
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('PHP Code Standards')
+			->setDescription('PHP Coding Standards')
 			->setAliases(['php:cs', 'php:lint'])
 			->addOption(
 				'fix',
@@ -33,7 +33,14 @@ class PhpCodingStandards extends Base
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$io = new SymfonyStyle($input, $output);
+		parent::execute($input, $output);
+
+		$fileCheck = $this->findFiles('php');
+		if(!$fileCheck) {
+			return Command::SUCCESS;
+		}
+
+		$this->getTitle();
 
 		$command = [
 			$this->path . '/vendor/bin/php-cs-fixer',
@@ -51,10 +58,13 @@ class PhpCodingStandards extends Base
 
 		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
+		} else {
+			$this->io->text('Attempting to fix...');
 		}
 
 		$process = $this->cmd($command);
-		$this->outputResult($input, $output, $process);
+		$this->io->newLine();
+		$this->outputResult($process);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}

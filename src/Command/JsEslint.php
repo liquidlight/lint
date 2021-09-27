@@ -31,6 +31,16 @@ class JsEslint extends Base
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
+		parent::execute($input, $output);
+
+		$ignore = explode(PHP_EOL, file_get_contents($this->path . '/resources/config/Eslint-Ignore'));
+		$fileCheck = $this->findFiles('js', $ignore);
+		if(!$fileCheck) {
+			return Command::SUCCESS;
+		}
+
+		$this->getTitle();
+
 		$command = [
 			$this->path . '/node_modules/.bin/eslint',
 			getcwd(),
@@ -44,10 +54,12 @@ class JsEslint extends Base
 
 		if ($input->getOption('fix') !== false) {
 			$command[] = '--fix';
+
+			$this->io->text('Attempting to fix...');
 		}
 
 		$process = $this->cmd($command);
-		$this->outputResult($input, $output, $process);
+		$this->outputResult($process);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}

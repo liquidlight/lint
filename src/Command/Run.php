@@ -62,22 +62,18 @@ class Run extends Base
 		];
 
 		foreach ($scripts as $script) {
-			$io->section('Running: ' . $script);
-
 			$command = $this->getApplication()->find(trim($script));
 			$args = [];
 			if ($this->fix) {
 				$args['--fix'] = true;
 			}
 
-			$returnCode = $command->run(new ArrayInput($args), new NullOutput());
+			$returnCode = $command->run(new ArrayInput($args), $this->output);
 
 			if ($returnCode > 0) {
 				$return[] = $script;
 			}
 		}
-
-		$output->writeln('');
 
 		if (count($return) > 0) {
 			$io->warning(array_merge(
