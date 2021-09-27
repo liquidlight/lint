@@ -61,7 +61,7 @@ class Run extends Base
 			'php:coding-standards',
 		];
 
-		foreach($scripts as $script) {
+		foreach ($scripts as $script) {
 			$io->section('Running: ' . $script);
 
 			$command = $this->getApplication()->find(trim($script));
@@ -84,7 +84,13 @@ class Run extends Base
 				[count($return) . ' lint task(s) failed:'],
 				$return
 			));
-			$io->info(['This can be resolved with', 'lint run --fix']);
+			foreach ($return as $index => $job) {
+				$return[$index] = sprintf('lint %s --fix', $job);
+			}
+			$io->info(array_merge(
+				['This might be able to be resolved with:'],
+				$return
+			));
 		} else {
 			$io->success('Linting passed');
 		}
@@ -95,5 +101,4 @@ class Run extends Base
 
 		return count($return) > 0 ? Command::FAILURE : Command::SUCCESS;
 	}
-
 }
