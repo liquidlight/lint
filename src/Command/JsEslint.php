@@ -35,7 +35,7 @@ class JsEslint extends Base
 
 		$ignore = explode(PHP_EOL, file_get_contents($this->path . '/resources/config/Eslint-Ignore'));
 		$fileCheck = $this->findFiles('js', $ignore);
-		if(!$fileCheck) {
+		if (!$fileCheck) {
 			return Command::SUCCESS;
 		}
 

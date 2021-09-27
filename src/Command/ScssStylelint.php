@@ -37,7 +37,7 @@ class ScssStylelint extends Base
 		parent::execute($input, $output);
 
 		$fileCheck = $this->findFiles('scss');
-		if(!$fileCheck) {
+		if (!$fileCheck) {
 			return Command::SUCCESS;
 		}
 

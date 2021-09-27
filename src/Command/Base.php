@@ -21,7 +21,8 @@ class Base extends Command
 		$this->path = $dir;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output) {
+	protected function execute(InputInterface $input, OutputInterface $output)
+	{
 		$this->input = $input;
 		$this->output = $output;
 
@@ -34,7 +35,6 @@ class Base extends Command
 	{
 		$this->io->title(sprintf('%s <fg=white>%s</>', $this->getDescription(), $this->getName()));
 	}
-
 
 	protected function cmd($command)
 	{
@@ -66,7 +66,7 @@ class Base extends Command
 			->notPath(array_filter(array_merge(['vendor/', 'node_modules/'], $ignore)))
 			;
 
-		if($this->output->isVerbose() && !$finder->hasResults()) {
+		if ($this->output->isVerbose() && !$finder->hasResults()) {
 			$this->io->info('No ' . $ext . ' files found');
 		}
 

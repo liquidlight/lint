@@ -36,7 +36,7 @@ class PhpCodingStandards extends Base
 		parent::execute($input, $output);
 
 		$fileCheck = $this->findFiles('php');
-		if(!$fileCheck) {
+		if (!$fileCheck) {
 			return Command::SUCCESS;
 		}
 
