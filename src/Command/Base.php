@@ -42,7 +42,7 @@ class Base extends Command
 		$process->setTty(Process::isTtySupported());
 		$process->run();
 
-		if (!Process::isTtySupported() && $output) {
+		if (!Process::isTtySupported()) {
 			echo $process->getOutput();
 		}
 
