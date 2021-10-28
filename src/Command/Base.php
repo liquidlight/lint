@@ -73,7 +73,8 @@ class Base extends Command
 		return $finder;
 	}
 
-	protected function hasFiles($ext, $ignore = []) {
+	protected function hasFiles($ext, $ignore = [])
+	{
 		return $this->findFiles($ext, $ignore)->hasResults();
 	}
 }

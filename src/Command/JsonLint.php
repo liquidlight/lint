@@ -38,17 +38,17 @@ class JsonLint extends Base
 
 		$response = Command::SUCCESS;
 		$parser = new JsonParser();
-		foreach($files as $file) {
+		foreach ($files as $file) {
 			try {
 				$content = $file->getContents();
 				//var_dump($content);
 				$error = $parser->lint($content);
-				if($error) {
+				if ($error) {
 					throw $error;
 				}
 			} catch (Exception $ex) {
 				$this->io->warning("JSON parsing error in " . $file->getRelativePathname());
-				$this->io->text("\t". implode("\n\t", array_map('trim', explode("\n", $ex->getMessage()))));
+				$this->io->text("\t" . implode("\n\t", array_map('trim', explode("\n", $ex->getMessage()))));
 				$response = Command::FAILURE;
 			}
 		}
