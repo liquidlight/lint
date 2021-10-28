@@ -34,7 +34,7 @@ class JsEslint extends Base
 		parent::execute($input, $output);
 
 		$ignore = explode(PHP_EOL, file_get_contents($this->path . '/resources/config/Eslint-Ignore'));
-		$fileCheck = $this->findFiles('js', $ignore);
+		$fileCheck = $this->hasFiles('js', $ignore);
 		if (!$fileCheck) {
 			return Command::SUCCESS;
 		}

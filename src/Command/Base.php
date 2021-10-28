@@ -70,6 +70,10 @@ class Base extends Command
 			$this->io->info('No ' . $ext . ' files found');
 		}
 
-		return $finder->hasResults();
+		return $finder;
+	}
+
+	protected function hasFiles($ext, $ignore = []) {
+		return $this->findFiles($ext, $ignore)->hasResults();
 	}
 }
