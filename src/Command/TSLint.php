@@ -29,7 +29,7 @@ class TsLint extends Base
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$io = new SymfonyStyle($input, $output);
+		parent::execute($input, $output);
 
 		$command = [
 			$this->path . '/vendor/bin/typoscript-lint',
@@ -38,7 +38,7 @@ class TsLint extends Base
 		];
 
 		$process = $this->cmd($command);
-		$this->outputResult($input, $output, $process);
+		$this->outputResult($process);
 
 		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
 	}
