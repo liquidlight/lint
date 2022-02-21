@@ -34,12 +34,17 @@ $finder = PhpCsFixer\Finder::create()
 	// General
 	->exclude('Library')
 	->exclude('vendor')
+	->exclude('var')
 
 	->ignoreDotFiles(true)
 	->ignoreUnreadableDirs()
 
 	->in($dir)
 	;
+
+if (is_dir($dir . '/app')) {
+	$finder = $finder->exclude('html/typo3conf/ext');
+}
 
 if (is_file($dir . '/.gitignore')) {
 	$finder = $finder->ignoreVCSIgnored(true);
