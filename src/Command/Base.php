@@ -40,6 +40,7 @@ class Base extends Command
 	{
 		$process = new Process($command);
 		$process->setTty(Process::isTtySupported());
+		$process->setTimeout(600);
 		$process->run();
 
 		if (!Process::isTtySupported()) {
