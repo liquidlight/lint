@@ -79,7 +79,7 @@
 		],
 		"property-no-vendor-prefix": true,
 		"at-rule-property-required-list": {
-			"font-face": ["font-display", "font-family", "font-style", "font-path"]
+			"font-face": ["font-family", "font-style"]
 		},
 		"scss/at-extend-no-missing-placeholder": true,
 		"scss/at-import-no-partial-leading-underscore": true,
