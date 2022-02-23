@@ -1,6 +1,7 @@
 {
-    "name": "liquidlight/ci",
+    "name": "liquidlight/lint",
     "type": "project",
+    "version": "1.0.0",
     "require": {
         "symfony/console": "^5.2",
         "friendsofphp/php-cs-fixer": "^3.0",

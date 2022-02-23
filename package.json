@@ -1,5 +1,5 @@
 {
-  "name": "ci",
+  "name": "lint",
   "version": "1.0.0",
   "description": "",
   "dependencies": {
