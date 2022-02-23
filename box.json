@@ -1,0 +1,16 @@
+{
+	"directories": [
+		"src",
+		"resources"
+	],
+	"finder": [
+		{
+			"name": "*.php",
+			"exclude": ["Tests"],
+			"in": "vendor"
+		}
+	],
+	"main": "ci.php",
+	"output": "dist/lint",
+	"compression": "GZ"
+}
