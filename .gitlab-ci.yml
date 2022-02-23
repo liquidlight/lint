@@ -11,15 +11,28 @@
 
 # Stages which are run
 stages:
-  - Backend
+  - backend
+  - build
 
 # Use custom LL docker image
 image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 
 # Lint the PHP
 php:coding-standards:
-  stage: Backend
+  stage: backend
   script:
     - lint php:coding-standards
   except:
     - tags
+
+build:
+  stage: build
+  image: flamy/php-composer-node-npm
+  script:
+    - git config --global http.sslverify false
+    - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
+    - npm ci
+    - vendor/bin/box compile
+  artifacts:
+    paths:
+      - lint.phar

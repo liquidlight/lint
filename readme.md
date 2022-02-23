@@ -70,7 +70,6 @@ Then it can be used as above.
 When releasing a new version (generally with a tag), a new phar should be built.
 
 - Update the version numbers in `composer.json` and `package.json`
-- Run `vendor/bin/box compile`
 - Commit the modified files as `Release: X.X.X`
 - `git tag X.X.X`
 - `git push origin main --tags`
