@@ -10,7 +10,7 @@
 			"in": "vendor"
 		}
 	],
-	"main": "ci.php",
+	"main": "lint.php",
 	"output": "lint.phar",
 	"compression": "GZ",
 	"chmod": "0755"
