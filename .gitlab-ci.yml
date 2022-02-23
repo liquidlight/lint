@@ -22,8 +22,6 @@ php:coding-standards:
   stage: backend
   script:
     - lint php:coding-standards
-  except:
-    - tags
 
 build:
   stage: build
@@ -40,3 +38,5 @@ build:
   artifacts:
     paths:
       - lint.phar
+  only:
+    - tags
