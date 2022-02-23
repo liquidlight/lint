@@ -30,9 +30,10 @@ build:
   image: flamy/php-composer-node-npm
   script:
     - git config --global http.sslverify false
+    - composer global require humbug/box
     - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
     - npm ci
-    - vendor/bin/box compile
+    - box compile
   artifacts:
     paths:
       - lint.phar
