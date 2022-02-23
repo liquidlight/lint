@@ -33,7 +33,7 @@ build:
     - curl -LSs https://box-project.github.io/box2/installer.php | php
     - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
     - npm ci
-    - php box.phar compile
+    - php box.phar build
   artifacts:
     paths:
       - lint.phar
