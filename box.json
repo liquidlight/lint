@@ -11,6 +11,6 @@
 		}
 	],
 	"main": "ci.php",
-	"output": "dist/lint",
+	"output": "dist/lint.phar",
 	"compression": "GZ"
 }
