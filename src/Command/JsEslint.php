@@ -14,7 +14,7 @@ class JsEslint extends Base
 {
 	protected static $defaultName = 'js:eslint';
 
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
@@ -22,9 +22,9 @@ class JsEslint extends Base
 			->setAliases(['js:lint'])
 			->addOption(
 				'fix',
-				true,
+				'f',
 				InputOption::VALUE_NONE,
-				'Should the linter fix the code?'
+				'Should the linter fix the code?',
 			)
 			;
 	}
@@ -33,7 +33,10 @@ class JsEslint extends Base
 	{
 		parent::execute($input, $output);
 
-		$ignore = explode(PHP_EOL, file_get_contents($this->path . '/resources/config/Eslint-Ignore'));
+		$ignore = explode(
+			PHP_EOL,
+			file_get_contents($this->path . '/resources/config/Eslint-Ignore') ?: ''
+		);
 		$fileCheck = $this->hasFiles('js', $ignore);
 		if (!$fileCheck) {
 			return Command::SUCCESS;

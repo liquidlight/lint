@@ -5,18 +5,16 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
 
 use Symfony\Component\Console\Input\InputOption;
 
 use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class PhpCodingStandards extends Base
 {
 	protected static $defaultName = 'php:coding-standards';
 
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
@@ -24,9 +22,9 @@ class PhpCodingStandards extends Base
 			->setAliases(['php:cs', 'php:lint'])
 			->addOption(
 				'fix',
-				'',
+				'f',
 				InputOption::VALUE_NONE,
-				'Should the linter fix the code?'
+				'Should the linter fix the code?',
 			)
 			;
 	}

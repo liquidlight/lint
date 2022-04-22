@@ -10,14 +10,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Console\Input\InputOption;
 
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-
 class ScssStylelint extends Base
 {
 	protected static $defaultName = 'scss:stylelint';
 
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
@@ -25,7 +22,7 @@ class ScssStylelint extends Base
 			->setAliases(['scss:lint', 'css:lint'])
 			->addOption(
 				'fix',
-				true,
+				'f',
 				InputOption::VALUE_NONE,
 				'Should the linter fix the code?'
 			)

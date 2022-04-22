@@ -9,13 +9,18 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Finder\Finder;
 
 use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class Base extends Command
 {
-	protected $path;
+	protected string $path;
 
-	public function __construct($dir)
+	protected InputInterface $input;
+
+	protected OutputInterface $output;
+
+	protected SymfonyStyle $io;
+
+	public function __construct(string $dir)
 	{
 		parent::__construct();
 		$this->path = $dir;
@@ -31,12 +36,15 @@ class Base extends Command
 		return Command::SUCCESS;
 	}
 
-	protected function getTitle()
+	protected function getTitle(): void
 	{
 		$this->io->title(sprintf('%s <fg=white>%s</>', $this->getDescription(), $this->getName()));
 	}
 
-	protected function cmd($command)
+	/**
+	 * @param  array<int, mixed|false> $command
+	 */
+	protected function cmd(array $command): Process
 	{
 		$process = new Process($command);
 		$process->setTty(Process::isTtySupported());
@@ -50,7 +58,7 @@ class Base extends Command
 		return $process;
 	}
 
-	protected function outputResult($process)
+	protected function outputResult(Process $process): void
 	{
 		if ($process->isSuccessful()) {
 			$this->io->success($this->getDescription() . ' passed');
@@ -59,11 +67,14 @@ class Base extends Command
 		}
 	}
 
-	protected function findFiles($ext, $ignore = [])
+	/**
+	 * @param array<string> $ignore
+	 */
+	protected function findFiles(string $ext, array $ignore = []): Finder
 	{
 		$finder = new Finder();
 		$finder->files()
-			->in(getcwd())->name('*.' . $ext)
+			->in(getcwd() ?: '')->name('*.' . $ext)
 			->notPath(array_filter(array_merge(['vendor/', 'node_modules/'], $ignore)))
 			;
 
@@ -74,7 +85,10 @@ class Base extends Command
 		return $finder;
 	}
 
-	protected function hasFiles($ext, $ignore = [])
+	/**
+	 * @param array<string> $ignore
+	 */
+	protected function hasFiles(string $ext, array $ignore = []): bool
 	{
 		return $this->findFiles($ext, $ignore)->hasResults();
 	}

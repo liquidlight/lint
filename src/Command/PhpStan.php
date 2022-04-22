@@ -12,7 +12,7 @@ class PhpStan extends Base
 {
 	protected static $defaultName = 'php:stan';
 
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
@@ -42,6 +42,8 @@ class PhpStan extends Base
 			return Command::SUCCESS;
 		}
 
+		$paths = (array)$input->getArgument('paths');
+
 		$this->getTitle();
 
 		$command = [
@@ -49,22 +51,8 @@ class PhpStan extends Base
 			'analyse',
 			'--level',
 			$input->getOption('level'),
-			...$input->getArgument('paths'),
+			...$paths,
 		];
-
-		// if ($output->isVerbose() || $input->getOption('fix') || !Process::isTtySupported()) {
-		// 	$command[] = '--verbose';
-		// }
-
-		// if ($output->isVeryVerbose()) {
-		// 	$command[] = '--diff';
-		// }
-
-		// if ($input->getOption('fix') === false) {
-		// 	$command[] = '--dry-run';
-		// } else {
-		// 	$this->io->text('Attempting to fix...');
-		// }
 
 		$process = $this->cmd($command);
 		$this->io->newLine();

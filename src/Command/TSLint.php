@@ -7,18 +7,12 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-
-use Symfony\Component\Console\Input\InputOption;
-
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 
 class TsLint extends Base
 {
 	protected static $defaultName = 'ts:lint';
 
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"

@@ -11,12 +11,6 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Output\NullOutput;
-
-use Symfony\Component\Process\Process;
-use Symfony\Component\Process\Exception\ProcessFailedException;
-
-use Symfony\Component\Yaml\Yaml;
 
 class Run extends Base
 {
@@ -24,10 +18,10 @@ class Run extends Base
 	protected static $defaultName = 'run';
 
 	// Is the fix flag on it?
-	protected $fix = false;
+	protected bool $fix = false;
 
 	// ...
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
@@ -38,7 +32,7 @@ class Run extends Base
 			->setHelp('This command allows you to create a user...')
 			->addOption(
 				'fix',
-				true,
+				'f',
 				InputOption::VALUE_NONE,
 				'Should the linter fix the code?'
 			)
@@ -60,6 +54,11 @@ class Run extends Base
 			'js:lint',
 			'php:coding-standards',
 		];
+
+		if (!$this->getApplication()) {
+			$this->io->error('There is no application');
+			return Command::FAILURE;
+		}
 
 		foreach ($scripts as $script) {
 			$command = $this->getApplication()->find(trim($script));

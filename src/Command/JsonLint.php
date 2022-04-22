@@ -7,7 +7,6 @@ namespace App\Command;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Input\InputOption;
 use Seld\JsonLint\JsonParser;
 use Exception;
 
@@ -15,7 +14,7 @@ class JsonLint extends Base
 {
 	protected static $defaultName = 'json:lint';
 
-	protected function configure()
+	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
@@ -28,9 +27,13 @@ class JsonLint extends Base
 	{
 		parent::execute($input, $output);
 
-		$config = json_decode(file_get_contents($this->path . '/resources/config/jsonlint.json'));
+		$config = (object)json_decode(
+			file_get_contents($this->path . '/resources/config/jsonlint.json') ?: ''
+		);
+
 		$files = $this->findFiles($config->extension, $config->ignore);
-		if (!$files) {
+
+		if (!$files->hasResults()) {
 			return Command::SUCCESS;
 		}
 
