@@ -1,14 +1,12 @@
 <?php
 
-// src/Command/CreateUserCommand.php
-
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class TsLint extends Base
+class TSLint extends Base
 {
 	protected static $defaultName = 'ts:lint';
 

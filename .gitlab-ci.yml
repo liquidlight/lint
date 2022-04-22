@@ -11,15 +11,32 @@
 
 # Stages which are run
 stages:
-  - Backend
+  - backend
+  - build
 
 # Use custom LL docker image
 image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 
 # Lint the PHP
 php:coding-standards:
-  stage: Backend
+  stage: backend
   script:
     - lint php:coding-standards
-  except:
+
+build:
+  stage: build
+  image: flamy/php-composer-node-npm
+  script:
+    - git config --global http.sslverify false
+    - echo "[Phar]" >>  /usr/local/etc/php/conf.d/build-phar.ini
+    - echo "phar.readonly = Off" >>  /usr/local/etc/php/conf.d/build-phar.ini
+    - echo "phar.require_hash = Off" >>  /usr/local/etc/php/conf.d/build-phar.ini
+    - curl -LSs https://box-project.github.io/box2/installer.php | php
+    - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
+    - npm ci
+    - php box.phar build
+  artifacts:
+    paths:
+      - lint.phar
+  only:
     - tags
