@@ -20,5 +20,10 @@
             "name": "Mike Street",
             "email": "mike@liquidlight.co.uk"
         }
-    ]
+    ],
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        }
+    }
 }
