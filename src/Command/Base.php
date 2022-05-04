@@ -36,7 +36,7 @@ class Base extends Command
 		return Command::SUCCESS;
 	}
 
-	protected function getTitle(): void
+	protected function printTitle(): void
 	{
 		$this->io->title(sprintf('%s <fg=white>%s</>', $this->getDescription(), $this->getName()));
 	}

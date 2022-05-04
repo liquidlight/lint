@@ -37,7 +37,7 @@ class JsonLint extends Base
 			return Command::SUCCESS;
 		}
 
-		$this->getTitle();
+		$this->printTitle();
 
 		$response = Command::SUCCESS;
 		$parser = new JsonParser();

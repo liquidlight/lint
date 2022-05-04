@@ -38,7 +38,7 @@ class ScssStylelint extends Base
 			return Command::SUCCESS;
 		}
 
-		$this->getTitle();
+		$this->printTitle();
 
 		$command = [
 			$this->path . '/node_modules/.bin/stylelint',

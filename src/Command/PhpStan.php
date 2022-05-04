@@ -44,7 +44,7 @@ class PhpStan extends Base
 
 		$paths = (array)$input->getArgument('paths');
 
-		$this->getTitle();
+		$this->printTitle();
 
 		$command = [
 			$this->path . '/vendor/bin/phpstan',

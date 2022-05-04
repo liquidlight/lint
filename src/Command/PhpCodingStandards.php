@@ -38,7 +38,7 @@ class PhpCodingStandards extends Base
 			return Command::SUCCESS;
 		}
 
-		$this->getTitle();
+		$this->printTitle();
 
 		$command = [
 			$this->path . '/vendor/bin/php-cs-fixer',
