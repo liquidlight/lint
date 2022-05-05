@@ -16,7 +16,7 @@ class TSLint extends Base
 			// the short description shown while running "php bin/console list"
 			->setDescription('Typoscript Lint')
 			->setAliases(['typoscript:lint'])
-			;
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)

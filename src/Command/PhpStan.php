@@ -30,7 +30,7 @@ class PhpStan extends Base
 				'What level should be used?',
 				0,
 			)
-			;
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
@@ -43,8 +43,6 @@ class PhpStan extends Base
 		}
 
 		$paths = (array)$input->getArgument('paths');
-
-		$this->printTitle();
 
 		$command = [
 			$this->path . '/vendor/bin/phpstan',

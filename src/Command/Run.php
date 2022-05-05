@@ -36,7 +36,7 @@ class Run extends Base
 				InputOption::VALUE_NONE,
 				'Should the linter fix the code?'
 			)
-			;
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)

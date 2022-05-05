@@ -33,6 +33,8 @@ class Base extends Command
 
 		$this->io = new SymfonyStyle($input, $output);
 
+		$this->printTitle();
+
 		return Command::SUCCESS;
 	}
 

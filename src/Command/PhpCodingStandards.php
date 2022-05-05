@@ -26,7 +26,7 @@ class PhpCodingStandards extends Base
 				InputOption::VALUE_NONE,
 				'Should the linter fix the code?',
 			)
-			;
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
@@ -37,8 +37,6 @@ class PhpCodingStandards extends Base
 		if (!$fileCheck) {
 			return Command::SUCCESS;
 		}
-
-		$this->printTitle();
 
 		$command = [
 			$this->path . '/vendor/bin/php-cs-fixer',
