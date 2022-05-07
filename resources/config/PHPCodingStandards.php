@@ -54,7 +54,7 @@ $config = new PhpCsFixer\Config();
 return $config->setRules([
 		'@PSR12' => true,
 
-		'indentation_type' => false,
+		'indentation_type' => true,
 
 		'array_syntax' => ['syntax' => 'short'],
 		'concat_space' => ['spacing' => 'one'],
@@ -85,7 +85,7 @@ return $config->setRules([
 		],
 		'trailing_comma_in_multiline' => true,
 	])
-	->setIndent('	')
+	->setIndent("\t")
 	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))
 	->setFinder($finder)
 	;
