@@ -48,10 +48,11 @@ class Base extends Command
 	 */
 	protected function cmd(array $command): Process
 	{
+		$helper = $this->getHelper('process');
 		$process = new Process($command);
 		$process->setTty(Process::isTtySupported());
 		$process->setTimeout(600);
-		$process->run();
+		$helper->run($this->output, $process);
 
 		if (!Process::isTtySupported()) {
 			echo $process->getOutput();
