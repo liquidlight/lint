@@ -1,6 +1,7 @@
 libs/
 Library/
 Libraries/
+app/*/Resources/Public
 
 print.scss
 _print.scss
