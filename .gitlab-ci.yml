@@ -20,7 +20,7 @@ image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 php:stan:
   stage: backend
   script:
-    - lint php:stan ./src --level=9
+    - lint php:stan ./src --level=8
 
 php:coding-standards:
   stage: backend
