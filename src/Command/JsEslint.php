@@ -51,6 +51,7 @@ class JsEslint extends Base
 			'--config', $this->path . '/resources/config/Eslint.js',
 			'--ignore-path', $this->path . '/resources/config/Eslint-Ignore',
 			'--cache-location', $this->path . '/.cache/',
+			'--cache-strategy', 'content',
 		];
 
 		if ($input->getOption('fix') !== false) {
