@@ -44,12 +44,22 @@ class Base extends Command
 	}
 
 	/**
-	 * @param  array<int, mixed|false> $command
+	 * @param array<int, mixed|false> $command
 	 */
 	protected function cmd(array $command): Process
 	{
+		return $this->runCmd(new Process($command));
+	}
+
+	protected function cmdString(string $command): Process
+	{
+		return $this->runCmd(Process::fromShellCommandline($command));
+	}
+
+	protected function runCmd(Process $process): Process
+	{
 		$helper = $this->getHelper('process');
-		$process = new Process($command);
+
 		$process->setTty(Process::isTtySupported());
 		$process->setTimeout(600);
 		$helper->run($this->output, $process);

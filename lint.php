@@ -13,6 +13,7 @@ use App\Command\PhpStan;
 use App\Command\Run;
 use App\Command\ScssStylelint;
 use App\Command\TSLint;
+use App\Command\YamlLint;
 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -27,5 +28,6 @@ $application->add(new PhpStan(__DIR__));
 $application->add(new Run(__DIR__));
 $application->add(new ScssStylelint(__DIR__));
 $application->add(new TSLint(__DIR__));
+$application->add(new YamlLint(__DIR__));
 
 $application->run();
