@@ -2,10 +2,6 @@
 
 Lint your code against Liquid Light conventions (yes, we use tabs and not spaces).
 
-```bash
-wget XXX
-mv lint.phar /usr/local/bin/lint
-```
 
 Uses:
 
@@ -18,27 +14,6 @@ Uses:
 ## Installation & Usage
 
 You can download the phar file and use as a standalone application - alternatively you can clone the repository
-
-### phar file
-
-Download the phar and move to your shared `bin` folder
-
-```bash
-wget XXX
-mv lint.phar /usr/local/bin/lint
-```
-
-To see a full list of commands, run
-
-```bash
-lint
-```
-
-To lint (and fix) the PHP in your application, for example, you can run
-
-```bash
-lint php:coding-standards --fix
-```
 
 ### Git repository
 
@@ -64,13 +39,3 @@ ln -s  /path/to/lint/directory/lint.php lint
 ```
 
 Then it can be used as above.
-
-## Building the phar
-
-When releasing a new version (generally with a tag), a new phar should be built.
-
-- Update the version numbers in `composer.json` and `package.json`
-- Commit the modified files as `Release: X.X.X`
-- `git tag X.X.X`
-- `git push origin main --tags`
-- Update any docker images and computers containing the image `lint self-update`
