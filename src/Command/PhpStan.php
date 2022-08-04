@@ -54,6 +54,10 @@ class PhpStan extends Base
 			...$paths,
 		];
 
+		if ($output->isVeryVerbose()) {
+			$command[] = '--debug';
+		}
+
 		$process = $this->cmd($command);
 		$this->io->newLine();
 		$this->outputResult($process);
