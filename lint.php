@@ -20,7 +20,12 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-$application = new Application();
+$composerFile = json_decode(file_get_contents(__DIR__ . '/composer.json'));
+
+$application = new Application(
+	$composerFile->description,
+	$composerFile->version
+);
 
 $application->add(new JsEslint(__DIR__));
 $application->add(new JsonLint(__DIR__));

@@ -1,5 +1,6 @@
 {
     "name": "liquidlight/lint",
+    "description": "Liquid Light Linter",
     "type": "project",
     "version": "1.0.1",
     "require": {
