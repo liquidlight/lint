@@ -1,3 +1,4 @@
 parameters:
 	excludePaths:
 		- '%currentWorkingDirectory%/vendor/*'
+		- '%currentWorkingDirectory%/node_modules/*'
