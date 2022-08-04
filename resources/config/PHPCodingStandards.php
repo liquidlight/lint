@@ -40,7 +40,7 @@ $finder = PhpCsFixer\Finder::create()
 	->ignoreUnreadableDirs()
 
 	->in($dir)
-	;
+;
 
 if (is_dir($dir . '/app')) {
 	$finder = $finder->exclude('html/typo3conf/ext');
@@ -88,4 +88,4 @@ return $config->setRules([
 	->setIndent("\t")
 	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))
 	->setFinder($finder)
-	;
+;

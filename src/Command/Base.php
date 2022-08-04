@@ -89,7 +89,7 @@ class Base extends Command
 		$finder->files()
 			->in(getcwd() ?: '')->name('*.' . $ext)
 			->notPath(array_filter(array_merge(['vendor/', 'node_modules/'], $ignore)))
-			;
+		;
 
 		if ($this->output->isVerbose() && !$finder->hasResults()) {
 			$this->io->info('No ' . $ext . ' files found');
