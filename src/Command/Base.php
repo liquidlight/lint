@@ -51,11 +51,17 @@ class Base extends Command
 		return $this->runCmd(new Process($command));
 	}
 
-	protected function cmdString(string $command): Process
+	/**
+	 * @param string $command
+	 */
+	protected function cmdString(string $command = ''): Process
 	{
 		return $this->runCmd(Process::fromShellCommandline($command));
 	}
 
+	/**
+	 * @param Process $process
+	 */
 	protected function runCmd(Process $process): Process
 	{
 		$helper = $this->getHelper('process');
