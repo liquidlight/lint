@@ -9,7 +9,6 @@
         "helmich/typo3-typoscript-lint": "^2.5",
         "symfony/finder": "^5.3",
         "seld/jsonlint": "^1.8",
-        "j13k/yaml-lint": "^1.1",
         "phpstan/phpstan": "^1.5"
     },
 	"autoload": {
