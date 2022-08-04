@@ -9,9 +9,9 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class Update extends Base
+class SelfUpdate extends Base
 {
-	protected static $defaultName = 'update';
+	protected static $defaultName = 'self-update';
 
 	protected function configure(): void
 	{
