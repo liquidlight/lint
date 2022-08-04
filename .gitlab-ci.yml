@@ -20,27 +20,10 @@ image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 php:stan:
   stage: backend
   script:
+    - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
     - lint php:stan ./src --level=8
 
 php:coding-standards:
   stage: backend
   script:
     - lint php:coding-standards
-
-# build:
-#   stage: build
-#   image: flamy/php-composer-node-npm
-#   script:
-#     - git config --global http.sslverify false
-#     - echo "[Phar]" >>  /usr/local/etc/php/conf.d/build-phar.ini
-#     - echo "phar.readonly = Off" >>  /usr/local/etc/php/conf.d/build-phar.ini
-#     - echo "phar.require_hash = Off" >>  /usr/local/etc/php/conf.d/build-phar.ini
-#     - curl -LSs https://box-project.github.io/box2/installer.php | php
-#     - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
-#     - npm ci
-#     - php box.phar build
-#   artifacts:
-#     paths:
-#       - lint.phar
-#   only:
-#     - tags
