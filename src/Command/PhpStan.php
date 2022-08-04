@@ -49,6 +49,8 @@ class PhpStan extends Base
 			'analyse',
 			'--level',
 			$input->getOption('level'),
+			'--configuration',
+			$this->path . '/resources/config/PHPStan.neon',
 			...$paths,
 		];
 
