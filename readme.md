@@ -2,18 +2,27 @@
 
 Lint your code against Liquid Light conventions (yes, we use tabs and not spaces).
 
+Commands:
 
-Uses:
-
-- PHP Coding Standards
-- ES Lint
-- JSON Lint
-- SCSS Stylelint
-- TypoScript Lint
+```
+js
+	js:eslint             [js:lint] ESLint
+json
+	json:lint             JSON Linting
+php
+	php:coding-standards  [php:cs|php:lint] PHP Coding Standards
+	php:stan              PHPStan
+scss
+	scss:stylelint        [scss:lint|css:lint] Stylelint
+ts
+	ts:lint               [typoscript:lint] Typoscript Lint
+yaml
+	yaml:lint             YAML Lint
+```
 
 ## Installation & Usage
 
-You can download the phar file and use as a standalone application - alternatively you can clone the repository
+How to install:
 
 ### Git repository
 
@@ -28,7 +37,7 @@ composer install --no-dev && npm i
 You can then move to the directory you wish to lint and run
 
 ```
-/path/to/lint/directory/lint.php
+/path/to/lint/cloned/directory/lint.php
 ```
 
 If you wish for this to be globally runnable, you can symlink the `lint.php` file

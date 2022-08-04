@@ -18,8 +18,7 @@ class JsonLint extends Base
 	{
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('JsonLint')
-			->setAliases(['json:lint'])
+			->setDescription('JSON linting')
 		;
 	}
 
