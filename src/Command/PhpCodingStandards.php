@@ -26,12 +26,23 @@ class PhpCodingStandards extends Base
 				InputOption::VALUE_NONE,
 				'Should the linter fix the code?',
 			)
+			->addOption(
+				'clean',
+				'',
+				InputOption::VALUE_NONE,
+				'Delete the cache file and do a clean scan',
+			)
 		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
+
+		if ($input->getOption('clean')) {
+			$this->io->text('Deleting cache file');
+			unlink($this->path . '/.cache/.phpcscache_' . md5($GLOBALS['_SERVER']['PWD']));
+		}
 
 		$fileCheck = $this->hasFiles('php');
 		if (!$fileCheck) {
