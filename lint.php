@@ -15,6 +15,7 @@ use App\Command\ScssStylelint;
 use App\Command\TSLint;
 use App\Command\SelfUpdate;
 use App\Command\YamlLint;
+use Symfony\Component\Translation\Command\XliffLintCommand;
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -36,5 +37,6 @@ $application->add(new ScssStylelint(__DIR__));
 $application->add(new TSLint(__DIR__));
 $application->add(new SelfUpdate(__DIR__));
 $application->add(new YamlLint(__DIR__));
+$application->add(new XliffLintCommand());
 
 $application->run();
