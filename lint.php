@@ -37,6 +37,6 @@ $application->add(new ScssStylelint(__DIR__));
 $application->add(new TSLint(__DIR__));
 $application->add(new SelfUpdate(__DIR__));
 $application->add(new YamlLint(__DIR__));
-$application->add(new XliffLintCommand());
+$application->add((new XliffLintCommand())->setName('xliff:lint')->setAliases(['lint:xliff']));
 
 $application->run();
