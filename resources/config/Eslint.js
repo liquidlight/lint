@@ -64,6 +64,7 @@ module.exports = {
 		'no-alert': 'off', // disallow the use of alert, confirm, and prompt
 		'no-caller': 'off', // disallow use of arguments.caller or arguments.callee
 		'no-case-declarations': 'off', // disallow lexical declarations in case clauses
+		'no-constant-binary-expression': 'error', // disallow expressions where the operation doesn't affect the value
 		'no-div-regex': 'off', // disallow division operators explicitly at beginning of regular expression
 		'no-else-return': 'off', // disallow else after a return in an if
 		'no-empty-pattern': 'off', // disallow use of empty destructuring patterns
