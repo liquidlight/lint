@@ -1,3 +1,10 @@
+# 1.1.3
+
+#### Frontend
+
+- Update NPM dependencies
+- Add `no-constant-binary-expression` rule to ESLint
+
 # 1.1.0
 
 #### Backend
