@@ -5,7 +5,8 @@ filePatterns:
   - "constants.txt"
 
 paths:
-  - "./"
+  - "./build"
+  - "./app"
 
 sniffs:
   - class: Indentation
