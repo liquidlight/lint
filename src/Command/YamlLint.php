@@ -22,7 +22,7 @@ class YamlLint extends Base
 	{
 		parent::execute($input, $output);
 
-		$command = "find . ! -path '*vendor/*' ! -path '*node_modules/*' ! -path '*html/*' -name '*.yml' -o -name '*.yaml' | xargs -r php " . $this->path . "/vendor/bin/yaml-lint";
+		$command = "find . -type f \( -iname '*.yaml' -o -iname '*.yml' \) ! -path './vendor/*' ! -path './html/*' ! -path './node_modules/*' | xargs -r php " . $this->path . "/vendor/bin/yaml-lint";
 
 		$process = $this->cmdString($command);
 		$this->outputResult($process);
