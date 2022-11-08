@@ -21,7 +21,7 @@ class SelfUpdate extends Base
 			->setDescription('Updates the linter')
 			->addOption(
 				'dev',
-				false,
+				null,
 				InputOption::VALUE_OPTIONAL,
 				'Go onto the main branch',
 				'main',
