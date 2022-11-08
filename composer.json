@@ -1,33 +1,35 @@
 {
-    "name": "liquidlight/lint",
-    "description": "Liquid Light Linter",
-    "type": "project",
-    "version": "1.2.0",
-    "require": {
-        "symfony/console": "^5.2",
-        "friendsofphp/php-cs-fixer": "^3.0",
-        "symfony/yaml": "^5.2",
-        "helmich/typo3-typoscript-lint": "^2.5",
-        "symfony/finder": "^5.3",
-        "seld/jsonlint": "^1.8",
-        "phpstan/phpstan": "^1.5",
-        "j13k/yaml-lint": "^1.1",
-        "symfony/translation": "^5.4"
-    },
+	"name": "liquidlight/lint",
+	"description": "Liquid Light Linter",
+	"type": "project",
+	"version": "1.2.0",
+	"authors": [
+		{
+			"name": "Mike Street",
+			"email": "mike@liquidlight.co.uk"
+		}
+	],
+	"require": {
+		"ergebnis/composer-normalize": "^2.28",
+		"friendsofphp/php-cs-fixer": "^3.0",
+		"helmich/typo3-typoscript-lint": "^2.5",
+		"j13k/yaml-lint": "^1.1",
+		"phpstan/phpstan": "^1.5",
+		"seld/jsonlint": "^1.8",
+		"symfony/console": "^5.2",
+		"symfony/finder": "^5.3",
+		"symfony/translation": "^5.4",
+		"symfony/yaml": "^5.2"
+	},
 	"autoload": {
-        "psr-4": {
-            "App\\": "src"
-        }
-    },
-    "authors": [
-        {
-            "name": "Mike Street",
-            "email": "mike@liquidlight.co.uk"
-        }
-    ],
-    "config": {
-        "allow-plugins": {
-            "bamarni/composer-bin-plugin": true
-        }
-    }
+		"psr-4": {
+			"App\\": "src"
+		}
+	},
+	"config": {
+		"allow-plugins": {
+			"bamarni/composer-bin-plugin": true,
+			"ergebnis/composer-normalize": true
+		}
+	}
 }
