@@ -24,7 +24,7 @@ class SelfUpdate extends Base
 				null,
 				InputOption::VALUE_OPTIONAL,
 				'Go onto the main branch',
-				'main',
+				false,
 			)
 		;
 	}
@@ -42,8 +42,8 @@ class SelfUpdate extends Base
 
 		$tag = trim($process->getOutput());
 
-		if ($input->getOption('dev') !== false) {
-			$tag = trim($input->getOption('dev'));
+		if ($input->getOption('dev') || is_null($input->getOption('dev'))) {
+			$tag = trim($input->getOption('dev') ?? 'main');
 
 			$this->io->text('Switching to the ' . $input->getOption('dev') . ' branch (dev)');
 		}
