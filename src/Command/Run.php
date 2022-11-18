@@ -45,7 +45,13 @@ class Run extends Base
 		$io = new SymfonyStyle($input, $output);
 
 		if ($input->getOption('fix') !== false) {
-			$this->fix = true;
+			$io->warning('Global `--fix` has been deprecated, please run fix on the individual linter');
+			$io->note('This will be removed in the next version');
+			$result = $io->confirm('Continue for now?');
+
+			if (!$result) {
+				return Command::FAILURE;
+			}
 		}
 
 		$return = [];
@@ -56,7 +62,7 @@ class Run extends Base
 		];
 
 		if (!$this->getApplication()) {
-			$this->io->error('There is no application');
+			$io->error('There is no application');
 			return Command::FAILURE;
 		}
 
