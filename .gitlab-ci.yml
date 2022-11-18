@@ -21,7 +21,7 @@ php:stan:
   stage: backend
   script:
     - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
-    - ./lint.php php:stan ./src --level=7
+    - lint php:stan --level=7
 
 php:coding-standards:
   stage: backend

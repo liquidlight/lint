@@ -31,5 +31,12 @@
 			"bamarni/composer-bin-plugin": true,
 			"ergebnis/composer-normalize": true
 		}
+	},
+	"scripts": {
+		"lint": [
+			"lint php:coding-standards",
+			"lint composer:lint",
+			"lint php:stan --level=7"
+		]
 	}
 }
