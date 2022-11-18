@@ -27,3 +27,8 @@ php:coding-standards:
   stage: backend
   script:
     - lint php:coding-standards
+
+composer:lint:
+  stage: backend
+  script:
+    - lint composer:lint
