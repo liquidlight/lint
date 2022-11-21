@@ -40,7 +40,6 @@ class Base extends Command
 
 	protected function printTitle(): void
 	{
-		$this->io->text(sprintf('%s - <fg=green>%s</>', $this->getApplication()->getName(), $this->getApplication()->getVersion()));
 		$this->io->title(sprintf('%s <fg=white>%s</>', $this->getDescription(), $this->getName()));
 	}
 
