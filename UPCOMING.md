@@ -9,7 +9,8 @@
 
 #### Backend
 
-- Remove
+- Remove linter version and name from every call
+- Improve output of commands to be less "in your face"
 
 #### Dependencies
 
