@@ -54,8 +54,6 @@ class PhpStan extends Base
 			...$paths,
 		];
 
-		$command[] = $output->isVerbose() ? '-v' : '-q';
-
 		if ($output->isVeryVerbose()) {
 			$command[] = '--debug';
 		}

@@ -83,7 +83,10 @@ class Base extends Command
 			$this->io->text('<fg=green>✓ ' . $this->getDescription() . ' passed</>');
 			$this->io->newLine();
 		} else {
-			$this->io->warning($this->getDescription() . ' was not successful');
+			$this->io->warning([
+				$this->getDescription() . ' was not successful',
+				sprintf('lint %s --fix', $this->getName()),
+			]);
 		}
 	}
 

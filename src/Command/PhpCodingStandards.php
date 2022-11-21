@@ -57,8 +57,6 @@ class PhpCodingStandards extends Base
 
 		if ($output->isVerbose() || $input->getOption('fix') || !Process::isTtySupported()) {
 			$command[] = '--verbose';
-		} else {
-			$command[] = '-q';
 		}
 
 		if ($output->isVeryVerbose()) {

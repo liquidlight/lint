@@ -39,7 +39,9 @@ class ComposerLint extends Base
 			'--indent-style', 'tab',
 		];
 
-		$command[] = $output->isVerbose() ? '-v' : '-q';
+		if ($output->isVerbose()) {
+			$command[] = '-v';
+		}
 
 		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
