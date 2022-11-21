@@ -81,7 +81,8 @@ class Base extends Command
 	protected function outputResult(Process $process): void
 	{
 		if ($process->isSuccessful()) {
-			$this->io->success($this->getDescription() . ' passed');
+			$this->io->text('<fg=green>✓ ' . $this->getDescription() . ' passed</>');
+			$this->io->newLine();
 		} else {
 			$this->io->warning($this->getDescription() . ' was not successful');
 		}
