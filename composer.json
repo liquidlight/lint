@@ -35,7 +35,7 @@
 	"scripts": {
 		"lint": [
 			"lint php:coding-standards",
-			"lint composer:lint",
+			"lint composer:normalize",
 			"lint php:stan --level=7"
 		]
 	}

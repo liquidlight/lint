@@ -28,7 +28,7 @@ php:coding-standards:
   script:
     - lint php:coding-standards
 
-composer:lint:
+composer:normalize:
   stage: backend
   script:
-    - lint composer:lint
+    - lint composer:normalize

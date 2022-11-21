@@ -9,16 +9,16 @@ use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ComposerLint extends Base
+class ComposerNormalize extends Base
 {
-	protected static $defaultName = 'composer:lint';
+	protected static $defaultName = 'composer:normalize';
 
 	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Composer Normalize')
-			->setAliases(['composer:normalize'])
+			->setAliases(['composer:lint'])
 			->addOption(
 				'fix',
 				'f',

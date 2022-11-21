@@ -6,7 +6,7 @@ require __DIR__ . '/vendor/autoload.php';
 
 use Symfony\Component\Console\Application;
 
-use App\Command\ComposerLint;
+use App\Command\ComposerNormalize;
 use App\Command\JsEslint;
 use App\Command\JsonLint;
 use App\Command\PhpCodingStandards;
@@ -29,7 +29,7 @@ $application = new Application(
 	$composerFile->version
 );
 
-$application->add(new ComposerLint(__DIR__));
+$application->add(new ComposerNormalize(__DIR__));
 $application->add(new JsEslint(__DIR__));
 $application->add(new JsonLint(__DIR__));
 $application->add(new PhpCodingStandards(__DIR__));
