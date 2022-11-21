@@ -41,8 +41,6 @@ class ComposerLint extends Base
 
 		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
-
-			$this->io->text('Attempting to fix...');
 		}
 
 		$process = $this->cmd($command);
