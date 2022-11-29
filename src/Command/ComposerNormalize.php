@@ -28,8 +28,11 @@ class ComposerNormalize extends Base
 	{
 		parent::execute($input, $output);
 
+
 		$command = [
-			$this->path . '/bin/composer-normalize.phar',
+			'composer',
+			'--working-dir', $this->path,
+			'normalize',
 			getcwd() . '/composer.json',
 			'--indent-size', '1',
 			'--indent-style', 'tab',
