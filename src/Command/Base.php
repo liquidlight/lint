@@ -2,13 +2,14 @@
 
 namespace App\Command;
 
+use Symfony\Component\Finder\Finder;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
+use Symfony\Component\Console\Style\SymfonyStyle;
+
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Finder\Finder;
-
-use Symfony\Component\Process\Process;
 
 class Base extends Command
 {
@@ -24,6 +25,25 @@ class Base extends Command
 	{
 		parent::__construct();
 		$this->path = $dir;
+	}
+
+	protected function configure(): void
+	{
+		$this
+			// the short description shown while running "php bin/console list"
+			->addOption(
+				'fix',
+				'f',
+				InputOption::VALUE_NONE,
+				'Should the linter fix the code?',
+			)
+			->addOption(
+				'whisper',
+				'w',
+				InputOption::VALUE_NONE,
+				'Minimal output',
+			)
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)

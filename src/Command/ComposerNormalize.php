@@ -15,16 +15,12 @@ class ComposerNormalize extends Base
 
 	protected function configure(): void
 	{
+		parent::configure();
+
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Composer Normalize')
 			->setAliases(['composer:lint'])
-			->addOption(
-				'fix',
-				'f',
-				InputOption::VALUE_NONE,
-				'Should the linter fix the code?',
-			)
 		;
 	}
 
@@ -45,6 +41,10 @@ class ComposerNormalize extends Base
 
 		if ($input->getOption('fix') === false) {
 			$command[] = '--dry-run';
+		}
+
+		if ($input->getOption('whisper')) {
+			$command[] = '--quiet';
 		}
 
 		$process = $this->cmd($command);

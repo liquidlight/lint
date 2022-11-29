@@ -14,6 +14,8 @@ class PhpStan extends Base
 
 	protected function configure(): void
 	{
+		parent::configure();
+
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('PHPStan')
@@ -56,6 +58,10 @@ class PhpStan extends Base
 
 		if ($output->isVeryVerbose()) {
 			$command[] = '--debug';
+		}
+
+		if ($input->getOption('whisper')) {
+			$command[] = '--quiet';
 		}
 
 		$process = $this->cmd($command);

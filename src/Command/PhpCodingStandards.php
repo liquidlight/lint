@@ -16,16 +16,12 @@ class PhpCodingStandards extends Base
 
 	protected function configure(): void
 	{
+		parent::configure();
+
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('PHP Coding Standards')
-			->setAliases(['php:cs', 'php:lint'])
-			->addOption(
-				'fix',
-				'f',
-				InputOption::VALUE_NONE,
-				'Should the linter fix the code?',
-			)
+			->setAliases(['php:cs', 'php:lint', 'php'])
 			->addOption(
 				'clean',
 				'',
@@ -54,6 +50,10 @@ class PhpCodingStandards extends Base
 			'fix',
 			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php',
 		];
+
+		if ($input->getOption('whisper')) {
+			$command[] = '--quiet';
+		}
 
 		if ($output->isVerbose() || $input->getOption('fix') || !Process::isTtySupported()) {
 			$command[] = '--verbose';

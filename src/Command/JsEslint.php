@@ -16,16 +16,12 @@ class JsEslint extends Base
 
 	protected function configure(): void
 	{
+		parent::configure();
+
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('ESLint')
 			->setAliases(['js:lint'])
-			->addOption(
-				'fix',
-				'f',
-				InputOption::VALUE_NONE,
-				'Should the linter fix the code?',
-			)
 		;
 	}
 
