@@ -23,59 +23,37 @@ class Run extends Base
 	// ...
 	protected function configure(): void
 	{
+		parent::configure();
+
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Lints the code')
-
-			// the full command description shown when running the command with
-			// the "--help" option
 			->setHelp('This command allows you to create a user...')
-			->addOption(
-				'fix',
-				'f',
-				InputOption::VALUE_NONE,
-				'Should the linter fix the code?'
-			)
 		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$this->output = $output;
 		$this->io = new SymfonyStyle($input, $output);
 
-		if ($input->getOption('fix') !== false) {
-			$this->fix = true;
-			$this->io->warning('Global `--fix` has been deprecated, please run fix on the individual linter');
-			$this->io->note('This will be removed in the next version');
-			$result = $this->io->confirm('Continue for now?');
+		$return = [];
 
-			if (!$result) {
-				return Command::FAILURE;
-			}
-		}
+		// Base scripts
+		$scripts = [
+			'lint scss:stylelint',
+			'lint js:eslint',
+			'lint php:coding-standards',
+		];
 
+		// Override scripts if specified in composer
 		if (
 			file_exists('composer.json') &&
 			$composer = json_decode(file_get_contents('composer.json') ?: '', true)
 		) {
 			if (isset($composer['scripts'], $composer['scripts']['lint'])) {
-				$process = $this->cmdString('composer lint');
-				return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
+				$scripts = $composer['scripts']['lint'];
 			}
 		}
-
-		return $this->genericLint();
-	}
-
-	protected function genericLint(): int
-	{
-		$return = [];
-		$scripts = [
-			'scss:lint',
-			'js:lint',
-			'php:coding-standards',
-		];
 
 		if (!$this->getApplication()) {
 			$this->io->error('There is no application');
@@ -83,13 +61,41 @@ class Run extends Base
 		}
 
 		foreach ($scripts as $script) {
-			$command = $this->getApplication()->find(trim($script));
-			$args = [];
-			if ($this->fix) {
-				$args['--fix'] = true;
-			}
+			// Does the command start with "lint"?
+			if (substr($script, 0, 4) === 'lint') {
+				// Remove the word lint from the start
+				$script = trim(substr_replace($script, '', 0, 4));
 
-			$returnCode = $command->run(new ArrayInput($args), $this->output);
+				// Get any arguments are the end & redclare the script
+				$arguments = explode(' ', $script);
+				$script = array_shift($arguments);
+
+				// Initialise the script
+				$command = $this->getApplication()->find(trim($script));
+
+				// Turn any arguments into real arguments
+				$args = [];
+				if (count($arguments)) {
+					foreach ($arguments as $argument) {
+						$argument = explode('=', $argument);
+						$args[trim($argument[0])] = trim($argument[1]) ?: true;
+					}
+				}
+
+				// Add fix if it has been added
+				if ($input->getOption('fix') !== false) {
+					$args['--fix'] = true;
+				} else {
+					$args['--whisper'] = true;
+				}
+
+				// Run the command
+				$returnCode = $command->run(new ArrayInput($args), $output);
+			} else {
+				// Otherwise, run it as it is
+				$process = $this->cmdString($script);
+				$returnCode = $process->getExitCode();
+			}
 
 			if ($returnCode > 0) {
 				$return[] = $script;

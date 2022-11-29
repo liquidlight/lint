@@ -4,8 +4,8 @@
 
 - Add `composer:lint`
 - Allow setting linter to dev branch (e.g `lint self-update --dev`)
-- Deprecate global `--fix` command
-- Allow specifying the lint commands in `composer.json`
+- Allow specifying the lint commands in `composer.json` (`run` will run these)
+- Add `-w | --whisper` to each command to allow silencing the linter inside without silencing the linter
 
 #### Backend
 
