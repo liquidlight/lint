@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "50608b24cba3780da56fb5cc56700d69",
+    "content-hash": "e3a4ee3bbf97398a64c1abfcb251bc31",
     "packages": [
         {
             "name": "composer/pcre",
@@ -1636,16 +1636,16 @@
         },
         {
             "name": "ssch/typo3-rector",
-            "version": "v1.0.6",
+            "version": "dev-main",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabbelasichon/typo3-rector.git",
-                "reference": "189da60cdc0414b2177b5cc59912a2c058844192"
+                "reference": "3b5a4cf7eb4311b6a981f7ceb6e792e7b1642fc7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/189da60cdc0414b2177b5cc59912a2c058844192",
-                "reference": "189da60cdc0414b2177b5cc59912a2c058844192",
+                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/3b5a4cf7eb4311b6a981f7ceb6e792e7b1642fc7",
+                "reference": "3b5a4cf7eb4311b6a981f7ceb6e792e7b1642fc7",
                 "shasum": ""
             },
             "require": {
@@ -1675,6 +1675,7 @@
                 "symfony/http-kernel": "^5.0 || ^6.0",
                 "symplify/easy-coding-standard": "^11.0"
             },
+            "default-branch": true,
             "type": "rector-extension",
             "extra": {
                 "enable-patching": true,
@@ -1724,7 +1725,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-11-30T15:27:01+00:00"
+            "time": "2022-12-06T20:42:00+00:00"
         },
         {
             "name": "symfony/config",
@@ -3651,10 +3652,12 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "ssch/typo3-rector": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
-    "plugin-api-version": "2.3.0"
+    "plugin-api-version": "2.2.0"
 }
