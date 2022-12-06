@@ -20,7 +20,7 @@ class PhpRector extends Base
 				'paths',
 				InputArgument::IS_ARRAY,
 				'What paths would you like to check',
-				['./']
+				['./app']
 			)
 		;
 	}
