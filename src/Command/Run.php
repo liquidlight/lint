@@ -103,10 +103,8 @@ class Run extends Base
 		}
 
 		if (count($return) > 0) {
-			$this->io->warning(array_merge(
-				[count($return) . ' lint task(s) failed:'],
-				$return
-			));
+			$this->io->warning(count($return) . ' lint task(s) failed:' . implode(', ', $return));
+
 			foreach ($return as $index => $job) {
 				$return[$index] = sprintf('lint %s --fix', $job);
 			}
