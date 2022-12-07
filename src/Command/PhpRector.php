@@ -57,7 +57,7 @@ class PhpRector extends Base
 		}
 
 		if ($this->input->getOption('whisper')) {
-			$command[] = '--quiet';
+			$command[] = '--no-diffs';
 		}
 
 		$process = $this->cmd($command);
