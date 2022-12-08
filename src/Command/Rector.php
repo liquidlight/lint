@@ -57,9 +57,10 @@ class Rector extends Base
 		}
 
 		$this->io->info(sprintf(
-			'Testing against: %s (PHP: %s)',
+			'Testing against: %s (PHP: %s) in %s',
 			implode(' ', explode('-', $type)),
-			$phpVersion
+			$phpVersion,
+			implode(', ', $paths)
 		));
 
 		// Check we have PHP files
