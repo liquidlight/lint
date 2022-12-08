@@ -3,9 +3,12 @@
 namespace App\Command;
 
 use Symfony\Component\Console\Command\Command;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class PhpRector extends Base
+class PhpRector extends Rector
 {
 	protected static $defaultName = 'php:rector';
 
@@ -14,66 +17,16 @@ class PhpRector extends Base
 		parent::configure();
 
 		$this
-			// the short description shown while running "php bin/console list"
-			->setDescription('Rector')
-			->addArgument(
-				'paths',
-				InputArgument::IS_ARRAY,
-				'What paths would you like to check',
-				['./app']
-			)
+				// the short description shown while running "php bin/console list"
+			->setDescription('Check your PHP code')
 		;
 	}
 
-	/**
-	 * Run rector as a command
-	 * @param array<string> $paths
-	 * @param string $config
-	 * @return int
-	 */
-	protected function runRector(array $paths = [], string $config): int
+	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$fileCheck = $this->hasFiles('php');
-		if (!$fileCheck) {
-			return Command::SUCCESS;
-		}
+		parent::execute($input, $output);
 
-		$command = [
-			$this->path . '/vendor/bin/rector',
-			'process',
-			'--config',
-			$config,
-			...$paths,
-		];
 
-		if ($this->input->getOption('fix') === false) {
-			$command[] = '--dry-run';
-		} else {
-			$this->io->text('Attempting to fix...');
-		}
-
-		if ($this->output->isVeryVerbose()) {
-			$command[] = '--debug';
-		}
-
-		if ($this->input->getOption('whisper')) {
-			$command[] = '--no-diffs';
-		}
-
-		$process = $this->cmd($command);
-		$this->io->newLine();
-		$this->outputResult($process);
-
-		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
-	}
-
-	/**
-	 * Get a rector config file
-	 * @param string $name
-	 * @return string
-	 */
-	protected function getConfigPath(string $name)
-	{
-		return $this->path . '/resources/config/Rector-' . $name . '.php';
+		return $this->runRector('PHP');
 	}
 }
