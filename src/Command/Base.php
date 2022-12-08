@@ -64,7 +64,7 @@ class Base extends Command
 			sprintf(
 				'%s <fg=white>[linter: %s]</>',
 				$this->getName(),
-				$this->getApplication()->getVersion()
+				$this->getApplication() ? $this->getApplication()->getVersion() : ''
 			)
 		);
 	}

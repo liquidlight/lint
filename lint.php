@@ -24,11 +24,12 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-$composerFile = json_decode(file_get_contents(__DIR__ . '/composer.json') ?: '');
+/** @var array<string> $composerFile */
+$composerFile = json_decode(file_get_contents(__DIR__ . '/composer.json') ?: '', true);
 
 $application = new Application(
-	$composerFile->description,
-	$composerFile->version
+	$composerFile['description'],
+	$composerFile['version']
 );
 
 $application->add(new ComposerNormalize(__DIR__));
