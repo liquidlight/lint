@@ -3,10 +3,8 @@
 declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
-use Rector\Core\Configuration\Option;
 use Rector\Core\ValueObject\PhpVersion;
 use Rector\PostRector\Rector\NameImportingPostRector;
-use Ssch\TYPO3Rector\Configuration\Typo3Option;
 use Ssch\TYPO3Rector\Rector\General\ConvertImplicitVariablesToExplicitGlobalsRector;
 use Ssch\TYPO3Rector\Rector\General\ExtEmConfRector;
 use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
@@ -14,9 +12,6 @@ use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
 return static function (RectorConfig $rectorConfig): void {
 	// If you want to override the number of spaces for your typoscript files you can define it here, the default value is 4
 	$rectorConfig->indent("\t", 1);
-
-	$parameters = $rectorConfig->parameters();
-	$parameters->set(Typo3Option::TYPOSCRIPT_INDENT_SIZE, 1);
 
 	$rectorConfig->sets([
 		Typo3LevelSetList::UP_TO_TYPO3_10,
