@@ -68,10 +68,10 @@ class Run extends Base
 
 				// Get any arguments are the end & redclare the script
 				$arguments = explode(' ', $script);
-				$script = array_shift($arguments);
+				$script_name = array_shift($arguments);
 
 				// Initialise the script
-				$command = $this->getApplication()->find(trim($script));
+				$command = $this->getApplication()->find(trim($script_name));
 
 				// Turn any arguments into real arguments
 				$args = [];
@@ -85,7 +85,9 @@ class Run extends Base
 				// Add fix if it has been added
 				if ($input->getOption('fix') !== false) {
 					$args['--fix'] = true;
-				} else {
+				}
+
+				if (!$output->isVerbose() && $input->getOption('fix') === false) {
 					$args['--whisper'] = true;
 				}
 
