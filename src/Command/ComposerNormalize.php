@@ -34,8 +34,8 @@ class ComposerNormalize extends Base
 			'--working-dir', $this->path,
 			'normalize',
 			getcwd() . '/composer.json',
-			'--indent-size', '1',
-			'--indent-style', 'tab',
+			'--indent-size', '4',
+			'--indent-style', 'space',
 		];
 
 		if ($output->isVerbose()) {
