@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db7de5c3a31091eeb1357b402676d1da",
+    "content-hash": "e3a4ee3bbf97398a64c1abfcb251bc31",
     "packages": [
         {
             "name": "composer/pcre",
@@ -1656,7 +1656,7 @@
                 "nette/utils": "^3.0",
                 "nikic/php-parser": "^4.14",
                 "php": "^7.4 || ^8.0",
-                "phpstan/phpstan": "^1.7.12",
+                "phpstan/phpstan": "1.9.2",
                 "rector/rector": "0.14.8",
                 "symfony/console": "^4.0 || ^5.0 || ^6.0",
                 "symfony/polyfill-php80": "^1.26",
