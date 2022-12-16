@@ -9,6 +9,7 @@ use Symfony\Component\Console\Application;
 use App\Command\ComposerNormalize;
 use App\Command\JsEslint;
 use App\Command\JsonLint;
+use App\Command\PackageLint;
 use App\Command\PhpCodingStandards;
 use App\Command\PhpRector;
 use App\Command\PhpRectorTypo3;
@@ -35,6 +36,7 @@ $application = new Application(
 $application->add(new ComposerNormalize(__DIR__));
 $application->add(new JsEslint(__DIR__));
 $application->add(new JsonLint(__DIR__));
+$application->add(new PackageLint(__DIR__));
 $application->add(new PhpCodingStandards(__DIR__));
 $application->add(new PhpRector(__DIR__));
 $application->add(new PhpRectorTypo3(__DIR__));
