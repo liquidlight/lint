@@ -10,6 +10,7 @@ Lint your code against Liquid Light conventions (yes, we use tabs and not spaces
 	- [Installation](#installation)
 	- [Available Linters](#available-linters)
 	- [Adding Linters](#adding-linters)
+	- [Releasing](#releasing)
 
 ## Usage
 
@@ -157,3 +158,20 @@ When adding a new linter please:
 - If it is the only, or most common linter for that language, feel free to alias `lint`
 - The linter should report by default and fix if `--fix` is added (sometimes is involves adding `--dry-run` by default and removing if fixing is required)
 - Add the linter to the list above
+
+## Releasing
+
+Before the release run the following:
+
+- `composer update` - commit
+- `npm update` - commit
+- Then prepare the release:
+	- Move `UPCOMING` to `CHANGELOG`, set version & add date
+	- Update the version in `composer.json`
+	- Update the version `package.json`
+	- Run a `composer update`
+	- Run a `npm update`
+	- Commit the result as `Release: X.X.X`
+	- Git tag
+
+Once you have released, set the version in `composer.json` back to `dev-main` and commit
