@@ -1,3 +1,12 @@
+# 1.4.1
+
+**17th January 2023**
+
+#### Bug
+
+- Correctly release version
+- Output version on self update
+
 # 1.4.0
 
 **17th January 2023**

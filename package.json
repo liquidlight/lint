@@ -1,6 +1,6 @@
 {
   "name": "lint",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "",
   "dependencies": {
     "eslint": "^8.27.0",
