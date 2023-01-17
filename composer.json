@@ -16,7 +16,7 @@
 		"j13k/yaml-lint": "^1.1",
 		"phpstan/phpstan": "^1.5",
 		"seld/jsonlint": "^1.8",
-		"ssch/typo3-rector": "dev-main",
+		"ssch/typo3-rector": "^1.0",
 		"symfony/console": "^5.2",
 		"symfony/finder": "^5.3",
 		"symfony/translation": "^5.4",
