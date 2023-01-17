@@ -1,3 +1,15 @@
+# 1.4.0
+
+**17th January 2023**
+
+#### Feature
+
+- Add `package-json-lint`
+
+#### Backend
+
+- Change `composer.json` indentation to spaces
+
 # 1.3.0
 
 **8th December 2022**
