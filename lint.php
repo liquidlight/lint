@@ -7,6 +7,7 @@ require __DIR__ . '/vendor/autoload.php';
 use Symfony\Component\Console\Application;
 
 use App\Command\ComposerNormalize;
+use App\Command\EditorconfigApply;
 use App\Command\JsEslint;
 use App\Command\JsonLint;
 use App\Command\PackageLint;
@@ -34,6 +35,7 @@ $application = new Application(
 );
 
 $application->add(new ComposerNormalize(__DIR__));
+$application->add(new EditorconfigApply(__DIR__));
 $application->add(new JsEslint(__DIR__));
 $application->add(new JsonLint(__DIR__));
 $application->add(new PackageLint(__DIR__));

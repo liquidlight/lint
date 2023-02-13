@@ -20,7 +20,8 @@
         "symfony/console": "^5.2",
         "symfony/finder": "^5.3",
         "symfony/translation": "^5.4",
-        "symfony/yaml": "^5.2"
+        "symfony/yaml": "^5.2",
+        "armin/editorconfig-cli": "^1.5"
     },
     "autoload": {
         "psr-4": {
