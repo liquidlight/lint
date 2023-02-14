@@ -50,7 +50,7 @@ class JsEslint extends Base
 			'--cache-strategy', 'content',
 		];
 
-		if ($input->getOption('fix') !== false) {
+		if ($this->input->getOption('fix') !== false) {
 			$command[] = '--fix';
 
 			$this->io->text('Attempting to fix...');

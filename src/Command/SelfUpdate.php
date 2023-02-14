@@ -42,10 +42,10 @@ class SelfUpdate extends Base
 
 		$tag = trim($process->getOutput());
 
-		if ($input->getOption('dev') || is_null($input->getOption('dev'))) {
-			$tag = trim($input->getOption('dev') ?? 'main');
+		if ($this->input->getOption('dev') || is_null($this->input->getOption('dev'))) {
+			$tag = trim($this->input->getOption('dev') ?? 'main');
 
-			$this->io->text('Switching to the ' . $input->getOption('dev') . ' branch (dev)');
+			$this->io->text('Switching to the ' . $this->input->getOption('dev') . ' branch (dev)');
 		}
 
 		$command = 'cd ' . $this->path . ' && git checkout ' . $tag;

@@ -45,7 +45,7 @@ class ScssStylelint extends Base
 			'--cache-location', $this->path . '/.cache/',
 		];
 
-		if ($input->getOption('fix') !== false) {
+		if ($this->input->getOption('fix') !== false) {
 			$command[] = '--fix';
 
 			$this->io->text('Attempting to fix...');

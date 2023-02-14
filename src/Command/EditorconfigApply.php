@@ -33,7 +33,7 @@ class EditorconfigApply extends Base
 			$this->path . '/vendor/bin/ec',
 		];
 
-		if ($input->getOption('whisper')) {
+		if ($this->input->getOption('whisper')) {
 			$command[] = '--quiet';
 		}
 		if ($output->isDebug()) {
@@ -44,7 +44,7 @@ class EditorconfigApply extends Base
 			$command[] = '-v';
 		}
 
-		if ($input->getOption('fix')) {
+		if ($this->input->getOption('fix')) {
 			$this->io->text('Attempting to fix...');
 			$command[] = '--fix';
 		}

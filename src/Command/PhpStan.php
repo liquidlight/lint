@@ -50,7 +50,7 @@ class PhpStan extends Base
 			$this->path . '/vendor/bin/phpstan',
 			'analyse',
 			'--level',
-			$input->getOption('level'),
+			$this->input->getOption('level'),
 			'--configuration',
 			$this->path . '/resources/config/PHPStan.neon',
 			...$paths,
@@ -60,7 +60,7 @@ class PhpStan extends Base
 			$command[] = '--debug';
 		}
 
-		if ($input->getOption('whisper')) {
+		if ($this->input->getOption('whisper')) {
 			$command[] = '--quiet';
 		}
 

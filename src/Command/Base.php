@@ -33,9 +33,15 @@ class Base extends Command
 			// the short description shown while running "php bin/console list"
 			->addOption(
 				'fix',
-				'f',
+				'',
 				InputOption::VALUE_NONE,
 				'Should the linter fix the code?',
+			)
+			->addOption(
+				'run',
+				'',
+				InputOption::VALUE_NONE,
+				'Alias for fix',
 			)
 			->addOption(
 				'whisper',
@@ -52,6 +58,11 @@ class Base extends Command
 		$this->output = $output;
 
 		$this->io = new SymfonyStyle($input, $output);
+
+		if ($this->input->getOption('run') === true) {
+			$this->io->info('The --run argument not supported, assuming you meant --fix');
+			$this->input->setOption('fix', true);
+		}
 
 		$this->printTitle();
 

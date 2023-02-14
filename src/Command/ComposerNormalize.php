@@ -42,11 +42,11 @@ class ComposerNormalize extends Base
 			$command[] = '-v';
 		}
 
-		if ($input->getOption('fix') === false) {
+		if ($this->input->getOption('fix') === false) {
 			$command[] = '--dry-run';
 		}
 
-		if ($input->getOption('whisper')) {
+		if ($this->input->getOption('whisper')) {
 			$command[] = '--quiet';
 		}
 

@@ -35,7 +35,7 @@ class PhpCodingStandards extends Base
 	{
 		parent::execute($input, $output);
 
-		if ($input->getOption('clean')) {
+		if ($this->input->getOption('clean')) {
 			$this->io->text('Deleting cache file');
 			unlink($this->path . '/.cache/.phpcscache_' . md5($GLOBALS['_SERVER']['PWD']));
 		}
@@ -51,11 +51,11 @@ class PhpCodingStandards extends Base
 			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php',
 		];
 
-		if ($input->getOption('whisper')) {
+		if ($this->input->getOption('whisper')) {
 			$command[] = '--quiet';
 		}
 
-		if ($output->isVerbose() || $input->getOption('fix') || !Process::isTtySupported()) {
+		if ($output->isVerbose() || $this->input->getOption('fix') || !Process::isTtySupported()) {
 			$command[] = '--verbose';
 		}
 
@@ -63,7 +63,7 @@ class PhpCodingStandards extends Base
 			$command[] = '--diff';
 		}
 
-		if ($input->getOption('fix') === false) {
+		if ($this->input->getOption('fix') === false) {
 			$command[] = '--dry-run';
 		} else {
 			$this->io->text('Attempting to fix...');

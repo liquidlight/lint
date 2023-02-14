@@ -36,6 +36,11 @@ class Run extends Base
 	{
 		$this->io = new SymfonyStyle($input, $output);
 
+		if ($input->getOption('run') === true) {
+			$this->io->info('The --run argument not supported, assuming you meant --fix');
+			$input->setOption('fix', true);
+		}
+
 		$return = [];
 
 		// Base scripts
