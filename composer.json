@@ -10,6 +10,7 @@
         }
     ],
     "require": {
+        "armin/editorconfig-cli": "^1.5.2",
         "ergebnis/composer-normalize": "^2.28.3",
         "friendsofphp/php-cs-fixer": "^3.14.4",
         "helmich/typo3-typoscript-lint": "^3.0",
@@ -20,8 +21,7 @@
         "symfony/console": "^5.4.19",
         "symfony/finder": "^5.4.19",
         "symfony/translation": "^5.4.19",
-        "symfony/yaml": "^5.4.19",
-        "armin/editorconfig-cli": "^1.5.2"
+        "symfony/yaml": "^5.4.19"
     },
     "autoload": {
         "psr-4": {
