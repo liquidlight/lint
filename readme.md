@@ -3,14 +3,14 @@
 Lint your code against Liquid Light conventions (yes, we use tabs and not spaces).
 
 - [Liquid Light Linter](#liquid-light-linter)
-	- [Usage](#usage)
-		- [`lint run`](#lint-run)
-		- [`self-update`](#self-update)
-		- [Linters](#linters)
-	- [Installation](#installation)
-	- [Available Linters](#available-linters)
-	- [Adding Linters](#adding-linters)
-	- [Releasing](#releasing)
+    - [Usage](#usage)
+        - [`lint run`](#lint-run)
+        - [`self-update`](#self-update)
+        - [Linters](#linters)
+    - [Installation](#installation)
+    - [Available Linters](#available-linters)
+    - [Adding Linters](#adding-linters)
+    - [Releasing](#releasing)
 
 ## Usage
 
@@ -166,12 +166,12 @@ Before the release run the following:
 - `composer update` - commit
 - `npm update` - commit
 - Then prepare the release:
-	- Move `UPCOMING` to `CHANGELOG`, set version & add date
-	- Update the version in `composer.json`
-	- Update the version `package.json`
-	- Run a `composer update`
-	- Run a `npm update`
-	- Commit the result as `Release: X.X.X`
-	- Git tag
+    - Move `UPCOMING` to `CHANGELOG`, set version & add date
+    - Update the version in `composer.json`
+    - Update the version `package.json`
+    - Run a `composer update`
+    - Run a `npm update`
+    - Commit the result as `Release: X.X.X`
+    - Git tag
 
 Once you have released, set the version in `composer.json` back to `dev-main` and commit
