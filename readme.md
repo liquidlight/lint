@@ -8,7 +8,6 @@ Lint your code against Liquid Light conventions (yes, we use tabs and not spaces
         - [`self-update`](#self-update)
         - [Linters](#linters)
     - [Installation](#installation)
-    - [Available Linters](#available-linters)
     - [Adding Linters](#adding-linters)
     - [Releasing](#releasing)
 
@@ -62,7 +61,7 @@ lint self-update --dev develop
 
 ### Linters
 
-For a list of all the linters, either run `lint` or see the [list below](#available-linters)
+For a list of all the linters run `lint`
 
 ## Installation
 
@@ -90,66 +89,6 @@ ln -s  /path/to/lint/directory/lint.php lint
 Then it can be used as above.
 
 
-
-## Available Linters
-
-### `composer:normalize`
-
-**Uses**: https://github.com/ergebnis/composer-normalize
-
-**Options**:
-
-- `--fix` - attempt to fix the lint errors
-
-### `js:eslint`
-
-**Uses**: https://eslint.org/
-
-**Options**:
-
-- `--fix` - attempt to fix the lint errors
-
-### `json:lint`
-
-**Uses**: https://github.com/Seldaek/jsonlint
-
-
-### `php:coding-standards`
-
-**Uses**: https://cs.symfony.com/
-
-**Options**:
-
-- `--fix` - attempt to fix the lint errors
-- `--clean` - delete the cache file created
-
-### `php:stan`
-
-**Uses**: https://phpstan.org/
-
-**Options**:
-
-- `--level` - What level of PHPStan to run (Defaults to 0)
-- `paths` - Folders to scan (e.g. `lint php:stan app/`)
-
-### `scss:stylelint`
-
-**Uses**: https://stylelint.io/
-
-**Options**:
-
-- `--fix` - attempt to fix the lint errors
-
-### `ts:lint`
-
-**Uses**: https://github.com/martin-helmich/typo3-typoscript-lint
-
-
-### `yaml:lint`
-
-**Uses**: https://symfony.com/doc/current/components/yaml.html (lint command)
-
-
 ## Adding Linters
 
 When adding a new linter please:
@@ -164,7 +103,7 @@ When adding a new linter please:
 Before the release run the following:
 
 - `composer update` - commit
-- `npm update` - commit
+- `ncu` and then `npm update` - commit
 - Then prepare the release:
     - Move `UPCOMING` to `CHANGELOG`, set version & add date
     - Update the version in `composer.json`
