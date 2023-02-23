@@ -59,7 +59,7 @@ class Base extends Command
 
 		$this->io = new SymfonyStyle($input, $output);
 
-		if ($this->input->getOption('run') === true) {
+		if ($this->input->hasOption('run') && $this->input->getOption('run') === true) {
 			$this->io->info('The --run argument not supported, assuming you meant --fix');
 			$this->input->setOption('fix', true);
 		}
@@ -120,10 +120,14 @@ class Base extends Command
 			$this->io->text('<fg=green>✓ ' . $this->getDescription() . ' passed</>');
 			$this->io->newLine();
 		} else {
-			$this->io->warning([
+			$warning = [
 				$this->getDescription() . ' was not successful',
-				sprintf('lint %s --fix', $this->getName()),
-			]);
+			];
+			if ($this->input->hasOption('fix')) {
+				$warning[] = sprintf('lint %s --fix', $this->getName());
+			}
+
+			$this->io->warning($warning);
 		}
 	}
 
