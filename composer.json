@@ -32,6 +32,9 @@
         "allow-plugins": {
             "bamarni/composer-bin-plugin": true,
             "ergebnis/composer-normalize": true
+        },
+        "platform": {
+            "php": "7.4"
         }
     },
     "scripts": {
