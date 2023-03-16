@@ -3,7 +3,7 @@
   "version": "1.4.1",
   "description": "",
   "dependencies": {
-    "eslint": "^8.34.0",
+    "eslint": "^8.36.0",
     "eslint-plugin-prettier": "^4.2.1",
     "npm-package-json-lint": "^6.4.0",
     "postcss-sass": "^0.5.0",
