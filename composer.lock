@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "940990ad83bfe64036a8e7d18ee7f922",
+    "content-hash": "ad5737de61d572ba29cd0e283edfd2f0",
     "packages": [
         {
             "name": "armin/editorconfig-cli",

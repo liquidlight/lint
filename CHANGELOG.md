@@ -1,3 +1,13 @@
+# 1.5.0
+
+**21st March 2023**
+
+#### Task
+
+- Add `.editorconfig` lint & fixer
+- Add `--run` as an alias for `--fix`
+
+
 # 1.4.1
 
 **17th January 2023**
