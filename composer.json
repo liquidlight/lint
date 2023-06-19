@@ -18,10 +18,10 @@
         "phpstan/phpstan": "^1.10.18",
         "seld/jsonlint": "^1.9",
         "ssch/typo3-rector": "^1.1.4",
-        "symfony/console": "^5.4.21",
+        "symfony/console": "^5.4.24",
         "symfony/finder": "^5.4.21",
-        "symfony/translation": "^5.4.21",
-        "symfony/yaml": "^5.4.21"
+        "symfony/translation": "^5.4.24",
+        "symfony/yaml": "^5.4.23"
     },
     "autoload": {
         "psr-4": {
