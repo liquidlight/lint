@@ -14,7 +14,7 @@
         "ergebnis/composer-normalize": "^2.28.3",
         "friendsofphp/php-cs-fixer": "^3.14.4",
         "helmich/typo3-typoscript-lint": "^3.1.0",
-        "j13k/yaml-lint": "^1.1.4",
+        "j13k/yaml-lint": "^1.1.5",
         "phpstan/phpstan": "^1.10.6",
         "seld/jsonlint": "^1.9",
         "ssch/typo3-rector": "^1.1.4",

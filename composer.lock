@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "940990ad83bfe64036a8e7d18ee7f922",
+    "content-hash": "64b7141a16385b5a0ec93a52f2e48e74",
     "packages": [
         {
             "name": "armin/editorconfig-cli",
@@ -1026,20 +1026,28 @@
         },
         {
             "name": "j13k/yaml-lint",
-            "version": "1.1.4",
+            "version": "1.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/j13k/yaml-lint.git",
-                "reference": "e3b6e970e1a341a2e09fc3b47188ce7f648ef8e8"
+                "reference": "039c23dcafa52b615cbbe40d9c9aa278af3b4acc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/j13k/yaml-lint/zipball/e3b6e970e1a341a2e09fc3b47188ce7f648ef8e8",
-                "reference": "e3b6e970e1a341a2e09fc3b47188ce7f648ef8e8",
+                "url": "https://api.github.com/repos/j13k/yaml-lint/zipball/039c23dcafa52b615cbbe40d9c9aa278af3b4acc",
+                "reference": "039c23dcafa52b615cbbe40d9c9aa278af3b4acc",
                 "shasum": ""
             },
             "require": {
-                "symfony/yaml": "^2|^3|^4|^5"
+                "composer-runtime-api": "^2",
+                "ext-json": "*",
+                "php": ">=5.6",
+                "symfony/yaml": "^2 || ^3 || ^4 || ^5 || ^6"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1",
+                "phpunit/phpunit": "^10",
+                "symplify/easy-coding-standard": "^10"
             },
             "bin": [
                 "bin/yaml-lint"
@@ -1052,7 +1060,7 @@
             },
             "autoload": {
                 "psr-4": {
-                    "J13k\\YamlLint\\": "src/"
+                    "J13k\\": "src/J13k"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1062,7 +1070,7 @@
             "authors": [
                 {
                     "name": "John Fitzpatrick",
-                    "homepage": "http://github.com/j13k"
+                    "homepage": "https://github.com/j13k"
                 }
             ],
             "description": "A compact command line utility for checking YAML file syntax",
@@ -1078,9 +1086,9 @@
             ],
             "support": {
                 "issues": "https://github.com/j13k/yaml-lint/issues",
-                "source": "https://github.com/j13k/yaml-lint/tree/1.1.4"
+                "source": "https://github.com/j13k/yaml-lint/tree/1.1.5"
             },
-            "time": "2021-03-11T08:48:25+00:00"
+            "time": "2023-04-20T12:17:38+00:00"
         },
         {
             "name": "justinrainbow/json-schema",
