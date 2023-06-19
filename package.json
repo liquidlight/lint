@@ -7,7 +7,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "npm-package-json-lint": "^6.4.0",
     "postcss-sass": "^0.5.0",
-    "prettier": "^2.8.4",
+    "prettier": "^2.8.8",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-order": "^4.1.0",
