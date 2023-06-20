@@ -1,4 +1,5 @@
 app/*/Resources/Public/
+app/*/*/Resources/Public/
 *lib*
 *html*
 *vendor*
