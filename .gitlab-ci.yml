@@ -12,6 +12,7 @@
 # Stages which are run
 stages:
   - backend
+  - build
 
 # Use custom LL docker image
 image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
@@ -32,3 +33,21 @@ composer:normalize:
   stage: backend
   script:
     - lint composer:normalize
+
+image:build:
+  stage: build
+  image: docker:20.10.16
+  variables:
+    DOCKER_TLS_CERTDIR: "/certs"
+  services:
+    - docker:20.10.16-dind
+  before_script:
+    # Login to our registry
+    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+  script:
+    - echo "Building $CI_REGISTRY_IMAGE:js-eslint-latest"
+    - docker build -t $CI_REGISTRY_IMAGE:js-eslint-latest -f ./Dockerfiles/js-eslint.dockerfile .
+    - echo "Pushing $CI_REGISTRY_IMAGE:js-eslint-latest"
+    - docker push $CI_REGISTRY_IMAGE:js-eslint-latest
+  only:
+    - main
