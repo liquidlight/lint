@@ -38,6 +38,7 @@ class JsEslint extends Base
 			return Command::SUCCESS;
 		}
 
+		// Also in Dockerfiles/JsEslint.dockerfile
 		$command = [
 			$this->path . '/node_modules/.bin/eslint',
 			getcwd(),

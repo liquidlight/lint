@@ -6,6 +6,7 @@ Lint your code against Liquid Light conventions (yes, we use tabs and not spaces
     - [Usage](#usage)
         - [`lint run`](#lint-run)
         - [`self-update`](#self-update)
+    - [Docker](#docker)
         - [Linters](#linters)
     - [Installation](#installation)
     - [Adding Linters](#adding-linters)
@@ -58,6 +59,17 @@ e.g.
 ```bash
 lint self-update --dev develop
 ```
+
+## Docker
+
+The linker builds and makes available several docker containers. Should you wish to use these instead, you can run something like the following:
+
+```bash
+export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app registry.gitlab.lldev.co.uk/devops/lint:eslint-1.5.0 "/eslint"
+```
+
+_TODO:_ Hopefully make it easier to use the docker images instead of installing the linter
+
 
 ### Linters
 
