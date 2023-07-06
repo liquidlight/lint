@@ -1,5 +1,5 @@
 
-FROM alpine:3.16 as builder
+FROM alpine:3.18 as builder
 
 ARG PACKAGE
 
@@ -40,7 +40,7 @@ RUN set -eux \
 	&& find /usr/local/lib/node_modules -type f -iname '*.yml' -exec rm {} \;
 
 # Build new image
-FROM alpine:3.16
+FROM alpine:3.18
 
 ARG COMMAND
 ARG FILE
