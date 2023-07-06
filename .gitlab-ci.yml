@@ -36,11 +36,11 @@ composer:normalize:
 
 image:build:
   stage: build
-  image: docker:20.10.16
+  image: docker:20.10.24
   variables:
     DOCKER_TLS_CERTDIR: "/certs"
   services:
-    - docker:20.10.16-dind
+    - docker:20.10.24-dind
   before_script:
     # Login to our registry
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
