@@ -1,0 +1,19 @@
+{
+    "name": "liquidlight/editorconfig",
+    "type": "library",
+    "version": "dev-main",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "armin/editorconfig-cli": "^1.6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidLight\\EditorConfig\\": "src"
+        }
+    }
+}

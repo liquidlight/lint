@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Command;
+namespace LiquidLight\TypoScriptLint\Command;
+
+use App\Command\Base;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class TSLint extends Base
+class TypoScriptLintCommand extends Base
 {
-	protected static $defaultName = 'ts:lint';
+	protected static $defaultName = 'typoscript:lint';
 
 	protected function configure(): void
 	{
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Typoscript Lint')
-			->setAliases(['typoscript:lint'])
 		;
 	}
 

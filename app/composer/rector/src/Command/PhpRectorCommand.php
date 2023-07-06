@@ -1,14 +1,11 @@
 <?php
 
-namespace App\Command;
+namespace LiquidLight\Rector\Command;
 
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputOption;
-use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class PhpRector extends Rector
+class PhpRectorCommand extends RectorCommand
 {
 	protected static $defaultName = 'php:rector';
 

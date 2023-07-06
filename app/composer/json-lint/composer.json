@@ -1,0 +1,19 @@
+{
+    "name": "liquidlight/json-lint",
+    "type": "library",
+    "version": "dev-main",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "seld/jsonlint": "^1.10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidLight\\JsonLint\\": "src"
+        }
+    }
+}

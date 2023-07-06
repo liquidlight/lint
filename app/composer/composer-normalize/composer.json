@@ -1,0 +1,19 @@
+{
+    "name": "liquidlight/composer-nomalize",
+    "type": "library",
+    "version": "dev-main",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "ergebnis/composer-normalize": "2.28.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidLight\\ComposerNormalize\\": "src"
+        }
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "liquidlight/yaml-lint",
+    "type": "library",
+    "version": "dev-main",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^5.4.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidLight\\YamlLint\\": "src"
+        }
+    }
+}

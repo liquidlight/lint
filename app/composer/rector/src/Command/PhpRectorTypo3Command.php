@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Command;
+namespace LiquidLight\Rector\Command;
 
-use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 
-class PhpRectorTypo3 extends Rector
+class PhpRectorTypo3Command extends RectorCommand
 {
 	protected static $defaultName = 'php:rector:typo3';
 

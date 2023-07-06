@@ -1,15 +1,13 @@
 <?php
 
-// src/Command/CreateUserCommand.php
+namespace LiquidLight\ComposerNormalize\Command;
 
-namespace App\Command;
-
+use App\Command\Base;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class ComposerNormalize extends Base
+class ComposerNormalizeCommand extends Base
 {
 	protected static $defaultName = 'composer:normalize';
 
@@ -20,7 +18,6 @@ class ComposerNormalize extends Base
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Composer Normalize')
-			->setAliases(['composer:lint'])
 		;
 	}
 

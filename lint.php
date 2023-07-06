@@ -1,26 +1,24 @@
 #!/usr/bin/env php
 <?php
-// application.php
 
-require __DIR__ . '/vendor/autoload.php';
+$loader = require __DIR__ . '/vendor/autoload.php';
 
-use Symfony\Component\Console\Application;
-
-use App\Command\ComposerNormalize;
-use App\Command\EditorconfigLint;
-use App\Command\JsEslint;
-use App\Command\JsonLint;
-use App\Command\PackageLint;
-use App\Command\PhpCodingStandards;
-use App\Command\PhpRector;
-use App\Command\PhpRectorTypo3;
-use App\Command\PhpStan;
 use App\Command\Run;
-use App\Command\ScssStylelint;
-use App\Command\TSLint;
+use App\Command\JsEslint;
 use App\Command\SelfUpdate;
-use App\Command\YamlLint;
+use App\Command\PackageLint;
+use App\Command\ScssStylelint;
+use Symfony\Component\Console\Application;
+use LiquidLight\PhpStan\Command\PhpStanCommand;
+use LiquidLight\Rector\Command\PhpRectorCommand;
+use LiquidLight\JsonLint\Command\JsonLintCommand;
+use LiquidLight\Rector\Command\PhpRectorTypo3Command;
+use LiquidLight\YamlLint\Command\YamlLintCommand;
 use Symfony\Component\Translation\Command\XliffLintCommand;
+use LiquidLight\EditorConfig\Command\EditorconfigLintCommand;
+use LiquidLight\TypoScriptLint\Command\TypoScriptLintCommand;
+use LiquidLight\ComposerNormalize\Command\ComposerNormalizeCommand;
+use LiquidLight\PhpCodingStandards\Command\PhpCodingStandardsCommand;
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -34,20 +32,20 @@ $application = new Application(
 	$composerFile['version']
 );
 
-$application->add(new ComposerNormalize(__DIR__));
-$application->add(new EditorconfigLint(__DIR__));
+$application->add((new ComposerNormalizeCommand(__DIR__))->setAliases(['composer:lint']));
+$application->add(new EditorconfigLintCommand(__DIR__));
 $application->add(new JsEslint(__DIR__));
-$application->add(new JsonLint(__DIR__));
+$application->add(new JsonLintCommand(__DIR__));
 $application->add(new PackageLint(__DIR__));
-$application->add(new PhpCodingStandards(__DIR__));
-$application->add(new PhpRector(__DIR__));
-$application->add(new PhpRectorTypo3(__DIR__));
-$application->add(new PhpStan(__DIR__));
+$application->add((new PhpCodingStandardsCommand(__DIR__))->setAliases(['php:cs', 'php:lint', 'php']));
+$application->add(new PhpRectorCommand(__DIR__));
+$application->add(new PhpRectorTypo3Command(__DIR__));
+$application->add(new PhpStanCommand(__DIR__));
 $application->add(new Run(__DIR__));
 $application->add(new ScssStylelint(__DIR__));
-$application->add(new TSLint(__DIR__));
+$application->add((new TypoScriptLintCommand(__DIR__))->setAliases(['typoscript:lint']));
 $application->add(new SelfUpdate(__DIR__));
-$application->add(new YamlLint(__DIR__));
+$application->add(new YamlLintCommand(__DIR__));
 $application->add((new XliffLintCommand())->setName('xliff:lint')->setAliases(['lint:xliff']));
 
 $application->run();

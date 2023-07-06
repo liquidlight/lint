@@ -70,7 +70,7 @@ return $config->setRules([
 				'const' => 'one',
 			],
 		],
-		'function_typehint_space' => true,
+		'type_declaration_spaces' => true,
 		'include' => true,
 		'lowercase_cast' => true,
 		'lowercase_static_reference' => true,

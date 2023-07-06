@@ -1,16 +1,19 @@
 <?php
 
-namespace App\Command;
+namespace LiquidLight\PhpCodingStandards\Command;
 
+use App\Command\Base;
+use Symfony\Component\Process\Process;
+use Symfony\Component\Config\FileLocator;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Input\InputInterface;
-use Symfony\Component\Console\Output\OutputInterface;
 
 use Symfony\Component\Console\Input\InputOption;
 
-use Symfony\Component\Process\Process;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 
-class PhpCodingStandards extends Base
+class PhpCodingStandardsCommand extends Base
 {
 	protected static $defaultName = 'php:coding-standards';
 
@@ -21,7 +24,6 @@ class PhpCodingStandards extends Base
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('PHP Coding Standards')
-			->setAliases(['php:cs', 'php:lint', 'php'])
 			->addOption(
 				'clean',
 				'',
@@ -34,6 +36,7 @@ class PhpCodingStandards extends Base
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
+		$extPath = dirname(__DIR__) . '/..';
 
 		if ($this->input->getOption('clean')) {
 			$this->io->text('Deleting cache file');
@@ -48,7 +51,7 @@ class PhpCodingStandards extends Base
 		$command = [
 			$this->path . '/vendor/bin/php-cs-fixer',
 			'fix',
-			'--config=' . $this->path . '/resources/config/PHPCodingStandards.php',
+			'--config=' . $extPath . '/resources/config/PHPCodingStandards.php',
 		];
 
 		if ($this->input->getOption('whisper')) {

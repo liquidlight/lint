@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "effe663b89ad81901462ddc12aa71f0a",
+    "content-hash": "11319062381ffc4b4a541fb407eac229",
     "packages": [
         {
             "name": "armin/editorconfig-cli",
@@ -1029,72 +1029,6 @@
             "time": "2021-06-02T16:24:34+00:00"
         },
         {
-            "name": "j13k/yaml-lint",
-            "version": "1.1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/j13k/yaml-lint.git",
-                "reference": "039c23dcafa52b615cbbe40d9c9aa278af3b4acc"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/j13k/yaml-lint/zipball/039c23dcafa52b615cbbe40d9c9aa278af3b4acc",
-                "reference": "039c23dcafa52b615cbbe40d9c9aa278af3b4acc",
-                "shasum": ""
-            },
-            "require": {
-                "composer-runtime-api": "^2",
-                "ext-json": "*",
-                "php": ">=5.6",
-                "symfony/yaml": "^2 || ^3 || ^4 || ^5 || ^6"
-            },
-            "require-dev": {
-                "phpstan/phpstan": "^1",
-                "phpunit/phpunit": "^10",
-                "symplify/easy-coding-standard": "^10"
-            },
-            "bin": [
-                "bin/yaml-lint"
-            ],
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "J13k\\": "src/J13k"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "John Fitzpatrick",
-                    "homepage": "https://github.com/j13k"
-                }
-            ],
-            "description": "A compact command line utility for checking YAML file syntax",
-            "homepage": "https://github.com/j13k/yaml-lint",
-            "keywords": [
-                "cli",
-                "lint",
-                "symfony",
-                "syntax",
-                "utility",
-                "yaml",
-                "yml"
-            ],
-            "support": {
-                "issues": "https://github.com/j13k/yaml-lint/issues",
-                "source": "https://github.com/j13k/yaml-lint/tree/1.1.5"
-            },
-            "time": "2023-04-20T12:17:38+00:00"
-        },
-        {
             "name": "justinrainbow/json-schema",
             "version": "5.2.12",
             "source": {
@@ -1163,6 +1097,222 @@
                 "source": "https://github.com/justinrainbow/json-schema/tree/5.2.12"
             },
             "time": "2022-04-13T08:02:27+00:00"
+        },
+        {
+            "name": "liquidlight/composer-nomalize",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/composer-normalize",
+                "reference": "3fc6050a159e619561a3d4aba1a01d70518cc61a"
+            },
+            "require": {
+                "ergebnis/composer-normalize": "2.28.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\ComposerNormalize\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/editorconfig",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/editorconfig",
+                "reference": "fb5acc0f108dd27eb454357682503be8c13119dd"
+            },
+            "require": {
+                "armin/editorconfig-cli": "^1.6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\EditorConfig\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/json-lint",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/json-lint",
+                "reference": "5b34c1b054a5687a4730adb9ace64cb33b3f21a7"
+            },
+            "require": {
+                "seld/jsonlint": "^1.10.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\JsonLint\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/php-coding-standards",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/php-coding-standards",
+                "reference": "b3818d1d6e8e17c17c2b7caee13c1002bc9ef280"
+            },
+            "require": {
+                "friendsofphp/php-cs-fixer": "^3.20.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\PhpCodingStandards\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/phpstan",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/phpstan",
+                "reference": "e2eaf01d1f0b01cdd470379b4253b253d0e1cdfa"
+            },
+            "require": {
+                "phpstan/phpstan": "^1.10.22"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\PhpStan\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/rector",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/rector",
+                "reference": "ad090cf90c87b0958ef589e9f744267c9e74bd73"
+            },
+            "require": {
+                "ssch/typo3-rector": "^1.3.4"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\Rector\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/typoscript-lint",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/typoscript-lint",
+                "reference": "2e6c4a32f72a90f2002dda2ddebadd23bd28069f"
+            },
+            "require": {
+                "helmich/typo3-typoscript-lint": "^3.1.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\TypoScriptLint\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "liquidlight/yaml-lint",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/composer/yaml-lint",
+                "reference": "064d8a93aee1f00e98ff98d24931c87f81ebf021"
+            },
+            "require": {
+                "symfony/yaml": "^5.4.23"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\YamlLint\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "localheinz/diff",
@@ -1368,16 +1518,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.24",
+            "version": "1.10.25",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "360ecc90569e9a60c2954ee209ec04fa0d958e14"
+                "reference": "578f4e70d117f9a90699324c555922800ac38d8c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/360ecc90569e9a60c2954ee209ec04fa0d958e14",
-                "reference": "360ecc90569e9a60c2954ee209ec04fa0d958e14",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/578f4e70d117f9a90699324c555922800ac38d8c",
+                "reference": "578f4e70d117f9a90699324c555922800ac38d8c",
                 "shasum": ""
             },
             "require": {
@@ -1426,7 +1576,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-05T12:32:13+00:00"
+            "time": "2023-07-06T12:11:37+00:00"
         },
         {
             "name": "psr/cache",
@@ -4080,7 +4230,16 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "liquidlight/composer-nomalize": 20,
+        "liquidlight/editorconfig": 20,
+        "liquidlight/json-lint": 20,
+        "liquidlight/php-coding-standards": 20,
+        "liquidlight/phpstan": 20,
+        "liquidlight/rector": 20,
+        "liquidlight/typoscript-lint": 20,
+        "liquidlight/yaml-lint": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

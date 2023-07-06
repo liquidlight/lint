@@ -1,0 +1,19 @@
+{
+    "name": "liquidlight/rector",
+    "type": "library",
+    "version": "dev-main",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "ssch/typo3-rector": "^1.3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidLight\\Rector\\": "src"
+        }
+    }
+}

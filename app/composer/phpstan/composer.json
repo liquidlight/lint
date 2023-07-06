@@ -1,0 +1,19 @@
+{
+    "name": "liquidlight/phpstan",
+    "type": "library",
+    "version": "dev-main",
+    "authors": [
+        {
+            "name": "Mike Street",
+            "email": "mike@liquidlight.co.uk"
+        }
+    ],
+    "require": {
+        "phpstan/phpstan": "^1.10.22"
+    },
+    "autoload": {
+        "psr-4": {
+            "LiquidLight\\PhpStan\\": "src"
+        }
+    }
+}

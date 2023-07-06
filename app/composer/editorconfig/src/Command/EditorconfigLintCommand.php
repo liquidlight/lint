@@ -1,14 +1,13 @@
 <?php
 
-// src/Command/CreateUserCommand.php
+namespace LiquidLight\EditorConfig\Command;
 
-namespace App\Command;
-
+use App\Command\Base;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class EditorconfigLint extends Base
+class EditorconfigLintCommand extends Base
 {
 	protected static $defaultName = 'editorconfig:lint';
 

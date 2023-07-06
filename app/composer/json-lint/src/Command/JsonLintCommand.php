@@ -1,16 +1,15 @@
 <?php
 
-// src/Command/CreateUserCommand.php
+namespace LiquidLight\JsonLint\Command;
 
-namespace App\Command;
-
+use App\Command\Base;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Seld\JsonLint\JsonParser;
 use Exception;
 
-class JsonLint extends Base
+class JsonLintCommand extends Base
 {
 	protected static $defaultName = 'json:lint';
 
@@ -25,9 +24,10 @@ class JsonLint extends Base
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
+		$extPath = dirname(__DIR__) . '/..';
 
 		$config = (object)json_decode(
-			file_get_contents($this->path . '/resources/config/jsonlint.json') ?: ''
+			file_get_contents($extPath . '/resources/config/jsonlint.json') ?: ''
 		);
 
 		$files = $this->findFiles($config->extension, $config->ignore);

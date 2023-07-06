@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Command;
+namespace LiquidLight\PhpStan\Command;
 
+use App\Command\Base;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 
-class PhpStan extends Base
+class PhpStanCommand extends Base
 {
 	protected static $defaultName = 'php:stan';
 
@@ -38,6 +39,7 @@ class PhpStan extends Base
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
+		$extPath = dirname(__DIR__) . '/..';
 
 		$fileCheck = $this->hasFiles('php');
 		if (!$fileCheck) {
@@ -52,7 +54,7 @@ class PhpStan extends Base
 			'--level',
 			$this->input->getOption('level'),
 			'--configuration',
-			$this->path . '/resources/config/PHPStan.neon',
+			$extPath . '/resources/config/PHPStan.neon',
 			...$paths,
 		];
 

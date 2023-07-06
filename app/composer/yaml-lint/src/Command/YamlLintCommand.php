@@ -1,12 +1,14 @@
 <?php
 
-namespace App\Command;
+namespace LiquidLight\YamlLint\Command;
+
+use App\Command\Base;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class YamlLint extends Base
+class YamlLintCommand extends Base
 {
 	protected static $defaultName = 'yaml:lint';
 
