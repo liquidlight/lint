@@ -10,14 +10,14 @@
         }
     ],
     "require": {
-        "liquidlight/composer-nomalize": "@dev",
-        "liquidlight/editorconfig": "@dev",
-        "liquidlight/json-lint": "@dev",
-        "liquidlight/php-coding-standards": "@dev",
-        "liquidlight/phpstan": "@dev",
-        "liquidlight/rector": "@dev",
-        "liquidlight/typoscript-lint": "@dev",
-        "liquidlight/yaml-lint": "@dev",
+        "app/composer-nomalize": "@dev",
+        "app/editorconfig": "@dev",
+        "app/json-lint": "@dev",
+        "app/php-coding-standards": "@dev",
+        "app/phpstan": "@dev",
+        "app/rector": "@dev",
+        "app/typoscript-lint": "@dev",
+        "app/yaml-lint": "@dev",
         "symfony/console": "^5.4.24",
         "symfony/finder": "^5.4.21",
         "symfony/translation": "^5.4.24"

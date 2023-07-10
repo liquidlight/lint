@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/php-coding-standards",
+    "name": "app/php-coding-standards",
     "type": "library",
     "version": "dev-main",
     "authors": [

@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/editorconfig",
+    "name": "app/editorconfig",
     "type": "library",
     "version": "dev-main",
     "authors": [

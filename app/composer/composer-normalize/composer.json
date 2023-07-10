@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/composer-nomalize",
+    "name": "app/composer-nomalize",
     "type": "library",
     "version": "dev-main",
     "authors": [

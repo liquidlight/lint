@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/json-lint",
+    "name": "app/json-lint",
     "type": "library",
     "version": "dev-main",
     "authors": [

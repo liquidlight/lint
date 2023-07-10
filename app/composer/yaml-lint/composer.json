@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/yaml-lint",
+    "name": "app/yaml-lint",
     "type": "library",
     "version": "dev-main",
     "authors": [

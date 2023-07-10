@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/typoscript-lint",
+    "name": "app/typoscript-lint",
     "type": "library",
     "version": "dev-main",
     "authors": [

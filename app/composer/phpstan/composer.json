@@ -1,5 +1,5 @@
 {
-    "name": "liquidlight/phpstan",
+    "name": "app/phpstan",
     "type": "library",
     "version": "dev-main",
     "authors": [
