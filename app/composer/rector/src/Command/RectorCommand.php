@@ -104,6 +104,7 @@ class RectorCommand extends Base
 	 */
 	protected function getConfigPath(string $name)
 	{
-		return $this->path . '/resources/config/Rector-' . $name . '.php';
+		$extPath = dirname(__DIR__) . '/..';
+		return $extPath . '/resources/config/Rector-' . $name . '.php';
 	}
 }
