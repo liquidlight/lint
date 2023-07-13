@@ -45,9 +45,9 @@ image:build:
     # Login to our registry
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
-    - echo "Building $CI_REGISTRY_IMAGE:js-eslint-dev"
-    - docker build -t $CI_REGISTRY_IMAGE:js-eslint-dev -f ./Dockerfiles/js-eslint.dockerfile .
-    - echo "Pushing $CI_REGISTRY_IMAGE:js-eslint-dev"
-    - docker push $CI_REGISTRY_IMAGE:js-eslint-dev
+    - echo "Building $CI_REGISTRY_IMAGE/js-eslint:dev-main"
+    - docker build -t $CI_REGISTRY_IMAGE/js-eslint:dev-main -f ./Dockerfiles/js-eslint.dockerfile .
+    - echo "Pushing $CI_REGISTRY_IMAGE/js-eslint:dev-main"
+    - docker push $CI_REGISTRY_IMAGE/js-eslint:dev-main
   only:
     - main
