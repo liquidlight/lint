@@ -1,6 +1,6 @@
 #!/bin/sh
 FOLDER=${1:-/app}
-/node_modules/.bin/eslint \
+/node_modules/eslint/bin/eslint.js \
 	--config /config/Eslint.js \
 	--ignore-path /config/Eslint-Ignore \
 	--color \

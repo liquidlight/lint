@@ -37,7 +37,7 @@ class EslintCommand extends Base
 
 		// Also in Dockerfiles/JsEslint.dockerfile
 		$command = [
-			$this->path . '/node_modules/.bin/eslint',
+			$this->path . '/node_modules/eslint/bin/eslint.js',
 			getcwd(),
 			'--color',
 			'--cache',

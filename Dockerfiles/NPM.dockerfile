@@ -14,7 +14,7 @@ RUN set -eux \
 		npm
 
 RUN set -eux \
-	&& npm install --omit=dev --no-audit
+	&& npm install --omit=dev --no-audit --no-bin-links
 
 # Remove unecessary files
 RUN set -eux \
