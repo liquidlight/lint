@@ -34,7 +34,7 @@ composer:normalize:
   script:
     - lint composer:normalize
 
-image:build:
+.image:build:
   stage: build
   image: docker:20.10.24
   variables:
@@ -45,9 +45,30 @@ image:build:
     # Login to our registry
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
-    - echo "Building $CI_REGISTRY_IMAGE/js-eslint:dev-main"
-    - docker build -t $CI_REGISTRY_IMAGE/js-eslint:dev-main -f ./Dockerfiles/js-eslint.dockerfile .
-    - echo "Pushing $CI_REGISTRY_IMAGE/js-eslint:dev-main"
-    - docker push $CI_REGISTRY_IMAGE/js-eslint:dev-main
+    - echo "Building $CI_REGISTRY_IMAGE/${TITLE}:dev-main"
+    - >
+      docker build
+      --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+      --build-arg FILE=${TITLE}
+      --build-arg APP_PATH=${APP_PATH}
+      --build-arg COMMAND=${COMMAND}
+      -f ./Dockerfiles/${DOCKER_IMAGE}
+      .
+    - echo "Pushing $CI_REGISTRY_IMAGE/${TITLE}:dev-main"
+    - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
   only:
     - main
+
+.npm:image:build:
+  extends:
+    - .npm:image:build
+  variables:
+    DOCKER_IMAGE: "NPM.dockerfile"
+
+js-eslint:image:build:
+  extends:
+    - .npm:image:build
+  variables:
+    TITLE: "js-eslint"
+    APP_PATH: "/app/eslint"
+    COMMAND: "/node_modules/eslint/bin/eslint.js --config /config/Eslint.js --ignore-path /config/Eslint-Ignore --color --ext .js $FOLDER"
