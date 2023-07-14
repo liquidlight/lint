@@ -47,15 +47,10 @@ RUN set -eux \
 FROM alpine:3.18
 
 ARG APP_PATH
-ARG COMMAND
-ARG FILE
 
 COPY --from=builder /node_modules/ /node_modules/
 COPY ${APP_PATH}/resources/config/ /config
+COPY --chmod=755 ${APP_PATH}/bin/lint /lint
 
 RUN set -eux \
-	&& apk add --no-cache nodejs-current \
-	&& echo '#!/bin/sh' >> ${FILE} \
-	&& echo 'FOLDER=${1:-/app}' >> ${FILE} \
-	&& echo ${COMMAND} >> ${FILE} \
-	&& chmod +x ${FILE}
+	&& apk add --no-cache nodejs-current

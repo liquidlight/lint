@@ -38,23 +38,21 @@ composer:normalize:
   stage: build
   image: docker:20.10.24
   variables:
+    COMPOSER_VERSION: "2"
     DOCKER_TLS_CERTDIR: "/certs"
+    DOCKER_BUILDKIT: 1
   services:
     - docker:20.10.24-dind
   before_script:
     # Login to our registry
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
-    - echo "Building $CI_REGISTRY_IMAGE/${TITLE}:dev-main"
     - >
       docker build
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-      --build-arg FILE="${TITLE}"
       --build-arg APP_PATH="${APP_PATH}"
-      --build-arg COMMAND="${COMMAND}"
       -f ./Dockerfiles/${DOCKER_IMAGE}
       .
-    - echo "Pushing $CI_REGISTRY_IMAGE/${TITLE}:dev-main"
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
   only:
     - main
@@ -71,4 +69,3 @@ js-eslint:image:build:
   variables:
     TITLE: "js-eslint"
     APP_PATH: "/app/eslint"
-    COMMAND: "/node_modules/eslint/bin/eslint.js --config /config/Eslint.js --ignore-path /config/Eslint-Ignore --color --ext .js $FOLDER"
