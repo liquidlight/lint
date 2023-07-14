@@ -4,14 +4,14 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c9ba9adc0f8668da9595f3fc2c88fae0",
+    "content-hash": "0eee20ce36e23a0a1d02ecd70de4748d",
     "packages": [
         {
             "name": "app/composer-nomalize",
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/composer-normalize",
+                "url": "./app/composer-normalize",
                 "reference": "054aeb283e935ed82b921caa749567b5f3af5154"
             },
             "require": {
@@ -38,7 +38,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/editorconfig",
+                "url": "./app/editorconfig",
                 "reference": "85dc07eeedd07ffebd24599ca1a9f228bab46496"
             },
             "require": {
@@ -65,7 +65,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/npm/eslint",
+                "url": "./app/eslint",
                 "reference": "e39a5c6e70a117cfb81a89e4fdd9769ff926d567"
             },
             "require": {
@@ -92,7 +92,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/json-lint",
+                "url": "./app/json-lint",
                 "reference": "dfbd28ff75ee905cfafd688f2aef63dd48ca5850"
             },
             "require": {
@@ -119,7 +119,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/php-coding-standards",
+                "url": "./app/php-coding-standards",
                 "reference": "0c7c0048ee1633d4fb6939980a3d4fb494106907"
             },
             "require": {
@@ -146,7 +146,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/phpstan",
+                "url": "./app/phpstan",
                 "reference": "21223443f22425de1eea7f3a53ffa20554d238bd"
             },
             "require": {
@@ -173,7 +173,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/rector",
+                "url": "./app/rector",
                 "reference": "d325853909772c6102dfa5589e782ca7d2df52d6"
             },
             "require": {
@@ -200,7 +200,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/typoscript-lint",
+                "url": "./app/typoscript-lint",
                 "reference": "51c947614a9f63035a2bcfdf12e56bff6f4bbf84"
             },
             "require": {
@@ -227,7 +227,7 @@
             "version": "dev-main",
             "dist": {
                 "type": "path",
-                "url": "./app/composer/yaml-lint",
+                "url": "./app/yaml-lint",
                 "reference": "f664ddb28290d4c5a04aaf1da4eb05d60ff10cdd"
             },
             "require": {
