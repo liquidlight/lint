@@ -14,7 +14,7 @@ RUN set -eux \
 		npm
 
 RUN set -eux \
-	&& npm install --omit=dev --no-audit --no-bin-links
+	&& npm install --omit=dev --no-audit
 
 # Remove unecessary files
 RUN set -eux \
@@ -54,3 +54,5 @@ COPY --chmod=755 ${APP_PATH}/bin/lint /lint
 
 RUN set -eux \
 	&& apk add --no-cache nodejs-current
+
+ENTRYPOINT ["/lint"]
