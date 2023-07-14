@@ -17,7 +17,8 @@ class EslintCommand extends Base
 
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('ESLint');
+			->setDescription('ESLint')
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
@@ -27,7 +28,7 @@ class EslintCommand extends Base
 
 		$ignore = explode(
 			PHP_EOL,
-			file_get_contents($extPath  . '/resources/config/Eslint-Ignore') ?: ''
+			file_get_contents($extPath . '/resources/config/Eslint-Ignore') ?: ''
 		);
 		$fileCheck = $this->hasFiles('js', $ignore);
 		if (!$fileCheck) {
