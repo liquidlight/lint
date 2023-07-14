@@ -63,9 +63,22 @@ composer:normalize:
   variables:
     DOCKER_IMAGE: "NPM.dockerfile"
 
+.composer:image:build:
+  extends:
+    - .image:build
+  variables:
+    DOCKER_IMAGE: "Composer.dockerfile"
+
 js-eslint:image:build:
   extends:
     - .npm:image:build
   variables:
     TITLE: "js-eslint"
     APP_PATH: "/app/eslint"
+
+editorconfig:image:build:
+  extends:
+    - .composer:image:build
+  variables:
+    TITLE: "editorconfig"
+    APP_PATH: "/app/editorconfig"
