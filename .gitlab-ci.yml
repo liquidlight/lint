@@ -49,9 +49,9 @@ composer:normalize:
     - >
       docker build
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-      --build-arg FILE=${TITLE}
-      --build-arg APP_PATH=${APP_PATH}
-      --build-arg COMMAND=${COMMAND}
+      --build-arg FILE="${TITLE}"
+      --build-arg APP_PATH="${APP_PATH}"
+      --build-arg COMMAND="${COMMAND}"
       -f ./Dockerfiles/${DOCKER_IMAGE}
       .
     - echo "Pushing $CI_REGISTRY_IMAGE/${TITLE}:dev-main"
