@@ -1,16 +1,13 @@
 <?php
 
-// src/Command/CreateUserCommand.php
+namespace LiquidLight\Eslint\Command;
 
-namespace App\Command;
-
+use App\Command\Base;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-use Symfony\Component\Console\Input\InputOption;
-
-class JsEslint extends Base
+class EslintCommand extends Base
 {
 	protected static $defaultName = 'js:eslint';
 
@@ -20,18 +17,17 @@ class JsEslint extends Base
 
 		$this
 			// the short description shown while running "php bin/console list"
-			->setDescription('ESLint')
-			->setAliases(['js:lint'])
-		;
+			->setDescription('ESLint');
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
+		$extPath = dirname(__DIR__) . '/..';
 
 		$ignore = explode(
 			PHP_EOL,
-			file_get_contents($this->path . '/resources/config/Eslint-Ignore') ?: ''
+			file_get_contents($extPath  . '/resources/config/Eslint-Ignore') ?: ''
 		);
 		$fileCheck = $this->hasFiles('js', $ignore);
 		if (!$fileCheck) {
@@ -45,9 +41,9 @@ class JsEslint extends Base
 			'--color',
 			'--cache',
 			'--ext', '.js',
-			'--config', $this->path . '/resources/config/Eslint.js',
-			'--ignore-path', $this->path . '/resources/config/Eslint-Ignore',
-			'--cache-location', $this->path . '/.cache/',
+			'--config', $extPath . '/resources/config/Eslint.js',
+			'--ignore-path', $extPath . '/resources/config/Eslint-Ignore',
+			'--cache-location', $extPath . '/.cache/',
 			'--cache-strategy', 'content',
 		];
 

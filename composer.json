@@ -12,6 +12,7 @@
     "require": {
         "app/composer-nomalize": "@dev",
         "app/editorconfig": "@dev",
+        "app/eslint": "@dev",
         "app/json-lint": "@dev",
         "app/php-coding-standards": "@dev",
         "app/phpstan": "@dev",

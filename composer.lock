@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "10d9e547280e5095c86c926b00700f5a",
+    "content-hash": "c9ba9adc0f8668da9595f3fc2c88fae0",
     "packages": [
         {
             "name": "app/composer-nomalize",
@@ -48,6 +48,33 @@
             "autoload": {
                 "psr-4": {
                     "LiquidLight\\EditorConfig\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "app/eslint",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/npm/eslint",
+                "reference": "e39a5c6e70a117cfb81a89e4fdd9769ff926d567"
+            },
+            "require": {
+                "armin/editorconfig-cli": "^1.6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\Eslint\\": "src"
                 }
             },
             "authors": [
@@ -120,10 +147,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/composer/phpstan",
-                "reference": "8221ed8f968f977348ed2f6ec6463db6e4a89e2f"
+                "reference": "21223443f22425de1eea7f3a53ffa20554d238bd"
             },
             "require": {
-                "phpstan/phpstan": "^1.10.22"
+                "phpstan/phpstan": "^1.10.25"
             },
             "type": "library",
             "autoload": {
@@ -4233,6 +4260,7 @@
     "stability-flags": {
         "app/composer-nomalize": 20,
         "app/editorconfig": 20,
+        "app/eslint": 20,
         "app/json-lint": 20,
         "app/php-coding-standards": 20,
         "app/phpstan": 20,

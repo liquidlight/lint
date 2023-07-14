@@ -1,0 +1,10 @@
+{
+  "name": "@app/eslint",
+  "version": "1.0.0",
+  "description": "EsLint",
+  "author": "Mike Street <mike@liquidlight.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "eslint": "^8.44.0"
+  }
+}
