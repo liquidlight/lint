@@ -61,7 +61,7 @@ composer:normalize:
 
 .npm:image:build:
   extends:
-    - .npm:image:build
+    - .image:build
   variables:
     DOCKER_IMAGE: "NPM.dockerfile"
 
