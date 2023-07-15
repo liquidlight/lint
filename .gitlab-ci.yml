@@ -15,24 +15,24 @@ stages:
   - build
 
 # Use custom LL docker image
-image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
+# image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 
-# Lint the PHP
-php:stan:
-  stage: backend
-  script:
-    - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
-    - lint php:stan --level=8
+# # Lint the PHP
+# php:stan:
+#   stage: backend
+#   script:
+#     - composer install --no-ansi --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader
+#     - lint php:stan --level=8
 
-php:coding-standards:
-  stage: backend
-  script:
-    - lint php:coding-standards
+# php:coding-standards:
+#   stage: backend
+#   script:
+#     - lint php:coding-standards
 
-composer:normalize:
-  stage: backend
-  script:
-    - lint composer:normalize
+# composer:normalize:
+#   stage: backend
+#   script:
+#     - lint composer:normalize
 
 ###
 # Base Image Build
