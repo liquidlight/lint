@@ -82,3 +82,10 @@ editorconfig:image:build:
   variables:
     TITLE: "editorconfig"
     APP_PATH: "/app/editorconfig"
+
+phpcodingstandards:image:build:
+  extends:
+    - .composer:image:build
+  variables:
+    TITLE: "phpcodingstandards"
+    APP_PATH: "/app/php-coding-standards"

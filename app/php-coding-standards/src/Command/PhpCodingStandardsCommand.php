@@ -4,8 +4,6 @@ namespace LiquidLight\PhpCodingStandards\Command;
 
 use App\Command\Base;
 use Symfony\Component\Process\Process;
-use Symfony\Component\Config\FileLocator;
-use Symfony\Component\DependencyInjection\ParameterBag\ParameterBag;
 use Symfony\Component\Console\Command\Command;
 
 use Symfony\Component\Console\Input\InputOption;
