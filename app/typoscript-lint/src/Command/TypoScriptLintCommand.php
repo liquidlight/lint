@@ -23,10 +23,11 @@ class TypoScriptLintCommand extends Base
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
 		parent::execute($input, $output);
+		$extPath = dirname(__DIR__) . '/..';
 
 		$command = [
 			$this->path . '/vendor/bin/typoscript-lint',
-			'--config=' . $this->path . '/resources/config/TSLint.yaml',
+			'--config=' . $extPath . '/resources/config/TSLint.yaml',
 			'--fail-on-warnings',
 		];
 
