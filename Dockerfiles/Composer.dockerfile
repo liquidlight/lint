@@ -1,5 +1,5 @@
 
-FROM php:7.4-cli-alpine3.16
+FROM php:8.2-cli-alpine3.16
 
 ARG APP_PATH
 
