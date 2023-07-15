@@ -76,6 +76,12 @@ composer:normalize:
   variables:
     DOCKER_IMAGE: "Composer.dockerfile"
 
+.curl:image:build:
+  extends:
+    - .image:build
+  variables:
+    DOCKER_IMAGE: "cURL.dockerfile"
+
 ###
 # NPM Images
 ###
@@ -104,3 +110,14 @@ php-coding-standards:image:build:
   variables:
     TITLE: "php-coding-standards"
     APP_PATH: "/app/php-coding-standards"
+
+###
+# cURL Images
+###
+
+composer-normalize:image:build:
+  extends:
+    - .curl:image:build
+  variables:
+    TITLE: "composer-normalize"
+    APP_PATH: "/app/composer-normalize"

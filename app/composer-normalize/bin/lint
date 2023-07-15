@@ -1,0 +1,7 @@
+#!/bin/sh
+FOLDER=${1:-/app}
+/composer-normalize.phar \
+	$FOLDER/composer.json \
+	--indent-size 4 \
+	--indent-style space \
+	--dry-run
