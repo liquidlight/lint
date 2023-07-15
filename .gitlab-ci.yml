@@ -34,6 +34,10 @@ composer:normalize:
   script:
     - lint composer:normalize
 
+###
+# Base Image Build
+###
+
 .image:build:
   stage: build
   image: docker:20.10.24
@@ -57,6 +61,9 @@ composer:normalize:
   only:
     - main
 
+###
+# Base Image Builds
+###
 .npm:image:build:
   extends:
     - .image:build
@@ -69,12 +76,20 @@ composer:normalize:
   variables:
     DOCKER_IMAGE: "Composer.dockerfile"
 
+###
+# NPM Images
+###
+
 js-eslint:image:build:
   extends:
     - .npm:image:build
   variables:
     TITLE: "js-eslint"
     APP_PATH: "/app/eslint"
+
+###
+# Composer Images
+###
 
 editorconfig:image:build:
   extends:
