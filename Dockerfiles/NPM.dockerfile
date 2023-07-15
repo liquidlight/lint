@@ -54,4 +54,4 @@ COPY --chmod=755 ${APP_PATH}/bin/lint /lint
 RUN set -eux \
 	&& apk add --no-cache nodejs-current
 
-ENTRYPOINT ["/lint"]
+CMD ["/lint"]

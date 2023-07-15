@@ -47,4 +47,4 @@ RUN set -eux \
 COPY ${APP_PATH}/resource[s]/confi[g]/ /config
 COPY --chmod=755 ${APP_PATH}/bin/lint /lint
 
-#ENTRYPOINT ["/lint"]
+CMD ["/lint"]
