@@ -3,5 +3,5 @@ FOLDER=${1:-/app}
 cd /app && /vendor/bin/php-cs-fixer \
 	fix \
 	--config="/config/PHPCodingStandards.php" \
-	--verbose \
+	--diff \
 	--dry-run
