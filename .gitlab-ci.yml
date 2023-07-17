@@ -93,6 +93,13 @@ js-eslint:image:build:
     TITLE: "js-eslint"
     APP_PATH: "/app/eslint"
 
+scss-stylelint:image:build:
+  extends:
+    - .npm:image:build
+  variables:
+    TITLE: "scss-stylelint"
+    APP_PATH: "/app/stylelint"
+
 ###
 # Composer Images
 ###
