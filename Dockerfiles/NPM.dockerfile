@@ -48,6 +48,7 @@ FROM alpine:3.18
 
 ARG APP_PATH
 
+COPY --from=builder /node_modules/ /node_modules/
 COPY ${APP_PATH}/resource[s]/confi[g]/ /config
 COPY --chmod=755 ${APP_PATH}/bin/lint /lint
 
