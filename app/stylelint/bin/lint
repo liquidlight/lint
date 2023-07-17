@@ -1,8 +1,7 @@
 #!/bin/sh
 FOLDER=${1:-/app}
-/node_modules/eslint/bin/eslint.js \
-	--config /config/Eslint.js \
-	--ignore-path /config/Eslint-Ignore \
-	--color \
-	--ext .js \
-	$FOLDER
+/node_modules/stylelint/bin/stylelint.js \
+	$FOLDER/**/*.scss \
+	--config /config/Stylelint.json \
+	--ignore-path /config/Stylelint-Ignore \
+	--color
