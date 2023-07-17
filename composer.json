@@ -17,6 +17,7 @@
         "app/php-coding-standards": "@dev",
         "app/phpstan": "@dev",
         "app/rector": "@dev",
+        "app/stylelint": "@dev",
         "app/typoscript-lint": "@dev",
         "app/yaml-lint": "@dev",
         "symfony/console": "^5.4.24",

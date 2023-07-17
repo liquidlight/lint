@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fc26c9957641e398ac1a5abc0e198a62",
+    "content-hash": "41841ec898514d696ed383b548744a9e",
     "packages": [
         {
             "name": "app/composer-nomalize",
@@ -183,6 +183,33 @@
             "autoload": {
                 "psr-4": {
                     "LiquidLight\\Rector\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
+            "name": "app/stylelint",
+            "version": "dev-main",
+            "dist": {
+                "type": "path",
+                "url": "./app/stylelint",
+                "reference": "facc8bc4ea1ef24bfa5889f87e9e93de5c98e929"
+            },
+            "require": {
+                "armin/editorconfig-cli": "^1.6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\Stylelint\\": "src"
                 }
             },
             "authors": [
@@ -4425,6 +4452,7 @@
         "app/php-coding-standards": 20,
         "app/phpstan": 20,
         "app/rector": 20,
+        "app/stylelint": 20,
         "app/typoscript-lint": 20,
         "app/yaml-lint": 20
     },

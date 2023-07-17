@@ -1,0 +1,11 @@
+{
+  "name": "@app/stylelint",
+  "version": "1.0.0",
+  "description": "EsLint",
+  "author": "Mike Street <mike@liquidlight.co.uk>",
+  "license": "ISC",
+  "dependencies": {
+    "stylelint": "^13.13.1",
+    "stylelint-scss": "^3.21.0"
+  }
+}

@@ -3,22 +3,22 @@
 
 $loader = require __DIR__ . '/vendor/autoload.php';
 
+use App\Command\PackageLint;
 use App\Command\Run;
 use App\Command\SelfUpdate;
-use App\Command\PackageLint;
-use App\Command\ScssStylelint;
-use Symfony\Component\Console\Application;
+use LiquidLight\ComposerNormalize\Command\ComposerNormalizeCommand;
+use LiquidLight\EditorConfig\Command\EditorconfigLintCommand;
+use LiquidLight\Eslint\Command\EslintCommand;
+use LiquidLight\JsonLint\Command\JsonLintCommand;
+use LiquidLight\PhpCodingStandards\Command\PhpCodingStandardsCommand;
 use LiquidLight\PhpStan\Command\PhpStanCommand;
 use LiquidLight\Rector\Command\PhpRectorCommand;
-use LiquidLight\JsonLint\Command\JsonLintCommand;
-use LiquidLight\YamlLint\Command\YamlLintCommand;
-use LiquidLight\Eslint\Command\EslintCommand;
 use LiquidLight\Rector\Command\PhpRectorTypo3Command;
-use Symfony\Component\Translation\Command\XliffLintCommand;
-use LiquidLight\EditorConfig\Command\EditorconfigLintCommand;
+use LiquidLight\Stylelint\Command\StylelintCommand;
 use LiquidLight\TypoScriptLint\Command\TypoScriptLintCommand;
-use LiquidLight\ComposerNormalize\Command\ComposerNormalizeCommand;
-use LiquidLight\PhpCodingStandards\Command\PhpCodingStandardsCommand;
+use LiquidLight\YamlLint\Command\YamlLintCommand;
+use Symfony\Component\Console\Application;
+use Symfony\Component\Translation\Command\XliffLintCommand;
 
 ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
@@ -42,7 +42,7 @@ $application->add((new PhpRectorCommand(__DIR__)));
 $application->add((new PhpRectorTypo3Command(__DIR__)));
 $application->add((new PhpStanCommand(__DIR__)));
 $application->add((new Run(__DIR__)));
-$application->add((new ScssStylelint(__DIR__)));
+$application->add((new StylelintCommand(__DIR__))->setAliases(['scss:lint', 'css:lint']));
 $application->add((new TypoScriptLintCommand(__DIR__))->setAliases(['typoscript:lint']));
 $application->add((new SelfUpdate(__DIR__)));
 $application->add((new YamlLintCommand(__DIR__)));
