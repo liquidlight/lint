@@ -44,6 +44,7 @@ RUN set -eux \
 	&& find /vendor -type f -iname '*.ts' -exec rm {} \; \
 	&& find /vendor -type f -iname '*.yml' -exec rm {} \;
 
+COPY --from=builder /node_modules/ /node_modules/
 COPY ${APP_PATH}/resource[s]/confi[g]/ /config
 COPY --chmod=755 ${APP_PATH}/bin/lint /lint
 
