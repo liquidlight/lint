@@ -120,10 +120,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "0c7c0048ee1633d4fb6939980a3d4fb494106907"
+                "reference": "78c08f8531d7983910bdf39e1c3408ea5257c245"
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "^3.20.0"
+                "friendsofphp/php-cs-fixer": "^3.21.1"
             },
             "type": "library",
             "autoload": {
