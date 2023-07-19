@@ -79,6 +79,8 @@ return $config->setRules([
 		'no_alternative_syntax' => true,
 		'ternary_operator_spaces' => true,
 		'unary_operator_spaces' => true,
+		'array_indentation' => true,
+		'statement_indentation' => true,
 
 		'multiline_whitespace_before_semicolons' => [
 			'strategy' => 'new_line_for_chained_calls',
