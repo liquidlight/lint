@@ -43,13 +43,15 @@ class SelfUpdate extends Base
 		$tag = trim($process->getOutput());
 
 		if ($this->input->getOption('dev') || is_null($this->input->getOption('dev'))) {
-			$tag = trim($this->input->getOption('dev') ?? 'main');
+			$branch = trim($this->input->getOption('dev') ?? 'main');
 
 			$this->io->text('Switching to the ' . $this->input->getOption('dev') . ' branch (dev)');
+			$command = 'cd ' . $this->path . ' && git checkout ' . $branch . ' && git pull origin ' . $branch;
+			$this->cmdString($command);
+		} else {
+			$this->cmdString('cd ' . $this->path . ' && git checkout ' . $tag);
 		}
 
-		$command = 'cd ' . $this->path . ' && git checkout ' . $tag;
-		$this->cmdString($command);
 
 		$command = 'cd ' . $this->path . ' && composer install && npm ci';
 		$this->cmdString($command);
