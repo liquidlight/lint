@@ -84,6 +84,7 @@ return $config->setRules([
 			'strategy' => 'new_line_for_chained_calls',
 		],
 		'trailing_comma_in_multiline' => true,
+		'no_multiline_whitespace_around_double_arrow' => true,
 	])
 	->setIndent("\t")
 	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))
