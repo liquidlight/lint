@@ -18,7 +18,8 @@ class StylelintCommand extends Base
 		$this
 			// the short description shown while running "php bin/console list"
 			->setDescription('Stylelint')
-			->setAliases(['scss:lint', 'css:lint']);
+			->setAliases(['scss:lint', 'css:lint'])
+		;
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output)
