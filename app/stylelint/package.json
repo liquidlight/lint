@@ -5,7 +5,7 @@
   "author": "Mike Street <mike@liquidlight.co.uk>",
   "license": "ISC",
   "dependencies": {
-    "stylelint": "15.10.1",
+    "stylelint": "15.10.2",
     "stylelint-config-standard-scss": "^10.0.0",
     "stylelint-scss": "^5.0.1",
     "stylelint-stylistic": "^0.4.3"
