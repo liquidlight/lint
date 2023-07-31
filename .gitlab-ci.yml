@@ -58,8 +58,10 @@ stages:
       -f ./Dockerfiles/${DOCKER_IMAGE}
       .
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-  only:
-    - main
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
+      when: manual
+
 
 ###
 # Base Image Builds
