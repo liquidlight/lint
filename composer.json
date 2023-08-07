@@ -21,7 +21,7 @@
         "app/typoscript-lint": "@dev",
         "app/yaml-lint": "@dev",
         "symfony/console": "^5.4.26",
-        "symfony/finder": "^5.4.26",
+        "symfony/finder": "^5.4.27",
         "symfony/translation": "^5.4.24"
     },
     "repositories": [
