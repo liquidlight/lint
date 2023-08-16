@@ -87,6 +87,7 @@ return $config->setRules([
 	],
 	'trailing_comma_in_multiline' => true,
 	'no_multiline_whitespace_around_double_arrow' => true,
+	'single_space_around_construct' => true,
 ])
 	->setIndent("\t")
 	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))
