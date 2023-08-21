@@ -3,6 +3,7 @@
 namespace LiquidLight\ComposerNormalize\Command;
 
 use App\Command\Base;
+use Symfony\Component\Finder\Finder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -25,32 +26,48 @@ class ComposerNormalizeCommand extends Base
 	{
 		parent::execute($input, $output);
 
+		$failures = [];
 
-		$command = [
-			'composer',
-			'--working-dir', $this->path,
-			'normalize',
-			getcwd() . '/composer.json',
-			'--indent-size', '4',
-			'--indent-style', 'space',
-		];
+		$finder = new Finder();
+		$finder->files()
+			->in(getcwd() . '/app')->name('composer.json')
+		;
 
-		if ($output->isVerbose()) {
-			$command[] = '-v';
+		$files = iterator_to_array($finder);
+		$files[] = getcwd() . '/composer.json';
+
+		foreach($files as $composerFile) {
+			$command = [
+				'composer',
+				'--working-dir', $this->path,
+				'normalize',
+				$composerFile,
+				'--indent-size', '4',
+				'--indent-style', 'space',
+			];
+
+			if ($output->isVerbose()) {
+				$command[] = '-v';
+			}
+
+			if ($this->input->getOption('fix') === false) {
+				$command[] = '--dry-run';
+			}
+
+			if ($this->input->getOption('whisper')) {
+				$command[] = '--quiet';
+			}
+
+			$process = $this->cmd($command);
+			$this->io->newLine();
+			$this->outputResult($process);
+
+			if(!$process->isSuccessful()) {
+				$failures[] = $composerFile;
+			}
 		}
 
-		if ($this->input->getOption('fix') === false) {
-			$command[] = '--dry-run';
-		}
 
-		if ($this->input->getOption('whisper')) {
-			$command[] = '--quiet';
-		}
-
-		$process = $this->cmd($command);
-		$this->io->newLine();
-		$this->outputResult($process);
-
-		return $process->isSuccessful() ? Command::SUCCESS : Command::FAILURE;
+		return count($failures) ? Command::FAILURE : Command::SUCCESS;
 	}
 }
