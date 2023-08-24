@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "ergebnis/composer-normalize": "2.34.0"
+        "ergebnis/composer-normalize": "2.35.0"
     },
     "autoload": {
         "psr-4": {
