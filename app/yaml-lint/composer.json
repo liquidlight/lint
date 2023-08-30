@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "symfony/yaml": "^5.4.23"
+        "symfony/yaml": "5.4.23"
     },
     "autoload": {
         "psr-4": {
