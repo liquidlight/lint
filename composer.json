@@ -20,7 +20,7 @@
         "app/stylelint": "0.0.0",
         "app/typoscript-lint": "0.0.0",
         "app/yaml-lint": "0.0.0",
-        "symfony/console": "5.4.26",
+        "symfony/console": "5.4.28",
         "symfony/finder": "5.4.27",
         "symfony/translation": "5.4.24"
     },
