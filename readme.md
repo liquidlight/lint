@@ -65,7 +65,7 @@ lint self-update --dev develop
 The linker builds and makes available several docker containers. Should you wish to use these instead, you can run something like the following:
 
 ```bash
-export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app registry.gitlab.lldev.co.uk/devops/lint:js-eslint-dev "/js-eslint"
+export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app  registry.gitlab.lldev.co.uk/devops/lint/js-eslint:dev-main
 ```
 
 _TODO:_ Hopefully make it easier to use the docker images instead of installing the linter
