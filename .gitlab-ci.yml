@@ -67,7 +67,9 @@ stages:
   extends:
     - .image:build
   stage: build-slim
-  image: dslim/slim
+  image:
+    name: dslim/slim
+    entrypoint: [""]
   script:
     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
     - >
