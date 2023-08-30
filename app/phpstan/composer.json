@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "phpstan/phpstan": "^1.10.29"
+        "phpstan/phpstan": "1.10.32"
     },
     "autoload": {
         "psr-4": {
