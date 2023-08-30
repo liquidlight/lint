@@ -63,25 +63,26 @@ stages:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
 
-.slim:image:build:
-  extends:
-    - .image:build
-  stage: build-slim
-  image:
-    name: dslim/slim
-    entrypoint: [""]
-  script:
-    - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-    - >
-      /bin/docker-slim
-      --include-path /node_modules
-      --include-path /config
-      --include-path /lint
-      --http-probe false
-      --continue-after 1
-      --target $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-      --tag $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
-    - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+# .slim:image:build:
+#   extends:
+#     - .image:build
+#   stage: build-slim
+#   image:
+#     name: dslim/slim
+#     entrypoint: [""]
+#   script:
+#     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+#     - >
+#       /bin/docker-slim
+#       --include-path /node_modules
+#       --include-path /config
+#       --include-path /lint
+#       --http-probe false
+#       --continue-after 1
+#       --target $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+#       --tag $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+#     - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+
 ###
 # Base Image Builds
 ###
@@ -114,13 +115,13 @@ js-eslint:image:build:
     TITLE: "js-eslint"
     APP_PATH: "/app/eslint"
 
-js-eslint-slim:image:build:
-  extends:
-    - .slim:image:build
-  needs:
-    - js-eslint:image:build
-  variables:
-    TITLE: "js-eslint"
+# js-eslint-slim:image:build:
+#   extends:
+#     - .slim:image:build
+#   needs:
+#     - js-eslint:image:build
+#   variables:
+#     TITLE: "js-eslint"
 
 scss-stylelint:image:build:
   extends:
