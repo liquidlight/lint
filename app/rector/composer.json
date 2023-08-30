@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "ssch/typo3-rector": "^1.3.5"
+        "ssch/typo3-rector": "1.3.6"
     },
     "autoload": {
         "psr-4": {

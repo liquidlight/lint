@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "armin/editorconfig-cli": "^1.6.2"
+        "armin/editorconfig-cli": "1.6.2"
     },
     "autoload": {
         "psr-4": {
