@@ -4,15 +4,15 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9c12d83e15a87f8771c26ef32c2861b1",
+    "content-hash": "70620fb19d0caf917a5f204ee02738dc",
     "packages": [
         {
             "name": "app/composer-nomalize",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/composer-normalize",
-                "reference": "0fb08a1e7cd0e98cc4ca83af6b527a4ffc8caa5d"
+                "reference": "f0d18bf0b775fffbad914259c77a421ac7012393"
             },
             "require": {
                 "ergebnis/composer-normalize": "2.35.0"
@@ -35,11 +35,11 @@
         },
         {
             "name": "app/editorconfig",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/editorconfig",
-                "reference": "c6e8c7174385226f6d233f6c0f2d0ecf4615c302"
+                "reference": "19e7d6a48f6f2932cd8dc679d48789cd04cbb9e5"
             },
             "require": {
                 "armin/editorconfig-cli": "1.6.2"
@@ -62,11 +62,11 @@
         },
         {
             "name": "app/eslint",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/eslint",
-                "reference": "e3574d396f29089beeaa134ec68062dceacba70e"
+                "reference": "39d3e9e8b6abc12c6b912d00eca9e468fafe0ed6"
             },
             "require": {
                 "armin/editorconfig-cli": "1.6.2"
@@ -89,11 +89,11 @@
         },
         {
             "name": "app/json-lint",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/json-lint",
-                "reference": "6da790df8a035072a30134c57248fd7c12019e72"
+                "reference": "5e98bf24785c5aaf0db22f9d4e1c89e1d76be1ac"
             },
             "require": {
                 "seld/jsonlint": "1.10.0"
@@ -116,11 +116,11 @@
         },
         {
             "name": "app/php-coding-standards",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "78eed85df960d72072aa2c289066e53ff0065a15"
+                "reference": "33f21da9bc194c7775b129d0e4a542cb0eb084fd"
             },
             "require": {
                 "friendsofphp/php-cs-fixer": "3.24.0"
@@ -143,11 +143,11 @@
         },
         {
             "name": "app/phpstan",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/phpstan",
-                "reference": "5602431c54204f2cf6fc4dbb698b5415ea4c0871"
+                "reference": "736f24ec33d9dd8006a1747b3ed22c63de4a9d0a"
             },
             "require": {
                 "phpstan/phpstan": "1.10.27"
@@ -170,11 +170,11 @@
         },
         {
             "name": "app/rector",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "4aaac16f5aadbe8d8b06e3855495f839c620a654"
+                "reference": "c8fe56b1a86fa9e88ba0f1f3ba5d0ef9effee7c2"
             },
             "require": {
                 "ssch/typo3-rector": "1.3.6"
@@ -197,11 +197,11 @@
         },
         {
             "name": "app/stylelint",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/stylelint",
-                "reference": "9a0beb4c2c686c765f71c3efa52bf89f12f295d2"
+                "reference": "3114e2a55fb8ea4fd841dedeb40a1f756eaa59d4"
             },
             "require": {
                 "armin/editorconfig-cli": "1.6.2"
@@ -224,11 +224,11 @@
         },
         {
             "name": "app/typoscript-lint",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/typoscript-lint",
-                "reference": "b83e51ca45560c02334c1dccc00eceb486e8736f"
+                "reference": "e5a2d269c0712f7e7a2c97472b0616f877c810bd"
             },
             "require": {
                 "helmich/typo3-typoscript-lint": "3.1.0"
@@ -251,11 +251,11 @@
         },
         {
             "name": "app/yaml-lint",
-            "version": "dev-main",
+            "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/yaml-lint",
-                "reference": "92b9382a0a22e9737f7531177b1b7e712027c789"
+                "reference": "a6fd11ca1e0e8a96d3b259f40a01e428207f7602"
             },
             "require": {
                 "symfony/yaml": "5.4.23"
@@ -4448,18 +4448,7 @@
     "packages-dev": [],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "app/composer-nomalize": 20,
-        "app/editorconfig": 20,
-        "app/eslint": 20,
-        "app/json-lint": 20,
-        "app/php-coding-standards": 20,
-        "app/phpstan": 20,
-        "app/rector": 20,
-        "app/stylelint": 20,
-        "app/typoscript-lint": 20,
-        "app/yaml-lint": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

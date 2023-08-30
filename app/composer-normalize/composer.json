@@ -1,7 +1,7 @@
 {
     "name": "app/composer-nomalize",
+    "version": "0.0.0",
     "type": "library",
-    "version": "dev-main",
     "authors": [
         {
             "name": "Mike Street",
