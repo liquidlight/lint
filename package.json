@@ -5,7 +5,7 @@
   "dependencies": {
     "@app/eslint": "file:./app/eslint",
     "@app/stylelint": "file:./app/stylelint",
-    "npm-package-json-lint": "^6.4.0"
+    "npm-package-json-lint": "6.4.0"
   },
   "author": "",
   "license": "ISC"
