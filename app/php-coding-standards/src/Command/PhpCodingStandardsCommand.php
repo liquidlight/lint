@@ -2,7 +2,7 @@
 
 namespace LiquidLight\PhpCodingStandards\Command;
 
-use App\Command\Base;
+use LiquidLight\Linter\Command\Base;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
 

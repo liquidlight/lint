@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fab07bcbb2849973b6dcb12961fdd876",
+    "content-hash": "2bcdbae9e3f1aa8af11c71ed4336f29d",
     "packages": [
         {
             "name": "app/composer-nomalize",
@@ -12,9 +12,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/composer-normalize",
-                "reference": "f0d18bf0b775fffbad914259c77a421ac7012393"
+                "reference": "2434a189bff10b91d23b0b89f8488cda03fe6e6d"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "ergebnis/composer-normalize": "2.35.0"
             },
             "type": "library",
@@ -39,9 +40,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/editorconfig",
-                "reference": "19e7d6a48f6f2932cd8dc679d48789cd04cbb9e5"
+                "reference": "fd1a9a30222abc5a942ab9741098c32e4ce260f6"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "armin/editorconfig-cli": "1.6.2"
             },
             "type": "library",
@@ -66,10 +68,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/eslint",
-                "reference": "39d3e9e8b6abc12c6b912d00eca9e468fafe0ed6"
+                "reference": "9a0fd51249ca774476686c5ca0169bd26ac036eb"
             },
             "require": {
-                "armin/editorconfig-cli": "1.6.2"
+                "app/linter": "0.0.0"
             },
             "type": "library",
             "autoload": {
@@ -93,9 +95,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/json-lint",
-                "reference": "5e98bf24785c5aaf0db22f9d4e1c89e1d76be1ac"
+                "reference": "f5e9f47f426609127ee6fba449df478e4f400a0c"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "seld/jsonlint": "1.10.0"
             },
             "type": "library",
@@ -115,15 +118,46 @@
             }
         },
         {
+            "name": "app/linter",
+            "version": "0.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./app/linter",
+                "reference": "49df4fd2e3e5227c7cbb12afd5c65bd4ac0448bf"
+            },
+            "require": {
+                "symfony/console": "5.4.28",
+                "symfony/finder": "5.4.27",
+                "symfony/translation": "5.4.24"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "LiquidLight\\Linter\\": "src"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Mike Street",
+                    "email": "mike@liquidlight.co.uk"
+                }
+            ],
+            "transport-options": {
+                "relative": true
+            }
+        },
+        {
             "name": "app/php-coding-standards",
             "version": "0.0.0",
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "33f21da9bc194c7775b129d0e4a542cb0eb084fd"
+                "reference": "f80b29ae2ded55da6e6310b1f98de9f954b1579c"
             },
             "require": {
-                "friendsofphp/php-cs-fixer": "3.24.0"
+                "app/linter": "0.0.0",
+                "friendsofphp/php-cs-fixer": "3.24.0",
+                "symfony/console": "5.4.28"
             },
             "type": "library",
             "autoload": {
@@ -147,9 +181,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/phpstan",
-                "reference": "736f24ec33d9dd8006a1747b3ed22c63de4a9d0a"
+                "reference": "3acf2f11a5fc983b3e7f2150e7560e29437c6bd1"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "phpstan/phpstan": "1.10.27"
             },
             "type": "library",
@@ -174,9 +209,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "c8fe56b1a86fa9e88ba0f1f3ba5d0ef9effee7c2"
+                "reference": "cd31328dcae3392f4801e3004d44490d227ada5e"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "ssch/typo3-rector": "1.3.6"
             },
             "type": "library",
@@ -201,10 +237,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/stylelint",
-                "reference": "3114e2a55fb8ea4fd841dedeb40a1f756eaa59d4"
+                "reference": "f8cb2f3a960d753a48201a842003fbb78bb2f4a3"
             },
             "require": {
-                "armin/editorconfig-cli": "1.6.2"
+                "app/linter": "0.0.0"
             },
             "type": "library",
             "autoload": {
@@ -228,9 +264,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/typoscript-lint",
-                "reference": "e5a2d269c0712f7e7a2c97472b0616f877c810bd"
+                "reference": "fef8ea8d96d3c82a9f52b8ecc2436058bba37bf1"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "helmich/typo3-typoscript-lint": "3.1.0"
             },
             "type": "library",
@@ -255,9 +292,10 @@
             "dist": {
                 "type": "path",
                 "url": "./app/yaml-lint",
-                "reference": "a6fd11ca1e0e8a96d3b259f40a01e428207f7602"
+                "reference": "40c2188adf342e5ea13c1ac152267edfad3689eb"
             },
             "require": {
+                "app/linter": "0.0.0",
                 "symfony/yaml": "5.4.23"
             },
             "type": "library",
@@ -407,16 +445,16 @@
         },
         {
             "name": "composer/semver",
-            "version": "3.3.2",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/semver.git",
-                "reference": "3953f23262f2bff1919fc82183ad9acb13ff62c9"
+                "reference": "35e8d0af4486141bc745f23a29cc2091eb624a32"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/semver/zipball/3953f23262f2bff1919fc82183ad9acb13ff62c9",
-                "reference": "3953f23262f2bff1919fc82183ad9acb13ff62c9",
+                "url": "https://api.github.com/repos/composer/semver/zipball/35e8d0af4486141bc745f23a29cc2091eb624a32",
+                "reference": "35e8d0af4486141bc745f23a29cc2091eb624a32",
                 "shasum": ""
             },
             "require": {
@@ -466,9 +504,9 @@
                 "versioning"
             ],
             "support": {
-                "irc": "irc://irc.freenode.org/composer",
+                "irc": "ircs://irc.libera.chat:6697/composer",
                 "issues": "https://github.com/composer/semver/issues",
-                "source": "https://github.com/composer/semver/tree/3.3.2"
+                "source": "https://github.com/composer/semver/tree/3.4.0"
             },
             "funding": [
                 {
@@ -484,7 +522,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-04-01T19:23:25+00:00"
+            "time": "2023-08-31T09:50:34+00:00"
         },
         {
             "name": "composer/xdebug-handler",

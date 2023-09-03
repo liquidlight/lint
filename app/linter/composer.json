@@ -1,5 +1,5 @@
 {
-    "name": "app/rector",
+    "name": "app/linter",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,18 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "0.0.0",
-        "ssch/typo3-rector": "1.3.6"
+        "symfony/console": "5.4.28",
+        "symfony/finder": "5.4.27",
+        "symfony/translation": "5.4.24"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*"
-        }
-    ],
     "autoload": {
         "psr-4": {
-            "LiquidLight\\Rector\\": "src"
+            "LiquidLight\\Linter\\": "src"
         }
     }
 }

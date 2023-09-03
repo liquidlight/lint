@@ -9,8 +9,15 @@
         }
     ],
     "require": {
+        "app/linter": "0.0.0",
         "helmich/typo3-typoscript-lint": "3.1.0"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../*"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "LiquidLight\\TypoScriptLint\\": "src"

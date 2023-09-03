@@ -14,15 +14,13 @@
         "app/editorconfig": "0.0.0",
         "app/eslint": "0.0.0",
         "app/json-lint": "0.0.0",
+        "app/linter": "0.0.0",
         "app/php-coding-standards": "0.0.0",
         "app/phpstan": "0.0.0",
         "app/rector": "0.0.0",
         "app/stylelint": "0.0.0",
         "app/typoscript-lint": "0.0.0",
-        "app/yaml-lint": "0.0.0",
-        "symfony/console": "5.4.28",
-        "symfony/finder": "5.4.27",
-        "symfony/translation": "5.4.24"
+        "app/yaml-lint": "0.0.0"
     },
     "repositories": [
         {

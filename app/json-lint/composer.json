@@ -9,8 +9,15 @@
         }
     ],
     "require": {
+        "app/linter": "0.0.0",
         "seld/jsonlint": "1.10.0"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../*"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "LiquidLight\\JsonLint\\": "src"

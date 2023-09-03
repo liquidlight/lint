@@ -1,7 +1,7 @@
 {
     "name": "app/composer-nomalize",
-    "version": "0.0.0",
     "type": "library",
+    "version": "0.0.0",
     "authors": [
         {
             "name": "Mike Street",
@@ -9,8 +9,15 @@
         }
     ],
     "require": {
+        "app/linter": "0.0.0",
         "ergebnis/composer-normalize": "2.35.0"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../*"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "LiquidLight\\ComposerNormalize\\": "src"

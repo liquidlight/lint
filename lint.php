@@ -3,8 +3,8 @@
 
 $loader = require __DIR__ . '/vendor/autoload.php';
 
-use App\Command\Run;
-use App\Command\SelfUpdate;
+use LiquidLight\Linter\Command\Run;
+use LiquidLight\Linter\Command\SelfUpdate;
 use LiquidLight\ComposerNormalize\Command\ComposerNormalizeCommand;
 use LiquidLight\EditorConfig\Command\EditorconfigLintCommand;
 use LiquidLight\Eslint\Command\EslintCommand;

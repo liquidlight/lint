@@ -9,8 +9,15 @@
         }
     ],
     "require": {
+        "app/linter": "0.0.0",
         "phpstan/phpstan": "1.10.27"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../*"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "LiquidLight\\PhpStan\\": "src"

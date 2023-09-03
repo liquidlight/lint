@@ -9,8 +9,14 @@
         }
     ],
     "require": {
-        "armin/editorconfig-cli": "1.6.2"
+        "app/linter": "0.0.0"
     },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "./../*"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "LiquidLight\\Eslint\\": "src"

@@ -2,7 +2,7 @@
 
 namespace LiquidLight\Rector\Command;
 
-use App\Command\Base;
+use LiquidLight\Linter\Command\Base;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
