@@ -69,7 +69,6 @@ cache:
     - >
       docker build
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-      --build-arg APP_PATH="./"
       -f ./../../Dockerfiles/Linter.dockerfile
       .
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
