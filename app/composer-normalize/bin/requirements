@@ -1,3 +1,0 @@
-#!/bin/sh
-curl -L https://github.com/ergebnis/composer-normalize/releases/latest/download/composer-normalize.phar > composer-normalize.phar
-chmod +x composer-normalize.phar

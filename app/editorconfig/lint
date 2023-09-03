@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+use Symfony\Component\Console\Application;
+use LiquidLight\ComposerNormalize\Command\ComposerNormalizeCommand;
+use LiquidLight\EditorConfig\Command\EditorconfigLintCommand;
+
+$application = new Application();
+$application->add(new EditorconfigLintCommand(__DIR__))->setAliases(['run']));
+$application->run();

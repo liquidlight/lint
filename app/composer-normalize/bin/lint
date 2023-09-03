@@ -1,6 +1,0 @@
-#!/bin/sh
-FOLDER=${1:-/app}
-cd $FOLDER && /composer-normalize.phar \
-	--indent-size 4 \
-	--indent-style space \
-	--dry-run

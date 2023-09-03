@@ -1,8 +1,0 @@
-#!/bin/sh
-FOLDER=${1:-/app}
-/vendor/bin/php-cs-fixer \
-	fix \
-	--config="/config/PHPCodingStandards.php" \
-	--diff \
-	--dry-run \
-	$FOLDER

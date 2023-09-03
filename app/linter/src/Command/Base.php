@@ -73,9 +73,14 @@ class Base extends Command
 	{
 		$this->io->title(
 			sprintf(
-				'%s <fg=white>[linter: %s]</>',
+				'%s <fg=white>%s</>',
 				$this->getName(),
-				$this->getApplication() ? $this->getApplication()->getVersion() : ''
+				(
+					$this->getApplication() &&
+					$this->getApplication()->getVersion() &&
+					$this->getApplication()->getVersion() !== 'UNKNOWN'
+				)
+				? $this->getApplication()->getVersion() : ''
 			)
 		);
 	}

@@ -6,3 +6,5 @@ vendor-bin
 
 .DS_Store
 ._*
+
+app/*/composer.lock

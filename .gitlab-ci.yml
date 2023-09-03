@@ -15,6 +15,20 @@ stages:
   - build
   - build-slim
 
+cache:
+  - key:
+      files:
+        - composer.lock
+    paths:
+      - vendor/
+      - app/**/vendor/
+  - key:
+      files:
+        - package-lock.json
+    paths:
+      - node_modules/
+      - app/**/node_modules/
+
 # Use custom LL docker image
 # image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 
@@ -41,22 +55,20 @@ stages:
 
 .image:build:
   stage: build
-  image: docker:20.10.24
-  variables:
-    COMPOSER_VERSION: "2"
-    DOCKER_TLS_CERTDIR: "/certs"
-    DOCKER_BUILDKIT: 1
-  services:
-    - docker:20.10.24-dind
+  image: registry.gitlab.lldev.co.uk/devops/containers/deployment/docker:php8.2
   before_script:
     # Login to our registry
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
+    - cd ${APP_PATH}
+    - composer install --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs
+    - >
+      [ -e "package.json" ] && npm install --no-save --audit=false || ''
     - >
       docker build
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-      --build-arg APP_PATH="${APP_PATH}"
-      -f ./Dockerfiles/${DOCKER_IMAGE}
+      --build-arg APP_PATH="./"
+      -f ./../../Dockerfiles/Linter.dockerfile
       .
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
   rules:
@@ -84,77 +96,82 @@ stages:
 #     - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
 
 ###
-# Base Image Builds
-###
-.npm:image:build:
-  extends:
-    - .image:build
-  variables:
-    DOCKER_IMAGE: "NPM.dockerfile"
-
-.composer:image:build:
-  extends:
-    - .image:build
-  variables:
-    DOCKER_IMAGE: "Composer.dockerfile"
-
-.curl:image:build:
-  extends:
-    - .image:build
-  variables:
-    DOCKER_IMAGE: "cURL.dockerfile"
-
-###
-# NPM Images
+# Linting Images
 ###
 
 js-eslint:image:build:
   extends:
-    - .npm:image:build
+    - .image:build
   variables:
     TITLE: "js-eslint"
     APP_PATH: "/app/eslint"
 
-# js-eslint-slim:image:build:
-#   extends:
-#     - .slim:image:build
-#   needs:
-#     - js-eslint:image:build
-#   variables:
-#     TITLE: "js-eslint"
-
-scss-stylelint:image:build:
+composer:normalize:image:build:
   extends:
-    - .npm:image:build
+    - .image:build
   variables:
-    TITLE: "scss-stylelint"
-    APP_PATH: "/app/stylelint"
+    TITLE: "composer-normalize"
+    APP_PATH: "/app/composer-normalize"
 
-###
-# Composer Images
-###
-
-editorconfig:image:build:
+editorconfig:lint:image:build:
   extends:
-    - .composer:image:build
+    - .image:build
   variables:
     TITLE: "editorconfig"
     APP_PATH: "/app/editorconfig"
 
-php-coding-standards:image:build:
+js:eslint:image:build:
   extends:
-    - .composer:image:build
+    - .image:build
+  variables:
+    TITLE: "js-eslint"
+    APP_PATH: "/app/js-eslint"
+
+json:lint:image:build:
+  extends:
+    - .image:build
+  variables:
+    TITLE: "json-lint"
+    APP_PATH: "/app/json-lint"
+
+php:coding-standards:image:build:
+  extends:
+    - .image:build
   variables:
     TITLE: "php-coding-standards"
     APP_PATH: "/app/php-coding-standards"
 
-###
-# cURL Images
-###
-
-composer-normalize:image:build:
+php:rector:image:build:
   extends:
-    - .curl:image:build
+    - .image:build
   variables:
-    TITLE: "composer-normalize"
-    APP_PATH: "/app/composer-normalize"
+    TITLE: "rector"
+    APP_PATH: "/app/rector"
+
+php:stan:image:build:
+  extends:
+    - .image:build
+  variables:
+    TITLE: "phpstan"
+    APP_PATH: "/app/phpstan"
+
+scss:stylelint:image:build:
+  extends:
+    - .image:build
+  variables:
+    TITLE: "stylelint"
+    APP_PATH: "/app/stylelint"
+
+typoscript:lint:image:build:
+  extends:
+    - .image:build
+  variables:
+    TITLE: "typoscript-lint"
+    APP_PATH: "/app/typoscript-lint"
+
+yaml:lint:image:build:
+  extends:
+    - .image:build
+  variables:
+    TITLE: "yaml-lint"
+    APP_PATH: "/app/yaml-lint"
