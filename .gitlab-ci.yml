@@ -104,74 +104,74 @@ js-eslint:image:build:
     - .image:build
   variables:
     TITLE: "js-eslint"
-    APP_PATH: "/app/eslint"
+    APP_PATH: "./app/eslint"
 
 composer:normalize:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "composer-normalize"
-    APP_PATH: "/app/composer-normalize"
+    APP_PATH: "./app/composer-normalize"
 
 editorconfig:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "editorconfig"
-    APP_PATH: "/app/editorconfig"
+    APP_PATH: "./app/editorconfig"
 
 js:eslint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "js-eslint"
-    APP_PATH: "/app/js-eslint"
+    APP_PATH: "./app/js-eslint"
 
 json:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "json-lint"
-    APP_PATH: "/app/json-lint"
+    APP_PATH: "./app/json-lint"
 
 php:coding-standards:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "php-coding-standards"
-    APP_PATH: "/app/php-coding-standards"
+    APP_PATH: "./app/php-coding-standards"
 
 php:rector:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "rector"
-    APP_PATH: "/app/rector"
+    APP_PATH: "./app/rector"
 
 php:stan:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "phpstan"
-    APP_PATH: "/app/phpstan"
+    APP_PATH: "./app/phpstan"
 
 scss:stylelint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "stylelint"
-    APP_PATH: "/app/stylelint"
+    APP_PATH: "./app/stylelint"
 
 typoscript:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "typoscript-lint"
-    APP_PATH: "/app/typoscript-lint"
+    APP_PATH: "./app/typoscript-lint"
 
 yaml:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "yaml-lint"
-    APP_PATH: "/app/yaml-lint"
+    APP_PATH: "./app/yaml-lint"
