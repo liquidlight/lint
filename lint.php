@@ -3,7 +3,6 @@
 
 $loader = require __DIR__ . '/vendor/autoload.php';
 
-use App\Command\PackageLint;
 use App\Command\Run;
 use App\Command\SelfUpdate;
 use LiquidLight\ComposerNormalize\Command\ComposerNormalizeCommand;
@@ -36,7 +35,6 @@ $application->add((new ComposerNormalizeCommand(__DIR__))->setAliases(['composer
 $application->add(new EditorconfigLintCommand(__DIR__));
 $application->add((new EslintCommand(__DIR__))->setAliases(['js:lint']));
 $application->add((new JsonLintCommand(__DIR__)));
-$application->add((new PackageLint(__DIR__)));
 $application->add((new PhpCodingStandardsCommand(__DIR__))->setAliases(['php:cs', 'php:lint', 'php']));
 $application->add((new PhpRectorCommand(__DIR__)));
 $application->add((new PhpRectorTypo3Command(__DIR__)));
