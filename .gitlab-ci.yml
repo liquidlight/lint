@@ -119,7 +119,7 @@ js:eslint:image:build:
     - .image:build
   variables:
     TITLE: "js-eslint"
-    APP_PATH: "./app/js-eslint"
+    APP_PATH: "./app/eslint"
     ADDITIONAL_COMMANDS: "npm install --no-save --audit=false"
 
 json:lint:image:build:
