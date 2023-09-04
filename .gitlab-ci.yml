@@ -72,7 +72,7 @@ cache:
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
       -f ./../../Dockerfiles/Linter.dockerfile
       .
-    - docker run -it -rm -v $(pwd):/app $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+    - docker run -it --rm -v $(pwd):/app $CI_REGISTRY_IMAGE/${TITLE}:dev-main
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
