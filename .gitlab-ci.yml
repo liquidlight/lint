@@ -93,7 +93,7 @@ cache:
       && mv dist_linux/docker-slim /usr/local/bin/
       && mv dist_linux/docker-slim-sensor /usr/local/bin/
     # Ensure that the fat image is cached locally
-    - docker pull $IMAGE_TAG
+    - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
     # Note regarding parameters: "--target" is the input, "--tag" is the output
     - >
       docker-slim
