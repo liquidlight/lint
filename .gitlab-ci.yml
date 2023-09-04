@@ -97,11 +97,11 @@ cache:
     # Note regarding parameters: "--target" is the input, "--tag" is the output
     - >
       docker-slim
-      --target $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+      --target="$CI_REGISTRY_IMAGE/${TITLE}:dev-main"
       --include-path="/lint"
       --http-probe="false"
       --continue-after="1"
-      --tag $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+      --tag="$CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main"
     - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
   artifacts:
     expire_in: 7 days
