@@ -69,6 +69,7 @@ cache:
     - ./lint run --verbose
     - >
       docker build
+      --build-arg CACHEBUST=$(date +%s)
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
       -f ./../../Dockerfiles/Linter.dockerfile
       .
