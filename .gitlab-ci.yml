@@ -101,8 +101,8 @@ cache:
       --include-path="/lint"
       --http-probe="false"
       --continue-after="1"
-      --tag="$CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main"
-    - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+      --tag="$CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main"
+    - docker push $CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main
   artifacts:
     expire_in: 7 days
     paths:
