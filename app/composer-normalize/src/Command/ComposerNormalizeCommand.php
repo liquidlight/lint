@@ -30,6 +30,7 @@ class ComposerNormalizeCommand extends Base
 		$files = [];
 
 		$finder = new Finder();
+		$finder->in(__DIR__)->exclude('vendor');
 
 		if (file_exists(getcwd() . '/app')) {
 			$finder->files()
