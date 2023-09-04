@@ -104,6 +104,7 @@ cache:
       --http-probe="false"
       --continue-after="1"
       --tag="$CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main"
+    - docker run -i --rm -v $(pwd):/app $CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main
     - docker push $CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main
   artifacts:
     expire_in: 7 days
