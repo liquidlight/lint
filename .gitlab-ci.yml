@@ -112,6 +112,11 @@ cache:
 # Linting Images
 ###
 
+
+###
+# Composer Normalize
+###
+
 composer:normalize:image:build:
   extends:
     - .image:build
@@ -127,12 +132,28 @@ composer:normalize:slim:image:build:
   variables:
     TITLE: "composer-normalize"
 
+###
+# Editorconfig
+###
+
 editorconfig:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "editorconfig"
     APP_PATH: "./app/editorconfig"
+
+editorconfig:lint:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - editorconfig:lint:image:build
+  variables:
+    TITLE: "editorconfig"
+
+###
+# ESlint
+###
 
 js:eslint:image:build:
   extends:
@@ -142,12 +163,36 @@ js:eslint:image:build:
     APP_PATH: "./app/eslint"
     ADDITIONAL_COMMANDS: "npm install --no-save --audit=false"
 
+js:eslint:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - js:eslint:image:build
+  variables:
+    TITLE: "js-eslint"
+
+###
+# JSON Lint
+###
+
 json:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "json-lint"
     APP_PATH: "./app/json-lint"
+
+json:lint:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - json:lint:image:build
+  variables:
+    TITLE: "json-lint"
+
+###
+# PHP Coding Standards
+###
 
 php:coding-standards:image:build:
   extends:
@@ -156,6 +201,18 @@ php:coding-standards:image:build:
     TITLE: "php-coding-standards"
     APP_PATH: "./app/php-coding-standards"
 
+php:coding-standards:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - php:coding-standards:image:build
+  variables:
+    TITLE: "php-coding-standards"
+
+###
+# PHP Rector
+###
+
 php:rector:image:build:
   extends:
     - .image:build
@@ -163,12 +220,36 @@ php:rector:image:build:
     TITLE: "rector"
     APP_PATH: "./app/rector"
 
+php:rector:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - php:rector:image:build
+  variables:
+    TITLE: "rector"
+
+###
+# PHP Stan
+###
+
 php:stan:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "phpstan"
     APP_PATH: "./app/phpstan"
+
+php:stan:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - php:stan:image:build
+  variables:
+    TITLE: "phpstan"
+
+###
+# SCSS Lint
+###
 
 scss:stylelint:image:build:
   extends:
@@ -178,6 +259,18 @@ scss:stylelint:image:build:
     APP_PATH: "./app/stylelint"
     ADDITIONAL_COMMANDS: "npm install --no-save --audit=false"
 
+scss:stylelint:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - scss:stylelint:image:build
+  variables:
+    TITLE: "stylelint"
+
+###
+# TypoScript Lint
+###
+
 typoscript:lint:image:build:
   extends:
     - .image:build
@@ -185,9 +278,29 @@ typoscript:lint:image:build:
     TITLE: "typoscript-lint"
     APP_PATH: "./app/typoscript-lint"
 
+typoscript:lint:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - typoscript:lint:image:build
+  variables:
+    TITLE: "typoscript-lint"
+
+###
+# YAML Lint
+###
+
 yaml:lint:image:build:
   extends:
     - .image:build
   variables:
     TITLE: "yaml-lint"
     APP_PATH: "./app/yaml-lint"
+
+yaml:lint:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - yaml:lint:image:build
+  variables:
+    TITLE: "yaml-lint"
