@@ -27,13 +27,24 @@ class ComposerNormalizeCommand extends Base
 		parent::execute($input, $output);
 
 		$failures = [];
+		$files = [];
 
 		$finder = new Finder();
-		$finder->files()
-			->in(getcwd() . '/app')->name('composer.json')
-		;
 
-		$files = iterator_to_array($finder);
+		if (file_exists(getcwd() . '/app')) {
+			$finder->files()
+				->in(getcwd() . '/app')->name('composer.json');
+
+			$files = array_merge(iterator_to_array($finder), $files);
+		}
+
+		if (file_exists(getcwd() . '/src')) {
+			$finder->files()
+				->in(getcwd() . '/src')->name('composer.json');
+
+			$files = array_merge(iterator_to_array($finder), $files);
+		}
+
 		$files[] = getcwd() . '/composer.json';
 
 		foreach ($files as $composerFile) {
