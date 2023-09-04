@@ -25,5 +25,10 @@
         "psr-4": {
             "LiquidLight\\ComposerNormalize\\": "src"
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "ergebnis/composer-normalize": true
+        }
     }
 }
