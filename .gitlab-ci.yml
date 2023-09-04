@@ -96,7 +96,7 @@ cache:
     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
     # Note regarding parameters: "--target" is the input, "--tag" is the output
     - >
-      docker-slim
+      docker-slim build
       --target="$CI_REGISTRY_IMAGE/${TITLE}:dev-main"
       --include-path="/lint"
       --http-probe="false"
