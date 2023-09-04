@@ -8,3 +8,5 @@ vendor-bin
 ._*
 
 app/*/composer.lock
+
+slim.report.json

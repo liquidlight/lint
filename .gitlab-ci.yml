@@ -76,25 +76,23 @@ cache:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
 
-# .slim:image:build:
-#   extends:
-#     - .image:build
-#   stage: build-slim
-#   image:
-#     name: dslim/slim
-#     entrypoint: [""]
-#   script:
-#     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-#     - >
-#       /bin/docker-slim
-#       --include-path /node_modules
-#       --include-path /config
-#       --include-path /lint
-#       --http-probe false
-#       --continue-after 1
-#       --target $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-#       --tag $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
-#     - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+.slim:image:build:
+  extends:
+    - .image:build
+  stage: build-slim
+  image:
+    name: dslim/slim
+    entrypoint: [""]
+  script:
+    - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+    - >
+      /bin/docker-slim
+      --target $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+      --include-path="/lint"
+      --http-probe="false"
+      --continue-after="1"
+      --tag $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
+    - docker push $CI_REGISTRY_IMAGE/${TITLE}-slim:dev-main
 
 ###
 # Linting Images
@@ -106,6 +104,14 @@ composer:normalize:image:build:
   variables:
     TITLE: "composer-normalize"
     APP_PATH: "./app/composer-normalize"
+
+composer:normalize:slim:image:build:
+  extends:
+    - .slim:image:build
+  needs:
+    - composer:normalize:image:build
+  variables:
+    TITLE: "composer-normalize"
 
 editorconfig:lint:image:build:
   extends:
