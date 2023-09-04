@@ -66,11 +66,13 @@ cache:
     - cd ${APP_PATH}
     - composer install --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs
     - $ADDITIONAL_COMMANDS
+    - ./lint run
     - >
       docker build
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
       -f ./../../Dockerfiles/Linter.dockerfile
       .
+    - docker run -it -rm -v $(pwd):/app $CI_REGISTRY_IMAGE/${TITLE}:dev-main
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
