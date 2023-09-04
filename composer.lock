@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/composer-normalize",
-                "reference": "2434a189bff10b91d23b0b89f8488cda03fe6e6d"
+                "reference": "21aff9124515e5bf2da379ff647d949149cb1084"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -40,7 +40,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/editorconfig",
-                "reference": "fd1a9a30222abc5a942ab9741098c32e4ce260f6"
+                "reference": "3ffb77fb877328f89321c7571d707ec402ba02e5"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -68,7 +68,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/eslint",
-                "reference": "9a0fd51249ca774476686c5ca0169bd26ac036eb"
+                "reference": "4d389b554c2b979fe7adae1bccf40e89db46f7a2"
             },
             "require": {
                 "app/linter": "0.0.0"
@@ -95,7 +95,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/json-lint",
-                "reference": "f5e9f47f426609127ee6fba449df478e4f400a0c"
+                "reference": "fab2d0770b46f99b131ccf91ae905e17da5f2404"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -123,11 +123,12 @@
             "dist": {
                 "type": "path",
                 "url": "./app/linter",
-                "reference": "49df4fd2e3e5227c7cbb12afd5c65bd4ac0448bf"
+                "reference": "bdd463782be381ba6b7cdb5538d641312f3e66c5"
             },
             "require": {
                 "symfony/console": "5.4.28",
                 "symfony/finder": "5.4.27",
+                "symfony/process": "^6.3",
                 "symfony/translation": "5.4.24"
             },
             "type": "library",
@@ -152,7 +153,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "f80b29ae2ded55da6e6310b1f98de9f954b1579c"
+                "reference": "d84ad8892ad8da9612237ace9eed134ec30ca4d8"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -181,7 +182,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/phpstan",
-                "reference": "3acf2f11a5fc983b3e7f2150e7560e29437c6bd1"
+                "reference": "4faf99c0e429a30fc7a4db8f445096dde080fdc0"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -209,7 +210,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "cd31328dcae3392f4801e3004d44490d227ada5e"
+                "reference": "c1a828923d31f07145dfa63841b7672492334fc5"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -237,7 +238,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/stylelint",
-                "reference": "f8cb2f3a960d753a48201a842003fbb78bb2f4a3"
+                "reference": "c81ed12fe23d739c995932be0a2c241f1b6921bd"
             },
             "require": {
                 "app/linter": "0.0.0"
@@ -264,7 +265,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/typoscript-lint",
-                "reference": "fef8ea8d96d3c82a9f52b8ecc2436058bba37bf1"
+                "reference": "47c3f840458df34510b54eb5d6c705ec98b95ac6"
             },
             "require": {
                 "app/linter": "0.0.0",
@@ -292,7 +293,7 @@
             "dist": {
                 "type": "path",
                 "url": "./app/yaml-lint",
-                "reference": "40c2188adf342e5ea13c1ac152267edfad3689eb"
+                "reference": "35eb26b67501b1ba657dfe9b107d329274be6c1b"
             },
             "require": {
                 "app/linter": "0.0.0",
