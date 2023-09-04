@@ -33,14 +33,16 @@ class ComposerNormalizeCommand extends Base
 
 		if (file_exists(getcwd() . '/app')) {
 			$finder->files()
-				->in(getcwd() . '/app')->name('composer.json');
+				->in(getcwd() . '/app')->name('composer.json')
+			;
 
 			$files = array_merge(iterator_to_array($finder), $files);
 		}
 
 		if (file_exists(getcwd() . '/src')) {
 			$finder->files()
-				->in(getcwd() . '/src')->name('composer.json');
+				->in(getcwd() . '/src')->name('composer.json')
+			;
 
 			$files = array_merge(iterator_to_array($finder), $files);
 		}
