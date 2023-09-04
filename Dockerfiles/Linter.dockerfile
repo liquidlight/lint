@@ -8,4 +8,4 @@ RUN chmod +x /lint/lint
 
 WORKDIR /app
 
-CMD ["/lint/lint", "run", "--verbose"]
+CMD ["/lint/lint", "run", "-vv"]
