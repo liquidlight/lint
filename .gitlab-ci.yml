@@ -111,6 +111,8 @@ cache:
     expire_in: 7 days
     paths:
       - slim.report.json
+  rules:
+    - if: '$CI_COMMIT_BRANCH == "main"'
 
 ###
 # Linting Images
