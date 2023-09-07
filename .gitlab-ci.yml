@@ -67,7 +67,7 @@ cache:
     - .base
   before_script:
     # Login to our registry
-    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
 
 .image:build:
   extends:
@@ -104,7 +104,7 @@ cache:
   image: ghcr.io/liquidlight/docker-slim:1.37.3
   before_script:
     # Login to our registry
-    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
   script:
     # Ensure that the fat image is cached locally
     - docker pull $IMAGE_NAME
