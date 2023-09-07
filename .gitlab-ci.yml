@@ -34,10 +34,6 @@ cache:
       - node_modules/
       - app/**/node_modules/
 
-before_script:
-  # Login to our registry
-  - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
-
 # Use custom LL docker image
 # image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
 
@@ -65,6 +61,9 @@ before_script:
 .image:build:
   stage: build
   image: registry.gitlab.lldev.co.uk/devops/containers/deployment/docker:php8.2
+  before_script:
+    # Login to our registry
+    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
     - cd ${APP_PATH}
     - composer install --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs
@@ -89,6 +88,9 @@ before_script:
 .slim:image:build:
   stage: build-slim
   image: ghcr.io/liquidlight/docker-slim:1.37.3
+  before_script:
+    # Login to our registry
+    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
     # Ensure that the fat image is cached locally
     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
