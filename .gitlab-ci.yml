@@ -86,7 +86,7 @@ before_script:
 
 .slim:image:build:
   stage: build-slim
-  image: ghcr.io/liquidlight/docker-slim:1.37.3-slim
+  image: ghcr.io/liquidlight/docker-slim:1.37.3
   script:
     # Ensure that the fat image is cached locally
     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
