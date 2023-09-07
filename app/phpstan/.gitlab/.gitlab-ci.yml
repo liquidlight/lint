@@ -1,0 +1,33 @@
+###
+# PHP Stan
+###
+.php:stan:
+  variables:
+    TITLE: "phpstan"
+    APP_PATH: "./app/phpstan"
+
+php:stan:image:build:
+  extends:
+    - .image:build
+    - .php:stan
+
+php:stan:image:test:
+  extends:
+    - .image:test
+    - .php:stan
+  needs:
+    - php:stan:image:build
+
+php:stan:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .php:stan
+  needs:
+    - php:stan:image:test
+
+php:stan:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .php:stan
+  needs:
+    - php:stan:slim:image:build

@@ -1,0 +1,34 @@
+###
+# PHP Rector
+###
+
+.php:rector:
+  variables:
+    TITLE: "rector"
+    APP_PATH: "./app/rector"
+
+php:rector:image:build:
+  extends:
+    - .image:build
+    - .php:rector
+
+php:rector:image:test:
+  extends:
+    - .image:test
+    - .php:rector
+  needs:
+    - php:rector:image:build
+
+php:rector:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .php:rector
+  needs:
+    - php:rector:image:test
+
+php:rector:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .php:rector
+  needs:
+    - php:rector:slim:image:build

@@ -1,0 +1,33 @@
+###
+# Editorconfig
+###
+.editorconfig:lint:
+  variables:
+    TITLE: "editorconfig"
+    APP_PATH: "./app/editorconfig"
+
+editorconfig:lint:image:build:
+  extends:
+    - .image:build
+    - .editorconfig:lint
+
+editorconfig:lint:image:test:
+  extends:
+    - .image:test
+    - .editorconfig:lint
+  needs:
+    - editorconfig:lint:image:build
+
+editorconfig:lint:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .editorconfig:lint
+  needs:
+    - editorconfig:lint:image:test
+
+editorconfig:lint:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .editorconfig:lint
+  needs:
+    - editorconfig:lint:slim:image:build

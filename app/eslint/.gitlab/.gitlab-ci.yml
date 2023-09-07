@@ -1,0 +1,34 @@
+###
+# ESlint
+###
+.js:eslint:
+  variables:
+    TITLE: "js-eslint"
+    APP_PATH: "./app/eslint"
+    ADDITIONAL_COMMANDS: "npm install --no-save --audit=false"
+
+js:eslint:image:build:
+  extends:
+    - .image:build
+    - .js:eslint
+
+js:eslint:image:test:
+  extends:
+    - .image:test
+    - .js:eslint
+  needs:
+    - js:eslint:image:build
+
+js:eslint:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .js:eslint
+  needs:
+    - js:eslint:image:test
+
+js:eslint:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .js:eslint
+  needs:
+    - js:eslint:slim:image:build

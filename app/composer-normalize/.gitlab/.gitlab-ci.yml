@@ -1,0 +1,33 @@
+###
+# Composer Normalize
+###
+.composer:normalize:
+  variables:
+    TITLE: "composer-normalize"
+    APP_PATH: "./app/composer-normalize"
+
+composer:normalize:image:build:
+  extends:
+    - .image:build
+    - .composer:normalize
+
+composer:normalize:image:test:
+  extends:
+    - .image:test
+    - .composer:normalize
+  needs:
+    - composer:normalize:image:build
+
+composer:normalize:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .composer:normalize
+  needs:
+    - composer:normalize:image:test
+
+composer:normalize:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .composer:normalize
+  needs:
+    - composer:normalize:slim:image:build

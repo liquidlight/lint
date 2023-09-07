@@ -1,0 +1,33 @@
+###
+# PHP Coding Standards
+###
+.php:coding-standards:
+  variables:
+    TITLE: "php-coding-standards"
+    APP_PATH: "./app/php-coding-standards"
+
+php:coding-standards:image:build:
+  extends:
+    - .image:build
+    - .php:coding-standards
+
+php:coding-standards:image:test:
+  extends:
+    - .image:test
+    - .php:coding-standards
+  needs:
+    - php:coding-standards:image:build
+
+php:coding-standards:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .php:coding-standards
+  needs:
+    - php:coding-standards:image:test
+
+php:coding-standards:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .php:coding-standards
+  needs:
+    - php:coding-standards:slim:image:build

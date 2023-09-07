@@ -1,0 +1,35 @@
+###
+# SCSS Lint
+###
+
+.scss:stylelint:
+  variables:
+    TITLE: "stylelint"
+    APP_PATH: "./app/stylelint"
+    ADDITIONAL_COMMANDS: "npm install --no-save --audit=false"
+
+scss:stylelint:image:build:
+  extends:
+    - .image:build
+    - .scss:stylelint
+
+scss:stylelint:image:test:
+  extends:
+    - .image:test
+    - .scss:stylelint
+  needs:
+    - scss:stylelint:image:build
+
+scss:stylelint:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .scss:stylelint
+  needs:
+    - scss:stylelint:image:test
+
+scss:stylelint:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .scss:stylelint
+  needs:
+    - scss:stylelint:slim:image:build

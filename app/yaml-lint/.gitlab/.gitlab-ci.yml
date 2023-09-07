@@ -1,0 +1,34 @@
+###
+# YAML Lint
+###
+
+.yaml:lint:
+  variables:
+    TITLE: "yaml-lint"
+    APP_PATH: "./app/yaml-lint"
+
+yaml:lint:image:build:
+  extends:
+    - .image:build
+    - .yaml:lint
+
+yaml:lint:image:test:
+  extends:
+    - .image:test
+    - .yaml:lint
+  needs:
+    - yaml:lint:image:build
+
+yaml:lint:slim:image:build:
+  extends:
+    - .slim:image:build
+    - .yaml:lint
+  needs:
+    - yaml:lint:image:test
+
+yaml:lint:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .yaml:lint
+  needs:
+    - yaml:lint:slim:image:build
