@@ -61,7 +61,7 @@ class ComposerNormalizeCommand extends Base
 			];
 
 			if ($output->isVerbose()) {
-				$command[] = '-vvv';
+				$command[] = '-v';
 			}
 
 			if ($this->input->getOption('fix') === false) {

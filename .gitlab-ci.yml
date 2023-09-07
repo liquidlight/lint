@@ -13,7 +13,9 @@
 stages:
   - backend
   - build
+  - test
   - build-slim
+  - test-slim
 
 variables:
   ADDITIONAL_COMMANDS: ""
@@ -31,6 +33,10 @@ cache:
     paths:
       - node_modules/
       - app/**/node_modules/
+
+before_script:
+  # Login to our registry
+  - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
 
 # Use custom LL docker image
 # image: registry.gitlab.lldev.co.uk/devops/containers/buster-node-ci
@@ -59,9 +65,6 @@ cache:
 .image:build:
   stage: build
   image: registry.gitlab.lldev.co.uk/devops/containers/deployment/docker:php8.2
-  before_script:
-    # Login to our registry
-    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
     - cd ${APP_PATH}
     - composer install --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs
@@ -69,32 +72,22 @@ cache:
     - ./lint run --verbose
     - >
       docker build
-      --build-arg CACHEBUST=$(date +%s)
       --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
       -f ./../../Dockerfiles/Linter.dockerfile
       .
     - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
-    - docker run -i --rm -v $(pwd):/app $CI_REGISTRY_IMAGE/${TITLE}:dev-main
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
 
+# .image:test:
+#   stage: test
+#   image: $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+
 .slim:image:build:
   stage: build-slim
-  image: docker:latest
-  variables:
-    DOCKER_TLS_CERTDIR: "/certs"
-  before_script:
-    # Login to our registry
-    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+  image: ghcr.io/liquidlight/docker-slim:1.37.3-slim
   script:
-    # Make the docker-slim tool available to the CI job
-    - >
-      apk add -u curl
-      && curl -L -o ds.tar.gz https://downloads.dockerslim.com/releases/1.37.3/dist_linux.tar.gz
-      && tar -xvf ds.tar.gz
-      && mv dist_linux/docker-slim /usr/local/bin/
-      && mv dist_linux/docker-slim-sensor /usr/local/bin/
     # Ensure that the fat image is cached locally
     - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
     # Note regarding parameters: "--target" is the input, "--tag" is the output
@@ -105,12 +98,7 @@ cache:
       --http-probe="false"
       --continue-after="1"
       --tag="$CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main"
-    - docker run -i --rm -v $(pwd):/app $CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main
     - docker push $CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main
-  artifacts:
-    expire_in: 7 days
-    paths:
-      - slim.report.json
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
