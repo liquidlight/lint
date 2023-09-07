@@ -107,16 +107,16 @@ cache:
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
   script:
     # Ensure that the fat image is cached locally
-    - docker pull $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+    - docker pull $IMAGE_NAME
     # Note regarding parameters: "--target" is the input, "--tag" is the output
     - >
       docker-slim build
-      --target="$CI_REGISTRY_IMAGE/${TITLE}:dev-main"
+      --target="$IMAGE_NAME"
       --include-path="/lint"
       --http-probe="false"
       --continue-after="1"
-      --tag="$CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main"
-    - docker push $CI_REGISTRY_IMAGE/slim/${TITLE}:dev-main
+      --tag="$SLIM_IMAGE_NAME"
+    - docker push $SLIM_IMAGE_NAME
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
