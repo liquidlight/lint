@@ -57,13 +57,23 @@ cache:
 ###
 # Base Image Build
 ###
+.base:
+  variables:
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/${TITLE}:$CI_COMMIT_BRANCH
+    SLIM_IMAGE_NAME: $CI_REGISTRY_IMAGE/slim/${TITLE}:$CI_COMMIT_BRANCH
 
-.image:build:
-  stage: build
-  image: registry.gitlab.lldev.co.uk/devops/containers/deployment/docker:php8.2
+.docker:
+  extends:
+    - .base
   before_script:
     # Login to our registry
     - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+
+.image:build:
+  extends:
+    - .docker
+  stage: build
+  image: registry.gitlab.lldev.co.uk/devops/containers/deployment/docker:php8.2
   script:
     - cd ${APP_PATH}
     - composer install --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs
@@ -71,21 +81,25 @@ cache:
     - ./lint run --verbose
     - >
       docker build
-      --tag $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+      --tag $IMAGE_NAME
       -f ./../../Dockerfiles/Linter.dockerfile
       .
-    - docker push $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+    - docker push $IMAGE_NAME
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
       when: manual
 
 .image:test:
+  extends:
+    - .base
   stage: test
-  image: $CI_REGISTRY_IMAGE/${TITLE}:dev-main
+  image: $IMAGE_NAME
   script:
     - /lint/lint run
 
 .slim:image:build:
+  extends:
+    - .docker
   stage: build-slim
   image: ghcr.io/liquidlight/docker-slim:1.37.3
   before_script:
@@ -106,6 +120,12 @@ cache:
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
 
+.slim:image:test:
+  extends:
+    - .image:test
+  stage: test-slim
+  image: $SLIM_IMAGE_NAME
+
 ###
 # Linting Images
 ###
@@ -114,29 +134,36 @@ cache:
 ###
 # Composer Normalize
 ###
-
-composer:normalize:image:build:
-  extends:
-    - .image:build
+.composer:normalize:
   variables:
     TITLE: "composer-normalize"
     APP_PATH: "./app/composer-normalize"
 
+composer:normalize:image:build:
+  extends:
+    - .image:build
+    - .composer:normalize
+
 composer:normalize:image:test:
   extends:
     - .image:test
+    - .composer:normalize
   needs:
     - composer:normalize:image:build
-  variables:
-    TITLE: "composer-normalize"
 
 composer:normalize:slim:image:build:
   extends:
     - .slim:image:build
+    - .composer:normalize
   needs:
     - composer:normalize:image:test
-  variables:
-    TITLE: "composer-normalize"
+
+composer:normalize:slim:image:test:
+  extends:
+    - .slim:image:test
+    - .composer:normalize
+  needs:
+    - composer:normalize:slim:image:build
 
 ###
 # Editorconfig
