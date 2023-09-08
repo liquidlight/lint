@@ -22,7 +22,7 @@ class PhpRectorTypo3Command extends RectorCommand
 				't',
 				InputOption::VALUE_OPTIONAL,
 				'What TYPO3 versions would you check against?',
-				10,
+				11,
 			)
 		;
 	}
