@@ -10,7 +10,7 @@
     ],
     "require": {
         "app/linter": "0.0.0",
-        "ergebnis/composer-normalize": "2.35.0"
+        "ergebnis/composer-normalize": "2.36.0"
     },
     "repositories": [
         {
