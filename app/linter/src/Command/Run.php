@@ -47,6 +47,7 @@ class Run extends Base
 			'lint scss:stylelint',
 			'lint js:eslint',
 			'lint php:coding-standards',
+			'lint composer:normalize',
 		];
 
 		// Override scripts if specified in composer
