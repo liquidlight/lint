@@ -153,11 +153,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "3949995acd9816001f46b7b124b78d134fab8a12"
+                "reference": "0d4424eeea22217467d900ce8dfc1a01139d1313"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "friendsofphp/php-cs-fixer": "3.34.1",
+                "friendsofphp/php-cs-fixer": "3.35.1",
                 "symfony/console": "5.4.28"
             },
             "type": "library",
@@ -210,11 +210,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "c1a828923d31f07145dfa63841b7672492334fc5"
+                "reference": "604d04795ee8458575c0b513a0bf0d1a4d24bb48"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "ssch/typo3-rector": "1.3.6"
+                "ssch/typo3-rector": "1.4.0"
             },
             "type": "library",
             "autoload": {
@@ -1005,16 +1005,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.34.1",
+            "version": "v3.35.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "98bf1b1068b4ceddbbc2a2b70b67a5e380add9e3"
+                "reference": "ec1ccc264994b6764882669973ca435cf05bab08"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/98bf1b1068b4ceddbbc2a2b70b67a5e380add9e3",
-                "reference": "98bf1b1068b4ceddbbc2a2b70b67a5e380add9e3",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/ec1ccc264994b6764882669973ca435cf05bab08",
+                "reference": "ec1ccc264994b6764882669973ca435cf05bab08",
                 "shasum": ""
             },
             "require": {
@@ -1047,8 +1047,6 @@
                 "phpspec/prophecy": "^1.16",
                 "phpspec/prophecy-phpunit": "^2.0",
                 "phpunit/phpunit": "^9.5",
-                "phpunitgoodpractices/polyfill": "^1.6",
-                "phpunitgoodpractices/traits": "^1.9.2",
                 "symfony/phpunit-bridge": "^6.2.3",
                 "symfony/yaml": "^5.4 || ^6.0"
             },
@@ -1088,7 +1086,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.34.1"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.35.1"
             },
             "funding": [
                 {
@@ -1096,7 +1094,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-03T23:51:05+00:00"
+            "time": "2023-10-12T13:47:26+00:00"
         },
         {
             "name": "helmich/typo3-typoscript-lint",
@@ -1960,16 +1958,16 @@
         },
         {
             "name": "ssch/typo3-rector",
-            "version": "v1.3.6",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabbelasichon/typo3-rector.git",
-                "reference": "56184a9e98e8d28ca98157e6a4112361aa1d3b90"
+                "reference": "7f67a368eeb209e334b72be9a27c7905bd6d45e2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/56184a9e98e8d28ca98157e6a4112361aa1d3b90",
-                "reference": "56184a9e98e8d28ca98157e6a4112361aa1d3b90",
+                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/7f67a368eeb209e334b72be9a27c7905bd6d45e2",
+                "reference": "7f67a368eeb209e334b72be9a27c7905bd6d45e2",
                 "shasum": ""
             },
             "require": {
@@ -1978,7 +1976,7 @@
                 "ext-simplexml": "*",
                 "helmich/typo3-typoscript-parser": "^2.4.1",
                 "nette/utils": "^3.0",
-                "nikic/php-parser": "^4.14",
+                "nikic/php-parser": "^4.17",
                 "php": "^7.4 || ^8.0",
                 "phpstan/phpstan": "^1.9.7",
                 "rector/rector": "0.17.0",
@@ -2034,6 +2032,9 @@
             ],
             "description": "Instant fixes for your TYPO3 code by using Rector.",
             "homepage": "https://packagist.org/packages/ssch/typo3-rector",
+            "keywords": [
+                "dev"
+            ],
             "support": {
                 "chat": "https://typo3.slack.com/archives/C019R5LAA6A",
                 "docs": "https://github.com/sabbelasichon/typo3-rector/tree/main/docs",
@@ -2050,7 +2051,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-08-22T07:30:08+00:00"
+            "time": "2023-10-12T09:22:56+00:00"
         },
         {
             "name": "symfony/config",
