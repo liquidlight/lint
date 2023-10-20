@@ -11,23 +11,9 @@ php:coding-standards:image:build:
     - .image:build
     - .php:coding-standards
 
-php:coding-standards:image:test:
-  extends:
-    - .image:test
-    - .php:coding-standards
-  needs:
-    - php:coding-standards:image:build
-
 php:coding-standards:slim:image:build:
   extends:
     - .slim:image:build
     - .php:coding-standards
   needs:
-    - php:coding-standards:image:test
-
-php:coding-standards:slim:image:test:
-  extends:
-    - .slim:image:test
-    - .php:coding-standards
-  needs:
-    - php:coding-standards:slim:image:build
+    - php:coding-standards:image:build

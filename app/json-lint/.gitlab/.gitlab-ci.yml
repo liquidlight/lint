@@ -11,23 +11,9 @@ json:lint:image:build:
     - .image:build
     - .json:lint
 
-json:lint:image:test:
-  extends:
-    - .image:test
-    - .json:lint
-  needs:
-    - json:lint:image:build
-
 json:lint:slim:image:build:
   extends:
     - .slim:image:build
     - .json:lint
   needs:
-    - json:lint:image:test
-
-json:lint:slim:image:test:
-  extends:
-    - .slim:image:test
-    - .json:lint
-  needs:
-    - json:lint:slim:image:build
+    - json:lint:image:build

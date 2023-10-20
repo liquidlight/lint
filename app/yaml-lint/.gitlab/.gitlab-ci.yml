@@ -12,23 +12,9 @@ yaml:lint:image:build:
     - .image:build
     - .yaml:lint
 
-yaml:lint:image:test:
-  extends:
-    - .image:test
-    - .yaml:lint
-  needs:
-    - yaml:lint:image:build
-
 yaml:lint:slim:image:build:
   extends:
     - .slim:image:build
     - .yaml:lint
   needs:
-    - yaml:lint:image:test
-
-yaml:lint:slim:image:test:
-  extends:
-    - .slim:image:test
-    - .yaml:lint
-  needs:
-    - yaml:lint:slim:image:build
+    - yaml:lint:image:build

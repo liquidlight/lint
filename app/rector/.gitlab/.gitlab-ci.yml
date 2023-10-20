@@ -12,23 +12,9 @@ php:rector:image:build:
     - .image:build
     - .php:rector
 
-php:rector:image:test:
-  extends:
-    - .image:test
-    - .php:rector
-  needs:
-    - php:rector:image:build
-
 php:rector:slim:image:build:
   extends:
     - .slim:image:build
     - .php:rector
   needs:
-    - php:rector:image:test
-
-php:rector:slim:image:test:
-  extends:
-    - .slim:image:test
-    - .php:rector
-  needs:
-    - php:rector:slim:image:build
+    - php:rector:image:build

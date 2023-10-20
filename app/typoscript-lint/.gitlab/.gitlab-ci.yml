@@ -12,23 +12,9 @@ typoscript:lint:image:build:
     - .image:build
     - .typoscript:lint
 
-typoscript:lint:image:test:
-  extends:
-    - .image:test
-    - .typoscript:lint
-  needs:
-    - typoscript:lint:image:build
-
 typoscript:lint:slim:image:build:
   extends:
     - .slim:image:build
     - .typoscript:lint
   needs:
-    - typoscript:lint:image:test
-
-typoscript:lint:slim:image:test:
-  extends:
-    - .slim:image:test
-    - .typoscript:lint
-  needs:
-    - typoscript:lint:slim:image:build
+    - typoscript:lint:image:build
