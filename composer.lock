@@ -210,11 +210,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "604d04795ee8458575c0b513a0bf0d1a4d24bb48"
+                "reference": "b42ff617de5e640fb3d362012342c34dc84b1e4e"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "ssch/typo3-rector": "1.4.0"
+                "ssch/typo3-rector": "1.4.1"
             },
             "type": "library",
             "autoload": {
@@ -1958,16 +1958,16 @@
         },
         {
             "name": "ssch/typo3-rector",
-            "version": "v1.4.0",
+            "version": "v1.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabbelasichon/typo3-rector.git",
-                "reference": "7f67a368eeb209e334b72be9a27c7905bd6d45e2"
+                "reference": "fb5d5acdcc9ee88ab228bc3493e3842e1649aeaa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/7f67a368eeb209e334b72be9a27c7905bd6d45e2",
-                "reference": "7f67a368eeb209e334b72be9a27c7905bd6d45e2",
+                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/fb5d5acdcc9ee88ab228bc3493e3842e1649aeaa",
+                "reference": "fb5d5acdcc9ee88ab228bc3493e3842e1649aeaa",
                 "shasum": ""
             },
             "require": {
@@ -2051,7 +2051,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-12T09:22:56+00:00"
+            "time": "2023-10-16T14:24:08+00:00"
         },
         {
             "name": "symfony/config",
@@ -4010,16 +4010,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v6.3.4",
+            "version": "v6.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "df1f8aac5751871b83d30bf3e2c355770f8f0691"
+                "reference": "374d289c13cb989027274c86206ddc63b16a2441"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/df1f8aac5751871b83d30bf3e2c355770f8f0691",
-                "reference": "df1f8aac5751871b83d30bf3e2c355770f8f0691",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/374d289c13cb989027274c86206ddc63b16a2441",
+                "reference": "374d289c13cb989027274c86206ddc63b16a2441",
                 "shasum": ""
             },
             "require": {
@@ -4064,7 +4064,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v6.3.4"
+                "source": "https://github.com/symfony/var-exporter/tree/v6.3.6"
             },
             "funding": [
                 {
@@ -4080,7 +4080,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-16T18:14:47+00:00"
+            "time": "2023-10-13T09:16:49+00:00"
         },
         {
             "name": "symfony/yaml",
