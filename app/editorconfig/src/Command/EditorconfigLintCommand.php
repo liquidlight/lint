@@ -28,6 +28,8 @@ class EditorconfigLintCommand extends Base
 
 		$command = [
 			$this->path . '/vendor/bin/ec',
+			'--git-only',
+			'--dir', getcwd(),
 		];
 
 		if ($this->input->getOption('whisper')) {
