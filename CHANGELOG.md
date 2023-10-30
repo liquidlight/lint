@@ -1,3 +1,14 @@
+# 2.0.0
+
+**30th October 2023**
+
+#### Feature
+
+- Package each linter into it's own `app` folder
+- Create docker images for Linters
+- ⚠️ Runs on PHP 8.2 as a minimum
+- Update all linters & dependencies to use recent versions
+
 # 1.5.0
 
 **21st March 2023**
