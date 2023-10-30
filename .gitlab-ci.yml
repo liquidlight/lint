@@ -27,6 +27,7 @@ stages:
   - test
   - build-slim
   - test-slim
+  - release
 
 variables:
   ADDITIONAL_COMMANDS: ""
@@ -93,9 +94,6 @@ cache:
     - .docker
   stage: build-slim
   image: ghcr.io/liquidlight/docker-slim:1.37.3
-  before_script:
-    # Login to our registry
-    - echo "$CI_REGISTRY_PASSWORD" | docker login $CI_REGISTRY --username $CI_REGISTRY_USER --password-stdin
   script:
     # Ensure that the fat image is cached locally
     - docker pull $IMAGE_NAME
@@ -116,3 +114,22 @@ cache:
     - .image:test
   stage: test-slim
   image: $SLIM_IMAGE_NAME
+
+.image:tag:
+  extends:
+    - .docker
+  variables:
+    # We are just playing with Docker here.
+    # We do not need GitLab to clone the source code.
+    GIT_STRATEGY: none
+  stage: release
+  image: docker:20
+  script:
+    # Ensure that the fat image is cached locally
+    - docker pull $SLIM_IMAGE_NAME
+    - docker tag $SLIM_IMAGE_NAME $CI_REGISTRY_IMAGE/${TITLE}:latest
+    - docker push $CI_REGISTRY_IMAGE/${TITLE}:latest
+    - docker tag $SLIM_IMAGE_NAME $CI_REGISTRY_IMAGE/${TITLE}:$CI_COMMIT_TAG
+    - docker push $CI_REGISTRY_IMAGE/${TITLE}:$CI_COMMIT_TAG
+  only:
+    - tags

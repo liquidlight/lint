@@ -17,3 +17,10 @@ php:stan:slim:image:build:
     - .php:stan
   needs:
     - php:stan:image:build
+
+php:stan:image:tag:
+  extends:
+    - .image:tag
+    - .php:stan
+  needs:
+    - php:stan:slim:image:build
