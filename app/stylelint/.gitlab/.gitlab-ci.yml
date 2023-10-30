@@ -19,3 +19,10 @@ scss:stylelint:slim:image:build:
     - .scss:stylelint
   needs:
     - scss:stylelint:image:build
+
+scss:stylelint:image:tag:
+  extends:
+    - .image:tag
+    - .scss:stylelint
+  needs:
+    - scss:stylelint:slim:image:build

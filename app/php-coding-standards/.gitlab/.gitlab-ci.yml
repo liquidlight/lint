@@ -17,3 +17,10 @@ php:coding-standards:slim:image:build:
     - .php:coding-standards
   needs:
     - php:coding-standards:image:build
+
+php:coding-standards:image:tag:
+  extends:
+    - .image:tag
+    - .php:coding-standards
+  needs:
+    - php:coding-standards:slim:image:build

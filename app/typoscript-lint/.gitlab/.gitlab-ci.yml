@@ -18,3 +18,10 @@ typoscript:lint:slim:image:build:
     - .typoscript:lint
   needs:
     - typoscript:lint:image:build
+
+typoscript:lint:image:tag:
+  extends:
+    - .image:tag
+    - .typoscript:lint
+  needs:
+    - typoscript:lint:slim:image:build

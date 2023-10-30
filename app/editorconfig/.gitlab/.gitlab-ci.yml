@@ -17,3 +17,10 @@ editorconfig:lint:slim:image:build:
     - .editorconfig:lint
   needs:
     - editorconfig:lint:image:build
+
+editorconfig:lint:image:tag:
+  extends:
+    - .image:tag
+    - .editorconfig:lint
+  needs:
+    - editorconfig:lint:slim:image:build

@@ -18,3 +18,10 @@ php:rector:slim:image:build:
     - .php:rector
   needs:
     - php:rector:image:build
+
+php:rector:image:tag:
+  extends:
+    - .image:tag
+    - .php:rector
+  needs:
+    - php:rector:slim:image:build

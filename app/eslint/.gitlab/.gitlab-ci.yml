@@ -18,3 +18,10 @@ js:eslint:slim:image:build:
     - .js:eslint
   needs:
     - js:eslint:image:build
+
+js:eslint:image:tag:
+  extends:
+    - .image:tag
+    - .js:eslint
+  needs:
+    - js:eslint:slim:image:build

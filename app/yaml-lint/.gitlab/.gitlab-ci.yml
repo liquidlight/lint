@@ -18,3 +18,10 @@ yaml:lint:slim:image:build:
     - .yaml:lint
   needs:
     - yaml:lint:image:build
+
+yaml:lint:image:tag:
+  extends:
+    - .image:tag
+    - .yaml:lint
+  needs:
+    - yaml:lint:slim:image:build

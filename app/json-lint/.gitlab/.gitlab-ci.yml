@@ -17,3 +17,10 @@ json:lint:slim:image:build:
     - .json:lint
   needs:
     - json:lint:image:build
+
+json:lint:image:tag:
+  extends:
+    - .image:tag
+    - .json:lint
+  needs:
+    - json:lint:slim:image:build
