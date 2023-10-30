@@ -7,7 +7,7 @@ Lint your code against Liquid Light conventions (yes, we use tabs and not spaces
         - [`lint run`](#lint-run)
         - [`self-update`](#self-update)
     - [Docker](#docker)
-        - [Linters](#linters)
+        - [CI](#ci)
     - [Installation](#installation)
     - [Adding Linters](#adding-linters)
     - [Releasing](#releasing)
@@ -29,8 +29,9 @@ Out of the box, running a `lint run` will run
 - `scss:lint`
 - `js:lint`
 - `php:coding-standards`
+- `lint composer:normalize`
 
-If, however, you want to run different linters (or lints with specific parameters), add a `lint` array to a `scripts` block in your `composer.json`. An example can be seen in the linter `composer.json`.
+If, however, you want to run different linters (or lints with specific parameters), add a `lint` array to a `scripts` block in your `composer.json`. An example can be seen in this git repository's `composer.json`.
 
 ### `self-update`
 
@@ -65,15 +66,23 @@ lint self-update --dev develop
 The linker builds and makes available several docker containers. Should you wish to use these instead, you can run something like the following:
 
 ```bash
-export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app  registry.gitlab.lldev.co.uk/devops/lint/js-eslint:dev-main
+export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app registry.gitlab.lldev.co.uk/devops/lint/stylelint
 ```
 
-_TODO:_ Hopefully make it easier to use the docker images instead of installing the linter
+This will use the `latest` tagged image, you can see all the linters in the [Container Registry](https://gitlab.lldev.co.uk/devops/lint/container_registry).
 
+### CI
 
-### Linters
+To use the linter in Gitlab CI, you can use the following (where `$IMAGE_NAME` is the docker image)
 
-For a list of all the linters run `lint`
+```yaml
+lint:
+  image: $IMAGE_NAME
+  script:
+    - /lint/lint run
+```
+
+All the linters can be found at `/lint/lint run`, it is just the image name which needs updating
 
 ## Installation
 
@@ -108,7 +117,6 @@ When adding a new linter please:
 - Name the linter the name of the tool it is using, rather than a generic "lint" name (e.g. `php:coding-standards` instead of `php:lint`)
 - If it is the only, or most common linter for that language, feel free to alias `lint`
 - The linter should report by default and fix if `--fix` is added (sometimes is involves adding `--dry-run` by default and removing if fixing is required)
-- Add the linter to the list above
 
 ## Releasing
 
@@ -122,7 +130,8 @@ Before the release run the following:
     - Update the version `package.json`
     - Run a `composer update`
     - Run a `npm update`
-    - Commit the result as `Release: X.X.X`
+    - Commit the result as `release(major|minor|patch): X.X.X`
     - Git tag
+    - Run the pipelines
 
 Once you have released, set the version in `composer.json` back to `dev-main` and commit
