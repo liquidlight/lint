@@ -51,7 +51,7 @@ cache:
 ###
 .base:
   variables:
-    IMAGE_NAME: $CI_REGISTRY_IMAGE/${TITLE}:$CI_COMMIT_BRANCH
+    IMAGE_NAME: $CI_REGISTRY_IMAGE/${TITLE}:main
     SLIM_IMAGE_NAME: $IMAGE_NAME-slim
 
 .docker:
