@@ -53,6 +53,7 @@ cache:
   variables:
     IMAGE_NAME: $CI_REGISTRY_IMAGE/${TITLE}:main
     SLIM_IMAGE_NAME: $IMAGE_NAME-slim
+    BUILD_ARGS: ""
 
 .docker:
   extends:
@@ -71,9 +72,11 @@ cache:
     - composer install --no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs
     - $ADDITIONAL_COMMANDS
     - ./lint run --verbose
+    - echo "docker build --tag $IMAGE_NAME ${BUILD_ARGS} -f ./../../Dockerfiles/Linter.dockerfile ."
     - >
       docker build
       --tag $IMAGE_NAME
+      ${BUILD_ARGS}
       -f ./../../Dockerfiles/Linter.dockerfile
       .
     - docker push $IMAGE_NAME
@@ -82,6 +85,12 @@ cache:
       when: manual
     - if: $CI_COMMIT_TAG
       when: manual
+
+.image:build:npm:
+  extends:
+   - .image:build
+  variables:
+    BUILD_ARGS: "--build-arg ADDITIONAL_PACKAGES=npm"
 
 .image:test:
   extends:
@@ -104,6 +113,7 @@ cache:
       docker-slim build
       --target="$IMAGE_NAME"
       --include-path="/lint"
+      --include-path="/usr/bin/node"
       --http-probe="false"
       --continue-after="1"
       --tag="$SLIM_IMAGE_NAME"

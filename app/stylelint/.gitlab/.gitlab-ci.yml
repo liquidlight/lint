@@ -10,7 +10,7 @@
 
 scss:stylelint:image:build:
   extends:
-    - .image:build
+    - .image:build:npm
     - .scss:stylelint
 
 scss:stylelint:slim:image:build:
