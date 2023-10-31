@@ -15,7 +15,7 @@ scss:stylelint:image:build:
 
 scss:stylelint:slim:image:build:
   extends:
-    - .slim:image:build
+    - .slim:image:build:npm
     - .scss:stylelint
   needs:
     - scss:stylelint:image:build

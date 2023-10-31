@@ -14,7 +14,7 @@ js:eslint:image:build:
 
 js:eslint:slim:image:build:
   extends:
-    - .slim:image:build
+    - .slim:image:build:npm
     - .js:eslint
   needs:
     - js:eslint:image:build

@@ -116,11 +116,18 @@ cache:
       --include-path="/usr/bin/node"
       --http-probe="false"
       --continue-after="1"
+      ${BUILD_ARGS}
       --tag="$SLIM_IMAGE_NAME"
     - docker push $SLIM_IMAGE_NAME
   rules:
     - if: '$CI_COMMIT_BRANCH == "main"'
     - if: $CI_COMMIT_TAG
+
+.slim:image:build:npm:
+  extends:
+   - .slim:image:build
+  variables:
+    BUILD_ARGS: "--include-bin=\"/usr/bin/node\""
 
 .slim:image:test:
   extends:
