@@ -6,22 +6,23 @@
     TITLE: "js-eslint"
     APP_PATH: "./app/eslint"
     ADDITIONAL_COMMANDS: "npm install --no-save --audit=false"
+    SLIM_IMAGE_NAME: $IMAGE_NAME
 
 js:eslint:image:build:
   extends:
     - .image:build:npm
     - .js:eslint
 
-js:eslint:slim:image:build:
-  extends:
-    - .slim:image:build:npm
-    - .js:eslint
-  needs:
-    - js:eslint:image:build
+# js:eslint:slim:image:build:
+#   extends:
+#     - .slim:image:build:npm
+#     - .js:eslint
+#   needs:
+#     - js:eslint:image:build
 
 js:eslint:image:tag:
   extends:
     - .image:tag
     - .js:eslint
   needs:
-    - js:eslint:slim:image:build
+    - js:eslint:image:build

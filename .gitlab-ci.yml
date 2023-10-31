@@ -103,6 +103,10 @@ cache:
 .slim:image:build:
   extends:
     - .docker
+  variables:
+    # We are just playing with Docker here.
+    # We do not need GitLab to clone the source code.
+    GIT_STRATEGY: none
   stage: build-slim
   image: ghcr.io/liquidlight/docker-slim:1.37.3
   script:
