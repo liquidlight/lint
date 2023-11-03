@@ -1,3 +1,13 @@
+# 2.1.0
+
+**3rd November 2023**
+
+#### Dependencies
+
+- Upgrade `friendsofphp/php-cs-fixer` to 3.37.1
+- Upgrade `stylelint-scss` to 5.3.0
+- Upgrade `symfony` to 5.4.30
+
 # 2.0.0
 
 **30th October 2023**
