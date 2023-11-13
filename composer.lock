@@ -123,13 +123,13 @@
             "dist": {
                 "type": "path",
                 "url": "./app/linter",
-                "reference": "fc09d356c781d97700237f0d98be4022db9b1456"
+                "reference": "d344b1d8f721a031e491ab8533ecefd8525f8a39"
             },
             "require": {
-                "symfony/console": "5.4.28",
+                "symfony/console": "5.4.31",
                 "symfony/finder": "5.4.27",
                 "symfony/process": "6.3.4",
-                "symfony/translation": "5.4.30"
+                "symfony/translation": "5.4.31"
             },
             "type": "library",
             "autoload": {
@@ -153,12 +153,12 @@
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "2b65e846a9d33c7718489632d87db70dfae5d6fb"
+                "reference": "a36f8d0539a47f1e95b416b195529c2c869342c7"
             },
             "require": {
                 "app/linter": "0.0.0",
                 "friendsofphp/php-cs-fixer": "3.37.1",
-                "symfony/console": "5.4.28"
+                "symfony/console": "5.4.31"
             },
             "type": "library",
             "autoload": {
@@ -293,11 +293,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/yaml-lint",
-                "reference": "3ea4e4d2516f7d25af01a95d7e268d7d447f1731"
+                "reference": "9a0b095a57e68adfa1e725289ca6de29725aaa78"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "symfony/yaml": "5.4.30"
+                "symfony/yaml": "5.4.31"
             },
             "type": "library",
             "autoload": {
@@ -2055,16 +2055,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v6.3.2",
+            "version": "v6.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "b47ca238b03e7b0d7880ffd1cf06e8d637ca1467"
+                "reference": "b7a63887960359e5b59b15826fa9f9be10acbe88"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/b47ca238b03e7b0d7880ffd1cf06e8d637ca1467",
-                "reference": "b47ca238b03e7b0d7880ffd1cf06e8d637ca1467",
+                "url": "https://api.github.com/repos/symfony/config/zipball/b7a63887960359e5b59b15826fa9f9be10acbe88",
+                "reference": "b7a63887960359e5b59b15826fa9f9be10acbe88",
                 "shasum": ""
             },
             "require": {
@@ -2110,7 +2110,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v6.3.2"
+                "source": "https://github.com/symfony/config/tree/v6.3.8"
             },
             "funding": [
                 {
@@ -2126,20 +2126,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-07-19T20:22:16+00:00"
+            "time": "2023-11-09T08:28:21+00:00"
         },
         {
             "name": "symfony/console",
-            "version": "v5.4.28",
+            "version": "v5.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "f4f71842f24c2023b91237c72a365306f3c58827"
+                "reference": "11ac5f154e0e5c4c77af83ad11ead9165280b92a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/f4f71842f24c2023b91237c72a365306f3c58827",
-                "reference": "f4f71842f24c2023b91237c72a365306f3c58827",
+                "url": "https://api.github.com/repos/symfony/console/zipball/11ac5f154e0e5c4c77af83ad11ead9165280b92a",
+                "reference": "11ac5f154e0e5c4c77af83ad11ead9165280b92a",
                 "shasum": ""
             },
             "require": {
@@ -2209,7 +2209,7 @@
                 "terminal"
             ],
             "support": {
-                "source": "https://github.com/symfony/console/tree/v5.4.28"
+                "source": "https://github.com/symfony/console/tree/v5.4.31"
             },
             "funding": [
                 {
@@ -2225,20 +2225,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-07T06:12:30+00:00"
+            "time": "2023-10-31T07:58:33+00:00"
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v6.3.5",
+            "version": "v6.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "2ed62b3bf98346e1f45529a7b6be2196739bb993"
+                "reference": "1f30f545c4151f611148fc19e28d54d39e0a00bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/2ed62b3bf98346e1f45529a7b6be2196739bb993",
-                "reference": "2ed62b3bf98346e1f45529a7b6be2196739bb993",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/1f30f545c4151f611148fc19e28d54d39e0a00bc",
+                "reference": "1f30f545c4151f611148fc19e28d54d39e0a00bc",
                 "shasum": ""
             },
             "require": {
@@ -2290,7 +2290,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v6.3.5"
+                "source": "https://github.com/symfony/dependency-injection/tree/v6.3.8"
             },
             "funding": [
                 {
@@ -2306,7 +2306,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-25T16:46:40+00:00"
+            "time": "2023-10-31T08:07:48+00:00"
         },
         {
             "name": "symfony/deprecation-contracts",
@@ -3749,16 +3749,16 @@
         },
         {
             "name": "symfony/string",
-            "version": "v6.3.5",
+            "version": "v6.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/string.git",
-                "reference": "13d76d0fb049051ed12a04bef4f9de8715bea339"
+                "reference": "13880a87790c76ef994c91e87efb96134522577a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/string/zipball/13d76d0fb049051ed12a04bef4f9de8715bea339",
-                "reference": "13d76d0fb049051ed12a04bef4f9de8715bea339",
+                "url": "https://api.github.com/repos/symfony/string/zipball/13880a87790c76ef994c91e87efb96134522577a",
+                "reference": "13880a87790c76ef994c91e87efb96134522577a",
                 "shasum": ""
             },
             "require": {
@@ -3815,7 +3815,7 @@
                 "utf8"
             ],
             "support": {
-                "source": "https://github.com/symfony/string/tree/v6.3.5"
+                "source": "https://github.com/symfony/string/tree/v6.3.8"
             },
             "funding": [
                 {
@@ -3831,20 +3831,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-09-18T10:38:32+00:00"
+            "time": "2023-11-09T08:28:21+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v5.4.30",
+            "version": "v5.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "8560dc532e4e48d331937532a7cbfd2a9f9f53ce"
+                "reference": "ba72f72fceddf36f00bd495966b5873f2d17ad8f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/8560dc532e4e48d331937532a7cbfd2a9f9f53ce",
-                "reference": "8560dc532e4e48d331937532a7cbfd2a9f9f53ce",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/ba72f72fceddf36f00bd495966b5873f2d17ad8f",
+                "reference": "ba72f72fceddf36f00bd495966b5873f2d17ad8f",
                 "shasum": ""
             },
             "require": {
@@ -3912,7 +3912,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v5.4.30"
+                "source": "https://github.com/symfony/translation/tree/v5.4.31"
             },
             "funding": [
                 {
@@ -3928,7 +3928,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-28T09:19:54+00:00"
+            "time": "2023-11-03T16:16:43+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -4084,16 +4084,16 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v5.4.30",
+            "version": "v5.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "c6980e82a6656f6ebfabfd82f7585794cb122554"
+                "reference": "f387675d7f5fc4231f7554baa70681f222f73563"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/c6980e82a6656f6ebfabfd82f7585794cb122554",
-                "reference": "c6980e82a6656f6ebfabfd82f7585794cb122554",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/f387675d7f5fc4231f7554baa70681f222f73563",
+                "reference": "f387675d7f5fc4231f7554baa70681f222f73563",
                 "shasum": ""
             },
             "require": {
@@ -4139,7 +4139,7 @@
             "description": "Loads and dumps YAML files",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/yaml/tree/v5.4.30"
+                "source": "https://github.com/symfony/yaml/tree/v5.4.31"
             },
             "funding": [
                 {
@@ -4155,7 +4155,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-10-27T18:36:14+00:00"
+            "time": "2023-11-03T14:41:28+00:00"
         },
         {
             "name": "symplify/smart-file-system",
