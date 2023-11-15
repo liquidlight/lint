@@ -47,6 +47,7 @@ class PhpCodingStandardsCommand extends Base
 		}
 
 		$command = [
+			PHP_BINARY,
 			$this->path . '/vendor/bin/php-cs-fixer',
 			'fix',
 			'--config=' . $extPath . '/resources/config/PHPCodingStandards.php',

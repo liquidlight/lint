@@ -27,6 +27,7 @@ class EditorconfigLintCommand extends Base
 
 
 		$command = [
+			PHP_BINARY,
 			$this->path . '/vendor/bin/ec',
 			'--git-only',
 			'--dir', getcwd(),

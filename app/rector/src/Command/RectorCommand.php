@@ -69,6 +69,7 @@ class RectorCommand extends Base
 		}
 
 		$command = [
+			PHP_BINARY,
 			$this->path . '/vendor/bin/rector',
 			'process',
 			'--config',

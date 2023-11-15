@@ -49,6 +49,7 @@ class PhpStanCommand extends Base
 		$paths = (array)$input->getArgument('paths');
 
 		$command = [
+			PHP_BINARY,
 			$this->path . '/vendor/bin/phpstan',
 			'analyse',
 			'--level',

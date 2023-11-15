@@ -26,6 +26,7 @@ class TypoScriptLintCommand extends Base
 		$extPath = dirname(__DIR__) . '/..';
 
 		$command = [
+			PHP_BINARY,
 			$this->path . '/vendor/bin/typoscript-lint',
 			'--config=' . $extPath . '/resources/config/TSLint.yaml',
 			'--fail-on-warnings',

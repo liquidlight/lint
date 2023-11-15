@@ -26,6 +26,8 @@ class ComposerNormalizeCommand extends Base
 	{
 		parent::execute($input, $output);
 
+		$composer_path = exec('which composer');
+
 		$failures = [];
 		$files = [];
 
@@ -52,7 +54,8 @@ class ComposerNormalizeCommand extends Base
 
 		foreach ($files as $composerFile) {
 			$command = [
-				'composer',
+				PHP_BINARY,
+				$composer_path,
 				'--working-dir', $this->path,
 				'normalize',
 				$composerFile,
