@@ -101,7 +101,8 @@
 		],
 		"property-no-vendor-prefix": true,
 		"scss/at-extend-no-missing-placeholder": true,
-		"scss/at-import-no-partial-leading-underscore": true,
+		"scss/percent-placeholder-pattern": "^[a-z][a-zA-Z0-9]+$",
+		"scss/load-no-partial-leading-underscore": true,
 		"scss/at-import-partial-extension-blacklist": [
 			"scss"
 		],
