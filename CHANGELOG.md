@@ -1,3 +1,23 @@
+# 2.2.0
+
+**15th November 2023**
+
+#### Feature
+
+- Update SCSS placeholders rules to use lowerCamelCase `%buttonAlt`
+- Remove deprecated Stylelint property `at-import-no-partial-leading-underscore`
+
+#### Dependencies
+
+- Update `friendsofphp/php-cs-fixer` to 3.38.2
+- Update `eslint` to 8.53.0
+- Update `stylelint-scss` to 5.3.1
+- Update `symphony` to 5.4.31
+
+#### Bug
+
+- Use PHP binary to run sub-commands
+
 # 2.1.0
 
 **3rd November 2023**
