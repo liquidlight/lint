@@ -135,3 +135,7 @@ Before the release run the following:
     - Run the pipelines
 
 Once you have released, set the version in `composer.json` back to `dev-main` and commit
+
+# Credits 
+
+<a href="https://www.flaticon.com/free-icons/lint-roller" title="lint roller icons">Lint roller icon created by Freepik - Flaticon</a>
