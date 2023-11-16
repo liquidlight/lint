@@ -56,7 +56,7 @@ class SelfUpdate extends Base
 		$command = 'cd ' . $this->path . ' && composer install && npm ci';
 		$this->cmdString($command);
 
-		$command = 'cd ' . $this->path . ' && rm -rf .cache/*';
+		$command = 'cd ' . $this->path . ' && rm -rf .cache/.* && rm -rf app/*/.cache/.*;';
 		$this->cmdString($command);
 
 		$this->io->text('<fg=green>Linter is now on: ' . $tag . '</>');
