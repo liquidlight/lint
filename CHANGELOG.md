@@ -1,3 +1,16 @@
+# Minor
+
+**16th November 2023**
+
+#### Feature
+
+- Delete cache file contents when upgrading linter
+
+#### Dependencies
+
+- Update `stylelint-config-standard-scss` to 11.1.0
+- Update `symfony` to 6
+
 # 2.2.0
 
 **15th November 2023**
