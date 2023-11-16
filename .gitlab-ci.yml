@@ -147,7 +147,7 @@ cache:
     # We do not need GitLab to clone the source code.
     GIT_STRATEGY: none
   stage: release
-  image: docker:20
+  image: docker:24
   script:
     # Ensure that the fat image is cached locally
     - docker pull $SLIM_IMAGE_NAME
