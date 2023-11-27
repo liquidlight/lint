@@ -210,11 +210,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "b42ff617de5e640fb3d362012342c34dc84b1e4e"
+                "reference": "2b56b9d23cb8441b71844f401c192cb7c6ed3809"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "ssch/typo3-rector": "1.4.1"
+                "ssch/typo3-rector": "1.5.1"
             },
             "type": "library",
             "autoload": {
@@ -1958,16 +1958,16 @@
         },
         {
             "name": "ssch/typo3-rector",
-            "version": "v1.4.1",
+            "version": "v1.5.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabbelasichon/typo3-rector.git",
-                "reference": "fb5d5acdcc9ee88ab228bc3493e3842e1649aeaa"
+                "reference": "3e9263ba7a89217c3a34b6a24151ceb3af87a2ef"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/fb5d5acdcc9ee88ab228bc3493e3842e1649aeaa",
-                "reference": "fb5d5acdcc9ee88ab228bc3493e3842e1649aeaa",
+                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/3e9263ba7a89217c3a34b6a24151ceb3af87a2ef",
+                "reference": "3e9263ba7a89217c3a34b6a24151ceb3af87a2ef",
                 "shasum": ""
             },
             "require": {
@@ -2051,7 +2051,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-10-16T14:24:08+00:00"
+            "time": "2023-11-20T10:40:03+00:00"
         },
         {
             "name": "symfony/config",
