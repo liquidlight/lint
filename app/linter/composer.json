@@ -9,9 +9,9 @@
         }
     ],
     "require": {
-        "symfony/console": "6.3.8",
-        "symfony/finder": "6.3.5",
-        "symfony/process": "6.3.4",
+        "symfony/console": "6.4.0",
+        "symfony/finder": "6.4.0",
+        "symfony/process": "6.4.0",
         "symfony/translation": "6.3.7"
     },
     "autoload": {
