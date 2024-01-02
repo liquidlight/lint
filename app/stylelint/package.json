@@ -7,7 +7,7 @@
   "dependencies": {
     "stylelint": "15.11.0",
     "stylelint-config-standard-scss": "11.1.0",
-    "stylelint-scss": "5.3.1",
-    "stylelint-stylistic": "0.4.3"
+    "stylelint-scss": "5.3.2",
+    "stylelint-stylistic": "0.4.5"
   }
 }
