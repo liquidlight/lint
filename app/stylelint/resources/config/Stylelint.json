@@ -1,7 +1,9 @@
 {
 	"extends": [
-		"stylelint-config-standard-scss",
-		"stylelint-stylistic/config"
+		"stylelint-config-standard-scss"
+	],
+	"plugins": [
+		"@stylistic/stylelint-plugin"
 	],
 	"rules": {
 		"alpha-value-notation": "number",
@@ -122,30 +124,30 @@
 		"selector-pseudo-element-colon-notation": "double",
 		"selector-pseudo-element-no-unknown": true,
 		"shorthand-property-no-redundant-values": true,
-		"stylistic/block-opening-brace-space-before": "always",
-		"stylistic/declaration-bang-space-after": "never",
-		"stylistic/declaration-bang-space-before": "always",
-		"stylistic/declaration-block-semicolon-newline-after": "always",
-		"stylistic/declaration-block-semicolon-space-before": "never",
-		"stylistic/declaration-block-trailing-semicolon": "always",
-		"stylistic/declaration-colon-space-after": "always",
-		"stylistic/declaration-colon-space-before": "never",
-		"stylistic/function-comma-space-after": "always-single-line",
-		"stylistic/function-parentheses-space-inside": "never-single-line",
-		"stylistic/indentation": "tab",
-		"stylistic/media-feature-parentheses-space-inside": "never",
-		"stylistic/no-eol-whitespace": [
+		"@stylistic/block-opening-brace-space-before": "always",
+		"@stylistic/declaration-bang-space-after": "never",
+		"@stylistic/declaration-bang-space-before": "always",
+		"@stylistic/declaration-block-semicolon-newline-after": "always",
+		"@stylistic/declaration-block-semicolon-space-before": "never",
+		"@stylistic/declaration-block-trailing-semicolon": "always",
+		"@stylistic/declaration-colon-space-after": "always",
+		"@stylistic/declaration-colon-space-before": "never",
+		"@stylistic/function-comma-space-after": "always-single-line",
+		"@stylistic/function-parentheses-space-inside": "never-single-line",
+		"@stylistic/indentation": "tab",
+		"@stylistic/media-feature-parentheses-space-inside": "never",
+		"@stylistic/no-eol-whitespace": [
 			true,
 			{
 				"severity": "warning"
 			}
 		],
-		"stylistic/declaration-colon-newline-after": null,
-		"stylistic/number-leading-zero": "always",
-		"stylistic/number-no-trailing-zeros": true,
-		"stylistic/selector-max-empty-lines": 8,
-		"stylistic/selector-list-comma-newline-after": "always",
-		"stylistic/string-quotes": "single",
+		"@stylistic/declaration-colon-newline-after": null,
+		"@stylistic/number-leading-zero": "always",
+		"@stylistic/number-no-trailing-zeros": true,
+		"@stylistic/selector-max-empty-lines": 8,
+		"@stylistic/selector-list-comma-newline-after": "always",
+		"@stylistic/string-quotes": "single",
 		"unit-allowed-list": [
 			"%",
 			"deg",
