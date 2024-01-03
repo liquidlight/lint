@@ -10,7 +10,7 @@
     ],
     "require": {
         "app/linter": "0.0.0",
-        "symfony/yaml": "7.0.0"
+        "symfony/yaml": "6.4.0"
     },
     "repositories": [
         {
