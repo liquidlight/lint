@@ -40,11 +40,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/editorconfig",
-                "reference": "14905297c36d5e52dc67b54a80e0095474def0db"
+                "reference": "4ebfdab737f3f579e2eac9829537b16c2436de55"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "armin/editorconfig-cli": "1.8.0"
+                "armin/editorconfig-cli": "1.8.1"
             },
             "type": "library",
             "autoload": {
@@ -95,11 +95,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/json-lint",
-                "reference": "fab2d0770b46f99b131ccf91ae905e17da5f2404"
+                "reference": "97caee601d176997a83ccc1a3243982aa65ab2a4"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "seld/jsonlint": "1.10.0"
+                "seld/jsonlint": "1.10.1"
             },
             "type": "library",
             "autoload": {
@@ -317,23 +317,23 @@
         },
         {
             "name": "armin/editorconfig-cli",
-            "version": "1.8.0",
+            "version": "1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/a-r-m-i-n/editorconfig-cli.git",
-                "reference": "480979526648deae22f01e723083ebf71608e976"
+                "reference": "c15a733467c2540bd7d4bc054d05c64c80b0b39c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/a-r-m-i-n/editorconfig-cli/zipball/480979526648deae22f01e723083ebf71608e976",
-                "reference": "480979526648deae22f01e723083ebf71608e976",
+                "url": "https://api.github.com/repos/a-r-m-i-n/editorconfig-cli/zipball/c15a733467c2540bd7d4bc054d05c64c80b0b39c",
+                "reference": "c15a733467c2540bd7d4bc054d05c64c80b0b39c",
                 "shasum": ""
             },
             "require": {
                 "ext-iconv": "*",
                 "ext-json": "*",
                 "idiosyncratic/editorconfig": "^0.1.1",
-                "php": "^7.4 | ^8.0",
+                "php": "^7.4 || ^8.0",
                 "symfony/console": "^4 || ^5 || ^6",
                 "symfony/finder": "^4.4 || ^5 || ^6",
                 "symfony/mime": "^4 || ^5 || ^6"
@@ -371,7 +371,7 @@
                 "issues": "https://github.com/a-r-m-i-n/editorconfig-cli/issues",
                 "source": "https://github.com/a-r-m-i-n/editorconfig-cli"
             },
-            "time": "2023-12-03T12:05:51+00:00"
+            "time": "2023-12-28T15:51:57+00:00"
         },
         {
             "name": "composer/pcre",
@@ -1893,16 +1893,16 @@
         },
         {
             "name": "seld/jsonlint",
-            "version": "1.10.0",
+            "version": "1.10.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/jsonlint.git",
-                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1"
+                "reference": "76d449a358ece77d6f1d6331c68453e657172202"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/594fd6462aad8ecee0b45ca5045acea4776667f1",
-                "reference": "594fd6462aad8ecee0b45ca5045acea4776667f1",
+                "url": "https://api.github.com/repos/Seldaek/jsonlint/zipball/76d449a358ece77d6f1d6331c68453e657172202",
+                "reference": "76d449a358ece77d6f1d6331c68453e657172202",
                 "shasum": ""
             },
             "require": {
@@ -1929,7 +1929,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "JSON Linter",
@@ -1941,7 +1941,7 @@
             ],
             "support": {
                 "issues": "https://github.com/Seldaek/jsonlint/issues",
-                "source": "https://github.com/Seldaek/jsonlint/tree/1.10.0"
+                "source": "https://github.com/Seldaek/jsonlint/tree/1.10.1"
             },
             "funding": [
                 {
@@ -1953,7 +1953,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-05-11T13:16:46+00:00"
+            "time": "2023-12-18T13:03:25+00:00"
         },
         {
             "name": "ssch/typo3-rector",
