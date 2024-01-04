@@ -153,11 +153,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/php-coding-standards",
-                "reference": "71e592681dc857112ce2e53d4111c9e72ca5ce21"
+                "reference": "d4efcfb179d77cd9dff738da4c9619ba55b3cf50"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "friendsofphp/php-cs-fixer": "3.42.0",
+                "friendsofphp/php-cs-fixer": "3.45.0",
                 "symfony/console": "6.4.1"
             },
             "type": "library",
@@ -1007,16 +1007,16 @@
         },
         {
             "name": "friendsofphp/php-cs-fixer",
-            "version": "v3.42.0",
+            "version": "v3.45.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer.git",
-                "reference": "632ef1be3447a9b890bef06147475facee535d0f"
+                "reference": "c0daa33cb2533cd73f48dde1c70c2afa3e7953b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/632ef1be3447a9b890bef06147475facee535d0f",
-                "reference": "632ef1be3447a9b890bef06147475facee535d0f",
+                "url": "https://api.github.com/repos/PHP-CS-Fixer/PHP-CS-Fixer/zipball/c0daa33cb2533cd73f48dde1c70c2afa3e7953b5",
+                "reference": "c0daa33cb2533cd73f48dde1c70c2afa3e7953b5",
                 "shasum": ""
             },
             "require": {
@@ -1046,7 +1046,7 @@
                 "php-cs-fixer/accessible-object": "^1.1",
                 "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.4",
                 "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.4",
-                "phpunit/phpunit": "^9.6",
+                "phpunit/phpunit": "^9.6 || ^10.5.5",
                 "symfony/yaml": "^5.4 || ^6.0 || ^7.0"
             },
             "suggest": {
@@ -1085,7 +1085,7 @@
             ],
             "support": {
                 "issues": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/issues",
-                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.42.0"
+                "source": "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/tree/v3.45.0"
             },
             "funding": [
                 {
@@ -1093,7 +1093,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2023-12-24T14:38:51+00:00"
+            "time": "2023-12-30T02:07:07+00:00"
         },
         {
             "name": "helmich/typo3-typoscript-lint",
