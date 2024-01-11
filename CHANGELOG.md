@@ -1,4 +1,18 @@
-# Minor
+# 2.4.0
+
+**11th January 2023**
+
+#### Dependencies
+
+- `friendsofphp/php-cs-fixer` to 3.46.0
+- `symfony` packages to 6.4.2
+- `armin/editorconfig-cli` to v2
+- Docker to PHP 8.3
+- `stylelint` to v16
+- `eslint` to 8.56.0
+- `ssch/typo3-rector` to 1.5.2
+
+# 2.3.0
 
 **16th November 2023**
 
