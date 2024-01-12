@@ -1,6 +1,14 @@
+# 2.5.0
+
+**12th January 2024**
+
+#### Feature
+
+- Update scss styleling `@if/@else` rules for better syntax
+
 # 2.4.0
 
-**11th January 2023**
+**11th January 2024**
 
 #### Dependencies
 

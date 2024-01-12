@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2bcdbae9e3f1aa8af11c71ed4336f29d",
+    "content-hash": "6ede2ec9c7679f211867132531708c23",
     "packages": [
         {
             "name": "app/composer-nomalize",
