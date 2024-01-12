@@ -15,7 +15,8 @@
 					"blockless-after-same-name-blockless",
 					"blockless-after-blockless",
 					"first-nested"
-				]
+				],
+				"ignoreAtRules": [ "else" ]
 			}
 		],
 		"at-rule-no-unknown": null,
@@ -103,6 +104,11 @@
 		],
 		"property-no-vendor-prefix": true,
 		"scss/at-extend-no-missing-placeholder": true,
+		"scss/at-else-closing-brace-newline-after": "always-last-in-chain",
+		"scss/at-else-closing-brace-space-after": "always-intermediate",
+		"scss/at-else-empty-line-before": "never",
+		"scss/at-if-closing-brace-newline-after": "always-last-in-chain",
+		"scss/at-if-closing-brace-space-after": "always-intermediate",
 		"scss/percent-placeholder-pattern": "^[a-z][a-zA-Z0-9]+$",
 		"scss/load-no-partial-leading-underscore": true,
 		"scss/at-import-partial-extension-blacklist": [
