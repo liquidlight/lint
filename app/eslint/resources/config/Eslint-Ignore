@@ -8,3 +8,4 @@ app/*/*/Resources/Public/
 
 *build/dashboard*
 *snapshots*
+docs/build*
