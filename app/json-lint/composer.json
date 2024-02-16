@@ -10,7 +10,7 @@
     ],
     "require": {
         "app/linter": "0.0.0",
-        "seld/jsonlint": "1.10.1"
+        "seld/jsonlint": "1.10.2"
     },
     "repositories": [
         {
