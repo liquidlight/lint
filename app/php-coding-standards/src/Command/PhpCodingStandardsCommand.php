@@ -13,13 +13,12 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class PhpCodingStandardsCommand extends Base
 {
-	protected static $defaultName = 'php:coding-standards';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('php:coding-standards')
 			// the short description shown while running "php bin/console list"
 			->setDescription('PHP Coding Standards')
 			->addOption(
@@ -31,7 +30,7 @@ class PhpCodingStandardsCommand extends Base
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 		$extPath = dirname(__DIR__) . '/..';

@@ -12,12 +12,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class SelfUpdate extends Base
 {
-	protected static $defaultName = 'self-update';
-
 	protected function configure(): void
 	{
 		$this
-			// the short description shown while running "php bin/console list"
+			->setName('self-update')
+		// the short description shown while running "php bin/console list"
 			->setDescription('Updates the linter')
 			->addOption(
 				'dev',
@@ -29,14 +28,19 @@ class SelfUpdate extends Base
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 
 		$command = 'cd ' . $this->path . ' && git fetch origin && git tag --sort=committerdate | tail -1';
 
-		$process = Process::fromShellCommandline($command);
+		/**
+		 * @var \Symfony\Component\Console\Helper\ProcessHelper
+		 */
 		$helper = $this->getHelper('process');
+
+
+		$process = Process::fromShellCommandline($command);
 		$process->setTimeout(600);
 		$helper->run($this->output, $process);
 

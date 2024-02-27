@@ -9,20 +9,19 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class StylelintCommand extends Base
 {
-	protected static $defaultName = 'scss:stylelint';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('scss:stylelint')
 			// the short description shown while running "php bin/console list"
 			->setDescription('Stylelint')
 			->setAliases(['scss:lint', 'css:lint'])
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 		$extPath = dirname(__DIR__) . '/..';

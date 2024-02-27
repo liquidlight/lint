@@ -14,7 +14,6 @@ use Symfony\Component\Console\Input\ArrayInput;
 class Run extends Base
 {
 	// the name of the command (the part after "bin/console")
-	protected static $defaultName = 'run';
 
 	// Is the fix flag on it?
 	protected bool $fix = false;
@@ -25,13 +24,14 @@ class Run extends Base
 		parent::configure();
 
 		$this
+			->setName('run')
 			// the short description shown while running "php bin/console list"
 			->setDescription('Lints the code')
 			->setHelp('This command allows you to create a user...')
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$this->io = new SymfonyStyle($input, $output);
 

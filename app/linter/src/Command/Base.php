@@ -52,7 +52,7 @@ class Base extends Command
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		$this->input = $input;
 		$this->output = $output;
@@ -106,6 +106,9 @@ class Base extends Command
 	 */
 	protected function runCmd(Process $process): Process
 	{
+		/**
+		 * @var \Symfony\Component\Console\Helper\ProcessHelper
+		 */
 		$helper = $this->getHelper('process');
 
 		$process->setTty(Process::isTtySupported());

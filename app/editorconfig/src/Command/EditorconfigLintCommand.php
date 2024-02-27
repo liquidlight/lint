@@ -9,19 +9,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class EditorconfigLintCommand extends Base
 {
-	protected static $defaultName = 'editorconfig:lint';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('editorconfig:lint')
 			// the short description shown while running "php bin/console list"
 			->setDescription('Enforce .editorconfig rules')
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 
