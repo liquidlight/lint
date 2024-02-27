@@ -10,7 +10,7 @@
     ],
     "require": {
         "app/linter": "0.0.0",
-        "helmich/typo3-typoscript-lint": "3.1.0"
+        "helmich/typo3-typoscript-lint": "3.2.0"
     },
     "repositories": [
         {
