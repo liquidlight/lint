@@ -10,17 +10,16 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class YamlLintCommand extends Base
 {
-	protected static $defaultName = 'yaml:lint';
-
 	protected function configure(): void
 	{
 		$this
+			->setName('yaml:lint')
 			// the short description shown while running "php bin/console list"
 			->setDescription('YAML Lint')
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 

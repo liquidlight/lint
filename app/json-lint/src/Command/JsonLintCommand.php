@@ -11,17 +11,16 @@ use Exception;
 
 class JsonLintCommand extends Base
 {
-	protected static $defaultName = 'json:lint';
-
 	protected function configure(): void
 	{
 		$this
-			// the short description shown while running "php bin/console list"
+			->setName('json:lint')
+		// the short description shown while running "php bin/console list"
 			->setDescription('JSON linting')
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 		$extPath = dirname(__DIR__) . '/..';

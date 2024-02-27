@@ -8,13 +8,12 @@ use Symfony\Component\Console\Input\InputOption;
 
 class PhpRectorTypo3Command extends RectorCommand
 {
-	protected static $defaultName = 'php:rector:typo3';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('php:rector:typo3')
 			// the short description shown while running "php bin/console list"
 			->setDescription('Rector with TYPO3 presets')
 			->addOption(
@@ -27,7 +26,7 @@ class PhpRectorTypo3Command extends RectorCommand
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 

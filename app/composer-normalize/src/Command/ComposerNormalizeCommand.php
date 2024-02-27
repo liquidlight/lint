@@ -10,19 +10,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class ComposerNormalizeCommand extends Base
 {
-	protected static $defaultName = 'composer:normalize';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('composer:normalize')
 			// the short description shown while running "php bin/console list"
 			->setDescription('Composer Normalize')
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 

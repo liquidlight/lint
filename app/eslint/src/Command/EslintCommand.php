@@ -9,19 +9,18 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class EslintCommand extends Base
 {
-	protected static $defaultName = 'js:eslint';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('js:eslint')
 			// the short description shown while running "php bin/console list"
 			->setDescription('ESLint')
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 		$extPath = dirname(__DIR__) . '/..';

@@ -11,13 +11,12 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class PhpStanCommand extends Base
 {
-	protected static $defaultName = 'php:stan';
-
 	protected function configure(): void
 	{
 		parent::configure();
 
 		$this
+			->setName('php:stan')
 			// the short description shown while running "php bin/console list"
 			->setDescription('PHPStan')
 			->addArgument(
@@ -36,7 +35,7 @@ class PhpStanCommand extends Base
 		;
 	}
 
-	protected function execute(InputInterface $input, OutputInterface $output)
+	protected function execute(InputInterface $input, OutputInterface $output): int
 	{
 		parent::execute($input, $output);
 		$extPath = dirname(__DIR__) . '/..';
