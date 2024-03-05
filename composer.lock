@@ -210,11 +210,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/rector",
-                "reference": "64fb34185f7406b7226c58daffa4219b39437492"
+                "reference": "64d7d28d5f77ebc8402803ce0b37dc70c8d80b6c"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "ssch/typo3-rector": "1.8.0"
+                "ssch/typo3-rector": "1.8.1"
             },
             "type": "library",
             "autoload": {
@@ -265,11 +265,11 @@
             "dist": {
                 "type": "path",
                 "url": "./app/typoscript-lint",
-                "reference": "8705cd793b46d60798a7cd13e0e70acba2fcdde0"
+                "reference": "a637e886da024e384b3c975487f1765960979201"
             },
             "require": {
                 "app/linter": "0.0.0",
-                "helmich/typo3-typoscript-lint": "3.2.0"
+                "helmich/typo3-typoscript-lint": "3.2.1"
             },
             "type": "library",
             "autoload": {
@@ -1094,16 +1094,16 @@
         },
         {
             "name": "helmich/typo3-typoscript-lint",
-            "version": "v3.2.0",
+            "version": "v3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/martin-helmich/typo3-typoscript-lint.git",
-                "reference": "7399519ff2b755cdf54dc0cefa4d002878e7c6fb"
+                "reference": "1a5eefea17da9441a19cdd8484fa195796a1db67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/martin-helmich/typo3-typoscript-lint/zipball/7399519ff2b755cdf54dc0cefa4d002878e7c6fb",
-                "reference": "7399519ff2b755cdf54dc0cefa4d002878e7c6fb",
+                "url": "https://api.github.com/repos/martin-helmich/typo3-typoscript-lint/zipball/1a5eefea17da9441a19cdd8484fa195796a1db67",
+                "reference": "1a5eefea17da9441a19cdd8484fa195796a1db67",
                 "shasum": ""
             },
             "require": {
@@ -1148,7 +1148,7 @@
             "homepage": "https://github.com/martin-helmich",
             "support": {
                 "issues": "https://github.com/martin-helmich/typo3-typoscript-lint/issues",
-                "source": "https://github.com/martin-helmich/typo3-typoscript-lint/tree/v3.2.0"
+                "source": "https://github.com/martin-helmich/typo3-typoscript-lint/tree/v3.2.1"
             },
             "funding": [
                 {
@@ -1160,7 +1160,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-26T21:10:48+00:00"
+            "time": "2024-02-29T08:41:04+00:00"
         },
         {
             "name": "helmich/typo3-typoscript-parser",
@@ -1954,16 +1954,16 @@
         },
         {
             "name": "ssch/typo3-rector",
-            "version": "v1.8.0",
+            "version": "v1.8.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sabbelasichon/typo3-rector.git",
-                "reference": "e8c7bca9b9e37503a3f9e5116e11321205ea06e6"
+                "reference": "7a01486267ab421d0acbc10226965b31992a6e5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/e8c7bca9b9e37503a3f9e5116e11321205ea06e6",
-                "reference": "e8c7bca9b9e37503a3f9e5116e11321205ea06e6",
+                "url": "https://api.github.com/repos/sabbelasichon/typo3-rector/zipball/7a01486267ab421d0acbc10226965b31992a6e5d",
+                "reference": "7a01486267ab421d0acbc10226965b31992a6e5d",
                 "shasum": ""
             },
             "require": {
@@ -2052,7 +2052,7 @@
                     "type": "github"
                 }
             ],
-            "time": "2024-02-05T13:18:30+00:00"
+            "time": "2024-02-28T21:45:22+00:00"
         },
         {
             "name": "symfony/config",
