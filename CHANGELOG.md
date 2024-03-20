@@ -1,3 +1,14 @@
+# 2.6.0
+
+#### Features
+
+- Lint playwright tests
+
+#### Dependencies
+
+- Several package updates
+- Update Symfony to v7
+
 # 2.5.0
 
 **12th January 2024**

@@ -2,7 +2,7 @@
     "name": "liquidlight/lint",
     "description": "Liquid Light Linter",
     "type": "project",
-    "version": "dev-main",
+    "version": "2.6.0",
     "authors": [
         {
             "name": "Mike Street",
