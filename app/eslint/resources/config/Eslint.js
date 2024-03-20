@@ -17,7 +17,10 @@ module.exports = {
 		'es6': true,
 		'node': true
 	},
-	'extends': 'eslint:recommended',
+	'extends': [
+		'eslint:recommended',
+		'plugin:playwright/recommended'
+	],
 	'rules': {
 		// Possible errors
 		'for-direction': 'warn', // disallow trailing commas in object literals
@@ -215,6 +218,10 @@ module.exports = {
 		'prefer-reflect': 'off', // suggest using Reflect methods where applicable
 		'prefer-spread': 'off', // suggest using the spread operator instead of .apply()
 		'prefer-template': 'off', // suggest using template literals instead of strings concatenation
-		'require-yield': 'off' // disallow generator functions that do not have yield
+		'require-yield': 'off', // disallow generator functions that do not have yield
+
+		// Playwright
+		'playwright/no-conditional-in-test': 'off', // Disallow conditional logic in tests
+		'playwright/no-conditional-expect': 'off', // Disallow conditional logic in tests
 	}
 };

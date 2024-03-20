@@ -40,7 +40,7 @@ class EslintCommand extends Base
 			getcwd(),
 			'--color',
 			'--cache',
-			'--ext', '.js',
+			'--ext', '.js,.spec.ts,.test.ts',
 			'--config', $extPath . '/resources/config/Eslint.js',
 			'--ignore-path', $extPath . '/resources/config/Eslint-Ignore',
 			'--cache-location', $extPath . '/.cache/',
