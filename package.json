@@ -5,7 +5,7 @@
   "dependencies": {
     "@app/eslint": "file:./app/eslint",
     "@app/stylelint": "file:./app/stylelint",
-    "eslint-plugin-playwright": "^1.5.2"
+    "eslint-plugin-playwright": "1.5.2"
   },
   "author": "",
   "license": "ISC"
