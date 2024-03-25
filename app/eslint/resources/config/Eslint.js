@@ -222,6 +222,12 @@ module.exports = {
 
 		// Playwright
 		'playwright/no-conditional-in-test': 'off', // Disallow conditional logic in tests
-		'playwright/no-conditional-expect': 'off' // Disallow conditional logic in tests
+		'playwright/no-conditional-expect': 'off', // Disallow conditional logic in tests
+		'playwright/valid-title': [
+			'error',
+			{
+				'ignoreTypeOfTestName': true // Allow variables as test names
+			}
+		]
 	}
 };
