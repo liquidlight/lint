@@ -53,7 +53,7 @@ return static function (RectorConfig $rectorConfig): void {
 			getcwd() . '/**/Configuration/*.php',
 			getcwd() . '/**/Configuration/**/*.php',
 		],
-		RefactorTypeInternalTypeFileAndFileReferenceToFalRector::class
+		RefactorTypeInternalTypeFileAndFileReferenceToFalRector::class,
 	]);
 
 	// If you have trouble that rector cannot run because some TYPO3 constants are not defined add an additional constants file
