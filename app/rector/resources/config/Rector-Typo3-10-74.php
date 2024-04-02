@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 use Rector\Config\RectorConfig;
 use Rector\Core\ValueObject\PhpVersion;
+use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
+use Ssch\TYPO3Rector\Rector\General\ExtEmConfRector;
 use Rector\PostRector\Rector\NameImportingPostRector;
 use Ssch\TYPO3Rector\Rector\General\ConvertImplicitVariablesToExplicitGlobalsRector;
-use Ssch\TYPO3Rector\Rector\General\ExtEmConfRector;
-use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
+use Ssch\TYPO3Rector\Rector\v9\v5\RefactorTypeInternalTypeFileAndFileReferenceToFalRector;
 
 return static function (RectorConfig $rectorConfig): void {
 	// If you want to override the number of spaces for your typoscript files you can define it here, the default value is 4
@@ -52,6 +53,7 @@ return static function (RectorConfig $rectorConfig): void {
 			getcwd() . '/**/Configuration/*.php',
 			getcwd() . '/**/Configuration/**/*.php',
 		],
+		RefactorTypeInternalTypeFileAndFileReferenceToFalRector::class
 	]);
 
 	// If you have trouble that rector cannot run because some TYPO3 constants are not defined add an additional constants file
