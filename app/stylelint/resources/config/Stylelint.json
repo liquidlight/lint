@@ -111,7 +111,7 @@
 		"scss/at-if-closing-brace-space-after": "always-intermediate",
 		"scss/percent-placeholder-pattern": "^[a-z][a-zA-Z0-9]+$",
 		"scss/load-no-partial-leading-underscore": true,
-		"scss/at-import-partial-extension-blacklist": [
+		"scss/at-import-partial-extension-disallowed-list": [
 			"scss"
 		],
 		"scss/at-mixin-pattern": null,
