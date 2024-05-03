@@ -8,6 +8,6 @@
     "stylelint": "16.4.0",
     "stylelint-config-standard-scss": "13.1.0",
     "stylelint-scss": "6.2.1",
-    "@stylistic/stylelint-plugin": "2.1.1"
+    "@stylistic/stylelint-plugin": "2.1.2"
   }
 }
