@@ -3,9 +3,8 @@
   "version": "2.6.0",
   "description": "",
   "dependencies": {
-    "@app/eslint": "file:./app/eslint",
-    "@app/stylelint": "file:./app/stylelint",
-    "eslint-plugin-playwright": "1.6.2"
+    "@app/eslint": "file:app/eslint",
+    "@app/stylelint": "file:app/stylelint"
   },
   "author": "",
   "license": "ISC"

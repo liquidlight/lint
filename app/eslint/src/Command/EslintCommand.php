@@ -25,11 +25,8 @@ class EslintCommand extends Base
 		parent::execute($input, $output);
 		$extPath = dirname(__DIR__) . '/..';
 
-		$ignore = explode(
-			PHP_EOL,
-			file_get_contents($extPath . '/resources/config/Eslint-Ignore') ?: ''
-		);
-		$fileCheck = $this->hasFiles('js', $ignore);
+
+		$fileCheck = $this->hasFiles('js');
 		if (!$fileCheck) {
 			return Command::SUCCESS;
 		}
@@ -40,9 +37,7 @@ class EslintCommand extends Base
 			getcwd(),
 			'--color',
 			'--cache',
-			'--ext', '.js,.spec.ts,.test.ts',
-			'--config', $extPath . '/resources/config/Eslint.js',
-			'--ignore-path', $extPath . '/resources/config/Eslint-Ignore',
+			'--config', $extPath . '/resources/config/eslint.config.mjs',
 			'--cache-location', $extPath . '/.cache/',
 			'--cache-strategy', 'content',
 		];
