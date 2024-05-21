@@ -92,4 +92,5 @@ return $config->setRules([
 	->setIndent("\t")
 	->setCacheFile($cwd . '.cache/.phpcscache_' . md5($dir))
 	->setFinder($finder)
+	->setParallelConfig(\PhpCsFixer\Runner\Parallel\ParallelConfigFactory::detect())
 ;
