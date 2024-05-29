@@ -1,7 +1,6 @@
-import js from "@eslint/js";
+import js from '@eslint/js';
 import playwright from 'eslint-plugin-playwright'
 import globals from 'globals';
-
 
 // All the rules! http://eslint.org/docs/rules/
 export default [
@@ -11,15 +10,14 @@ export default [
 		ignores: [
 			'**/Resources/Public/**',
 			'**/lib/**',
+			'**/libs/**',
 			'**/html/**',
-			'**/html/typo3**',
 			'**/vendor/**',
 			'**/backup/**',
 			'**/ci/**',
 			'**/build/dashboard/**',
 			'**/snapshots/**',
 			'**/docs/build/**',
-			'**/jquery.js'
 		],
 		files: [
 			'*.js',
@@ -31,7 +29,7 @@ export default [
 		],
 		languageOptions: {
 			ecmaVersion: 2022,
-			sourceType: "module",
+			sourceType: 'module',
 			globals: {
 				...globals.browser,
 				...globals.node,
@@ -243,14 +241,14 @@ export default [
 			'prefer-spread': 'off', // suggest using the spread operator instead of .apply()
 			'prefer-template': 'off', // suggest using template literals instead of strings concatenation
 			'require-yield': 'off', // disallow generator functions that do not have yield
-			// 'playwright/no-conditional-in-test': 'off', // Disallow conditional logic in tests
-			// 'playwright/no-conditional-expect': 'off', // Disallow conditional logic in tests
-			// 'playwright/valid-title': [
-			// 	'error',
-			// 	{
-			// 		'ignoreTypeOfTestName': true // Allow variables as test names
-			// 	}
-			// ]
+			'playwright/no-conditional-in-test': 'off', // Disallow conditional logic in tests
+			'playwright/no-conditional-expect': 'off', // Disallow conditional logic in tests
+			'playwright/valid-title': [
+				'error',
+				{
+					'ignoreTypeOfTestName': true // Allow variables as test names
+				}
+			]
 		}
 	}
 ];

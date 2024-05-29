@@ -31,12 +31,12 @@ class EslintCommand extends Base
 			return Command::SUCCESS;
 		}
 
-		// Also in Dockerfiles/JsEslint.dockerfile
 		$command = [
 			$this->path . '/node_modules/eslint/bin/eslint.js',
 			getcwd(),
 			'--color',
 			'--cache',
+			'--ignore-pattern', '*/typo3/sysext/*',
 			'--config', $extPath . '/resources/config/eslint.config.mjs',
 			'--cache-location', $extPath . '/.cache/',
 			'--cache-strategy', 'content',
