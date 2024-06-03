@@ -11,6 +11,7 @@ Lint your code against Liquid Light conventions (yes, we use tabs and not spaces
     - [Installation](#installation)
     - [Adding Linters](#adding-linters)
     - [Releasing](#releasing)
+- [Credits](#credits)
 
 ## Usage
 
@@ -66,10 +67,10 @@ lint self-update --dev develop
 The linker builds and makes available several docker containers. Should you wish to use these instead, you can run something like the following:
 
 ```bash
-export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app registry.gitlab.lldev.co.uk/devops/lint/stylelint
+export DOCKER_DEFAULT_PLATFORM=linux/amd64; docker run -it --rm -v $(pwd):/app ghcr.io/liquidlight/lint/phpstan
 ```
 
-This will use the `latest` tagged image, you can see all the linters in the [Container Registry](https://gitlab.lldev.co.uk/devops/lint/container_registry).
+This will use the `latest` tagged image, you can see all the linters in the [Container Registry](https://github.com/orgs/liquidlight/packages?repo_name=lint).
 
 ### CI
 
@@ -89,7 +90,7 @@ All the linters can be found at `/lint/lint run`, it is just the image name whic
 To use the Git repo as the source, you will need to download & install dependencies, which requires `composer` and `npm` running.
 
 ```bash
-git clone git@gitlab.lldev.co.uk:devops/lint.git
+git clone git@github.com:liquidlight/lint.git
 cd lint
 composer install --no-dev && npm i
 ```
@@ -136,6 +137,6 @@ Before the release run the following:
 
 Once you have released, set the version in `composer.json` back to `dev-main` and commit
 
-# Credits 
+# Credits
 
 <a href="https://www.flaticon.com/free-icons/lint-roller" title="lint roller icons">Lint roller icon created by Freepik - Flaticon</a>
