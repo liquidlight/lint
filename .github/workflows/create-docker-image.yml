@@ -1,0 +1,53 @@
+name: Create and publish a Docker image
+
+on:
+  push:
+    branches: ['main']
+
+env:
+  APP_PATH: app/phpstan
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}/phpstan
+
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Install Dependencies
+        uses: php-actions/composer@v6
+        with:
+          working_dir: ${{ env.APP_PATH }}
+          dev: no
+          progress: no
+          args: --no-interaction --no-scripts  --optimize-autoloader --ansi  --ignore-platform-reqs
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ env.APP_PATH }}
+          file: ${{ env.APP_PATH }}/../../Dockerfiles/Linter.dockerfile
+          push: true
+          labels: |
+            org.opencontainers.image.title="Linter: PHPStan"
+            org.opencontainers.image.description="Lint with PHPStan & Liquid Light conventions"
+            org.opencontainers.image.vendor="Liquid Light"
+            org.opencontainers.image.source="https://github.com/liquidlight/linter"
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
