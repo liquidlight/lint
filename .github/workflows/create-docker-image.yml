@@ -5,12 +5,10 @@ on:
     branches: ['main']
 
 env:
-  APP_PATH: app/phpstan
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}/phpstan
 
 jobs:
-  build-and-push-image:
+  create-docker-images:
     runs-on: ubuntu-latest
 
     permissions:
@@ -19,35 +17,76 @@ jobs:
       attestations: write
       id-token: write
 
+    strategy:
+      matrix:
+        include:
+          - name: "Composer Normalize"
+            docker_tag: "composer-normalize"
+            path: "app/composer-normalize"
+          - name: "editorconfig"
+            docker_tag: "editorconfig"
+            path: "./app/editorconfig"
+          - name: "JSLint"
+            docker_tag: "js-eslint"
+            path: "./app/eslint"
+            run_npm_install: true
+          - name: "JSON Lint"
+            docker_tag: "json-lint"
+            path: "./app/json-lint"
+          - name: "PHP Coding Standards"
+            docker_tag: "php-coding-standards"
+            path: "./app/php-coding-standards"
+          - name: "PHPStan"
+            docker_tag: "phpstan"
+            path: "./app/phpstan"
+          - name: "Rector"
+            docker_tag: "rector"
+            path: "./app/rector"
+          - name: "Stylelint"
+            docker_tag: "stylelint"
+            path: "./app/stylelint"
+            run_npm_install: true
+          - name: "TypoScript Lint"
+            docker_tag: "typoscript-lint"
+            path: "./app/typoscript-lint"
+          - name: "YAML Lint"
+            docker_tag: "yaml-lint"
+            path: "./app/yaml-lint"
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Login to GitHub Container Registry
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Install Dependencies
-        uses: php-actions/composer@v6
+
+      - name: Install Composer Dependencies
+        uses: ramsey/composer-install@v3
         with:
-          working_dir: ${{ env.APP_PATH }}
-          dev: no
-          progress: no
-          args: --no-interaction --no-scripts  --optimize-autoloader --ansi  --ignore-platform-reqs
+          working-directory: "${{ matrix.path }}"
+          composer-options: "--no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs"
+
+      - name: Install NPM dependencies
+        if: ${{ matrix.run_npm_install }}
+        uses: bahmutov/npm-install@v1
+        with:
+          useLockFile: false
+          working-directory: "${{ matrix.path }}"
 
       - name: Build and push Docker image
         id: push
         uses: docker/build-push-action@v5
         with:
-          context: ${{ env.APP_PATH }}
-          file: ${{ env.APP_PATH }}/../../Dockerfiles/Linter.dockerfile
+          context: ${{ matrix.path }}
+          file: ${{ matrix.path }}/../../Dockerfiles/Linter.dockerfile
           push: true
           labels: |
-            org.opencontainers.image.title="Linter: PHPStan"
-            org.opencontainers.image.description="Lint with PHPStan & Liquid Light conventions"
+            org.opencontainers.image.title="Linter: ${{ matrix.name }}"
+            org.opencontainers.image.description=""
             org.opencontainers.image.vendor="Liquid Light"
             org.opencontainers.image.source="https://github.com/liquidlight/linter"
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ matrix.docker_tag }}:latest
