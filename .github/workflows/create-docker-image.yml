@@ -32,7 +32,7 @@ jobs:
             description: "Lint JavaScript and TypesScript files"
             docker_tag: "js-eslint"
             path: "./app/eslint"
-            run_npm_install: true
+            npm: true
           - name: "JSON Lint"
             description: "Lint JSON files"
             docker_tag: "json-lint"
@@ -53,7 +53,7 @@ jobs:
             description: "Lint SCSS files"
             docker_tag: "stylelint"
             path: "./app/stylelint"
-            run_npm_install: true
+            npm: true
           - name: "TypoScript Lint"
             description: "Linting TypoScript files"
             docker_tag: "typoscript-lint"
@@ -81,7 +81,7 @@ jobs:
           composer-options: "--no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs"
 
       - name: Install NPM dependencies
-        if: ${{ matrix.run_npm_install }}
+        if: ${{ matrix.npm }}
         uses: bahmutov/npm-install@v1
         with:
           useLockFile: false
@@ -93,10 +93,12 @@ jobs:
         with:
           context: ${{ matrix.path }}
           file: ${{ matrix.path }}/../../Dockerfiles/Linter.dockerfile
-          push: true
           labels: |
             org.opencontainers.image.title="Linter: ${{ matrix.name }}"
             org.opencontainers.image.description="${{ matrix.description }}"
             org.opencontainers.image.vendor="Liquid Light"
             org.opencontainers.image.source="https://github.com/liquidlight/linter"
           tags: ${{ env.REGISTRY }}/${{ github.repository }}/${{ matrix.docker_tag }}:latest
+          build-args: |
+            ADDITIONAL_PACKAGES=${{ matrix.npm && 'npm' || '' }}
+          push: true
