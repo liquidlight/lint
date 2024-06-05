@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "app/linter": "0.0.0",
-        "ssch/typo3-rector": "1.8.1"
+        "app/linter": "^0.0",
+        "ssch/typo3-rector": "^1.8"
     },
     "repositories": [
         {

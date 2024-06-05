@@ -14,7 +14,7 @@
         "app/editorconfig": "0.0.0",
         "app/eslint": "0.0.0",
         "app/json-lint": "0.0.0",
-        "app/linter": "0.0.0",
+        "app/linter": "^0.0",
         "app/php-coding-standards": "0.0.0",
         "app/phpstan": "0.0.0",
         "app/rector": "0.0.0",

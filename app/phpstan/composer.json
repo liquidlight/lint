@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "app/linter": "0.0.0",
-        "phpstan/phpstan": "1.10.27"
+        "app/linter": "^0.0",
+        "phpstan/phpstan": "^1.10"
     },
     "repositories": [
         {

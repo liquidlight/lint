@@ -9,8 +9,8 @@
         }
     ],
     "require": {
-        "app/linter": "0.0.0",
-        "armin/editorconfig-cli": "2.0.0"
+        "app/linter": "^0.0",
+        "armin/editorconfig-cli": "^2.0"
     },
     "repositories": [
         {

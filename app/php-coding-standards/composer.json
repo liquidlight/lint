@@ -9,9 +9,8 @@
         }
     ],
     "require": {
-        "app/linter": "0.0.0",
-        "friendsofphp/php-cs-fixer": "3.57.2",
-        "symfony/console": "7.1.0"
+        "app/linter": "^0.0",
+        "friendsofphp/php-cs-fixer": "^3.57"
     },
     "repositories": [
         {

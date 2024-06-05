@@ -5,8 +5,8 @@
   "author": "Mike Street <mike@liquidlight.co.uk>",
   "license": "ISC",
   "dependencies": {
-    "eslint": "9.2.0",
-    "eslint-plugin-playwright": "1.6.2",
-    "globals": "15.3.0"
+    "eslint": "^9.4.0",
+    "eslint-plugin-playwright": "^1.6.2",
+    "globals": "^15.3.0"
   }
 }

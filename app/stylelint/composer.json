@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "app/linter": "0.0.0"
+        "app/linter": "^0.0"
     },
     "repositories": [
         {

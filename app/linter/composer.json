@@ -9,10 +9,10 @@
         }
     ],
     "require": {
-        "symfony/console": "7.1.0",
-        "symfony/finder": "7.1.0",
-        "symfony/process": "7.1.0",
-        "symfony/translation": "7.1.0"
+        "symfony/console": "^7.1",
+        "symfony/finder": "^7.1",
+        "symfony/process": "^7.1",
+        "symfony/translation": "^7.1"
     },
     "autoload": {
         "psr-4": {
