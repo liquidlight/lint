@@ -1,0 +1,50 @@
+name: Create and publish a container
+
+on:
+  push:
+    branches: ['main']
+
+env:
+  TITLE: "LintKit: Composer Normalize"
+  DESCRIPTION: "Normalise the composer files"
+  REGISTRY: ghcr.io
+
+jobs:
+  create-docker-images:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install Composer Dependencies
+        uses: ramsey/composer-install@v3
+        with:
+          composer-options: "--no-dev --no-interaction --no-scripts --no-progress --optimize-autoloader --ansi  --ignore-platform-reqs"
+
+      - name: Build and push Docker image
+        id: push
+        uses: docker/build-push-action@v5
+        with:
+          context: ${{ github.workspace }}
+          file: ${{ github.workspace }}/vendor/lintkit/base/Dockerfile
+          labels: |
+            org.opencontainers.image.title="${{ env.TITLE }}"
+            org.opencontainers.image.description="${{ env.DESCRIPTION }}"
+            org.opencontainers.image.vendor="LintKit"
+            org.opencontainers.image.source="https://github.com/${{ github.repository }}"
+          tags: ${{ env.REGISTRY }}/${{ github.repository }}:latest
+          push: true

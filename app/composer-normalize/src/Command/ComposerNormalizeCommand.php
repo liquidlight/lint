@@ -1,8 +1,8 @@
 <?php
 
-namespace LiquidLight\ComposerNormalize\Command;
+namespace LintKit\ComposerNormalize\Command;
 
-use LiquidLight\Linter\Command\Base;
+use LintKit\Linter\Command\Base;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;

@@ -1,0 +1,9 @@
+# action.yml
+name: "LintKit: Composer Normalize"
+description: "Normalise the composer files"
+branding:
+  icon: 'check'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/lintkit/composer-normalize:latest'

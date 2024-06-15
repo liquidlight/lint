@@ -1,5 +1,5 @@
 {
-    "name": "app/composer-nomalize",
+    "name": "lintkit/composer-nomalize",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,21 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
+        "lintkit/base": "^1.0",
         "ergebnis/composer-normalize": "^2.42"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\ComposerNormalize\\": "src"
+            "LintKit\\ComposerNormalize\\": "src"
         }
     },
     "config": {
