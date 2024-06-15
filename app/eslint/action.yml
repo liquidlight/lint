@@ -1,0 +1,9 @@
+# action.yml
+name: "LintKit: JSLint"
+description: "An opinionated configuration to JavaScript and TypesScript files"
+branding:
+  icon: 'check'
+  color: 'blue'
+runs:
+  using: 'docker'
+  image: 'docker://ghcr.io/lintkit/eslint:latest'
