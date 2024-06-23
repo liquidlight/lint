@@ -1,5 +1,5 @@
 {
-    "name": "app/yaml-lint",
+    "name": "lintkit/yaml-lint",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,21 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
+        "lintkit/base": "^1.0",
         "symfony/yaml": "^7.1"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\YamlLint\\": "src"
+            "LintKit\\YamlLint\\": "src"
         }
     }
 }

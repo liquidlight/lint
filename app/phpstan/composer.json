@@ -1,5 +1,5 @@
 {
-    "name": "app/phpstan",
+    "name": "lintkit/phpstan",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,21 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
+        "lintkit/base": "^1.0",
         "phpstan/phpstan": "^1.10"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\PhpStan\\": "src"
+            "LintKit\\PhpStan\\": "src"
         }
     }
 }

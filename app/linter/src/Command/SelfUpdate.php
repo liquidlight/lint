@@ -2,7 +2,7 @@
 
 // src/Command/CreateUserCommand.php
 
-namespace LiquidLight\Linter\Command;
+namespace LintKit\Linter\Command;
 
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;

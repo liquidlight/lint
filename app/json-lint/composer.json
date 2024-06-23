@@ -1,5 +1,5 @@
 {
-    "name": "app/json-lint",
+    "name": "lintkit/json-lint",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,21 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
+        "lintkit/base": "^1.0",
         "seld/jsonlint": "^1.10"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\JsonLint\\": "src"
+            "LintKit\\JsonLint\\": "src"
         }
     }
 }

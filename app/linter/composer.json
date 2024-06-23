@@ -1,5 +1,5 @@
 {
-    "name": "app/linter",
+    "name": "lintkit/linter",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "LiquidLight\\Linter\\": "src"
+            "LintKit\\Linter\\": "src"
         }
     }
 }

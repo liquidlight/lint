@@ -1,8 +1,8 @@
 <?php
 
-namespace LiquidLight\Rector\Command;
+namespace LintKit\Rector\Command;
 
-use LiquidLight\Linter\Command\Base;
+use LintKit\Base\Command\Base;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;

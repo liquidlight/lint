@@ -1,7 +1,0 @@
-#!/bin/sh
-FOLDER=${1:-/app}
-/node_modules/stylelint/bin/stylelint.js \
-	$FOLDER/**/*.scss \
-	--config /config/Stylelint.json \
-	--ignore-path /config/Stylelint-Ignore \
-	--color

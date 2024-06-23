@@ -1,6 +1,6 @@
 <?php
 
-namespace LiquidLight\Linter\Command;
+namespace LintKit\Linter\Command;
 
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\Process\Process;

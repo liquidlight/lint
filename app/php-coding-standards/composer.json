@@ -1,7 +1,7 @@
 {
-    "name": "app/php-coding-standards",
+    "name": "lintkit/php-coding-standards",
     "type": "library",
-    "version": "0.0.0",
+    "version": "0.1.2",
     "authors": [
         {
             "name": "Mike Street",
@@ -9,21 +9,21 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
-        "friendsofphp/php-cs-fixer": "^3.57"
+        "friendsofphp/php-cs-fixer": "^3.57",
+        "lintkit/base": "dev-main as 0.0.0"
     },
     "repositories": [
         {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
+            "type": "git",
+            "url": "https://github.com/lintkit/base.git"
         }
     ],
     "autoload": {
         "psr-4": {
-            "LiquidLight\\PhpCodingStandards\\": "src"
+            "LintKit\\PhpCodingStandards\\": "src"
         }
-    }
+    },
+    "bin": [
+        "bin/lintkit:php-coding-standards"
+    ]
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace LiquidLight\PhpCodingStandards\Command;
+namespace LintKit\PhpCodingStandards\Command;
 
-use LiquidLight\Linter\Command\Base;
+use LintKit\Base\Command\Base;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Command\Command;
 

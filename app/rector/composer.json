@@ -1,5 +1,5 @@
 {
-    "name": "app/rector",
+    "name": "lintkit/rector",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,21 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
+        "lintkit/base": "^1.0",
         "ssch/typo3-rector": "^1.8"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\Rector\\": "src"
+            "LintKit\\Rector\\": "src"
         }
     }
 }

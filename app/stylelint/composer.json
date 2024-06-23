@@ -1,5 +1,5 @@
 {
-    "name": "app/stylelint",
+    "name": "lintkit/stylelint",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,20 +9,12 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0"
+        "lintkit/base": "^1.0"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\Stylelint\\": "src"
+            "LintKit\\Stylelint\\": "src"
         }
     }
 }

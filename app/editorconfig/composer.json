@@ -1,5 +1,5 @@
 {
-    "name": "app/editorconfig",
+    "name": "lintkit/editorconfig",
     "type": "library",
     "version": "0.0.0",
     "authors": [
@@ -9,21 +9,13 @@
         }
     ],
     "require": {
-        "app/linter": "^0.0",
+        "lintkit/base": "^1.0",
         "armin/editorconfig-cli": "^2.0"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../*",
-            "options": {
-                "symlink": false
-            }
-        }
-    ],
+
     "autoload": {
         "psr-4": {
-            "LiquidLight\\EditorConfig\\": "src"
+            "LintKit\\EditorConfig\\": "src"
         }
     }
 }
