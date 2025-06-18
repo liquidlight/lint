@@ -1,3 +1,9 @@
+> [!IMPORTANT]
+> This repository is now archived. Users are encouraged to use individual linting instead
+>
+> These standards have been split out into their own repositories and exist within the [LintKit](https://github.com/lintkit) group
+
+
 # Liquid Light Linter
 
 Lint your code against Liquid Light conventions (yes, we use tabs and not spaces).
